@@ -18,22 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <!-- main css-->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css)">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pe-icon-7-stroke.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+ 
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Beuty Salon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no">
-    <!-- main css-->
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/main.css">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-     <link rel="stylesheet" href="css/responsive.css">
-     <link rel="stylesheet" href="css/owl.carousel.min.css">
-     <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
-     <link rel="stylesheet" href="css/fontawesome.min.css">
+   
     <!-- Fav icon-->
-    <link rel="icon" href="pic/favicon.ico">
-    <script src="js/main.js"></script> 
+    <link rel="icon" href="{{ asset('pic/favicon.ico') }}">
+    <script src="{{ asset('js/main.js') }}"></script> 
     
 </head>
 <body>
@@ -75,7 +76,7 @@
                 <div class="row h-100">
                     <div class="col-12 h-100">
                         <nav class="h-100 navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img src="pic/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img src="{{ asset('pic/logo.png') }}" alt=""></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav"
                                 aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                             <!-- Nav -->
@@ -158,7 +159,7 @@
                                 
                                 <!-- Add listings btn -->
                                 <div class="dorne-add-listings-btn">
-                                    <a href="submitAdd.html" class="btn dorne-btn">+ ثبت آگهی رایگان</a>
+                                    <a href="submitAdd.html" class="/a/create">+ ثبت آگهی رایگان</a>
                                 </div>
                             </div>
                         </nav>
@@ -222,14 +223,14 @@
         </footer>
         <!-- ****** Footer Area End ****** -->
         <!-- jQuery-2.2.4 js -->
-        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="{{ asset('js/jquery-2.2.4.min.js')}}"></script>
         <!-- Popper js -->
-        <script src="js/popper.min.js"></script>
+        <script src="{{ asset('js/popper.min.js')}}"></script>
         <!-- Bootstrap-4 js -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{{ asset('js/bootstrap.min.js')}}"></script>
         <!-- All Plugins js -->
-        <script src="js/plugins.js"></script>
-        <script src="js/active.js"></script>
+        <script src="{{ asset('js/plugins.js')}}"></script>
+        <script src="{{ asset('js/active.js')}}"></script>
     </div>
 </body>
 </html>

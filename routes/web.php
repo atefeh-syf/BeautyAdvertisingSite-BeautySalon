@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'addvertisesController@index')->name('addvertise.index');
+
 
 
 Route::get('/aboutus', function () {
@@ -53,7 +52,7 @@ Route::get('/cosmetic', function () {
 });
 
 Route::get('/submitAdd', function () {
-    return view('submitAdd');
+  return view('submitAdd');
 });
 
 
@@ -68,3 +67,7 @@ Route::prefix('admin')->group(function () {
     Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+
+
+Route::get('/a/create', 'addvertisesController@create');
+Route::post('/a', 'addvertisesController@store');

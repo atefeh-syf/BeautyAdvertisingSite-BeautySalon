@@ -18,7 +18,8 @@
             <div class="contact-form-title">
                 <h6> مشخصات ثبت کننده آگهی </h6>
             </div>
-            <form action="#">
+            <form action="/m" enctype="multipart/form-data" method="post">
+        @csrf
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
