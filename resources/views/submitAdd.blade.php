@@ -48,7 +48,15 @@
                     <div class="col-12 contact-form-title">
                         <h6> مشخصات آگهی </h6>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="عنوان آگهی">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                    </div>
+                    <div class="col-12 col-md-4">
                             <div class="input-group mb-3">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile02">
@@ -56,7 +64,7 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
                         <select class="form-control" id="ostan" name="ostan">
                             <option selected>استان</option>
                             <option onclick="selectList(this)"> آذربایجان شرقی </option>
