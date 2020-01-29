@@ -56,14 +56,7 @@
                                 </span>
                                 @enderror
                     </div>
-                    <div class="col-12 col-md-4">
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
-                                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">آپلود گالری تصاویر</label>
-                                </div>
-                            </div>
-                    </div>
+                    
                     <div class="col-12 col-md-4">
                         <select class="form-control" id="ostan" name="ostan">
                             <option selected>استان</option>
@@ -112,6 +105,14 @@
                             }
                             
                         </script>
+                    </div>
+                    <div class="col-12 col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="custom-file ">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">آپلود گالری تصاویر</label>
+                                </div>
+                            </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <input id="telegram" type="url" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}" required autocomplete="telegram" autofocus placeholder="کانال تلگرام">
