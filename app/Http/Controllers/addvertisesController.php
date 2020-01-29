@@ -32,7 +32,7 @@ class addvertisesController extends Controller
             'name' =>$data['name'],
             'title' =>$data['title'],
             ]);
-        //return redirect('/');
+        return redirect('/');
 
         //$addvertises = Addvertise::create($request->all());
         //dd($request->all());
