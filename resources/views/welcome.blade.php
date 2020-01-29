@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    @foreach ($addvertises as $addvertise)
+    {{-- @foreach ($addvertises as $addvertise)
         {{$addvertise}}<br>
-    @endforeach
+    @endforeach --}}
 <!-- ***Welcome Area Start*** -->
 <section class= "dorne-welcome-area bg-img bg-overlay" style="background-image: url(pic/purple-flowers.jpg);">
     <div class="container h-100">
