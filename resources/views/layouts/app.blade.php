@@ -159,7 +159,7 @@
                                 
                                 <!-- Add listings btn -->
                                 <div class="dorne-add-listings-btn">
-                                    <a href="submitAdd.html" class="/a/create">+ ثبت آگهی رایگان</a>
+                                    <a href="submitAdd.html" class="btn dorne-btn /a/create">+ ثبت آگهی رایگان</a>
                                 </div>
                             </div>
                         </nav>
