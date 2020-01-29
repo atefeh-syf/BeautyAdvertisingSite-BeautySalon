@@ -18,4 +18,23 @@ class addvertisesController extends Controller
     {
         return view('submitAdd');
     }
+
+    public function store(Request $request)
+    {
+        $data = request()->validate([
+           'name' => 'required',
+           'title' => 'required',
+           'description' => 'required',
+           'phone' => 'required',
+        ]);
+        //dd($data.'<br>');
+        user()->addvertises()->create([
+            'name' =>$data['name'],
+            'title' =>$data['title'],
+            ]);
+        //return redirect('/');
+
+        //$addvertises = Addvertise::create($request->all());
+        //dd($request->all());
+    }
 }

@@ -224,6 +224,7 @@
         <!-- ****** Footer Area End ****** -->
         <!-- jQuery-2.2.4 js -->
         <script src="{{ asset('js/jquery-2.2.4.min.js')}}"></script>
+        <script src="{{ asset('js/jquery-3.0.0.min.js')}}"></script>
         <!-- Popper js -->
         <script src="{{ asset('js/popper.min.js')}}"></script>
         <!-- Bootstrap-4 js -->

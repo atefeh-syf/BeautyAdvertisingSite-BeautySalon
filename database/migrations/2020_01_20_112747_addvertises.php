@@ -17,11 +17,11 @@ class Addvertises extends Migration
         Schema::create('addvertises', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('title');
             $table->string('cat');
             $table->string('ostan');
-            $table->unsignedBigInteger('user_id');
             $table->string('address');
-            $table->string('tel')->nullable();
+            $table->string('phone')->nullable();
             $table->string('insta')->nullable();
             $table->string('telegram')->nullable();
             $table->string('confirm');
@@ -30,8 +30,6 @@ class Addvertises extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
 
-
-            $table->index('user_id');
         });
     }
 

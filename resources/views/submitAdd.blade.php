@@ -18,17 +18,32 @@
             <div class="contact-form-title">
                 <h6> مشخصات ثبت کننده آگهی </h6>
             </div>
-            <form action="/m" enctype="multipart/form-data" method="post">
-        @csrf
+            <form action="/a" enctype="multipart/form-data" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام و نام خانوادگی">
+                               @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="text" name="phone" class="form-control" placeholder="شماره تماس">
+                         <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus placeholder="شماره تماس">
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="email" name="email" class="form-control" placeholder="ایمیل">
+                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="col-12 contact-form-title">
                         <h6> مشخصات آگهی </h6>
@@ -42,46 +57,69 @@
                             </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <select class="form-control" name="ostan">
+                        <select class="form-control" id="ostan" name="ostan">
                             <option selected>استان</option>
-                            <option> آذربایجان شرقی </option>
-                            <option> آذربایجان غربی </option>
-                            <option> اردبیل </option>
-                            <option> اصفهان </option>
-                            <option> البرز </option>
-                            <option> ایلام </option>
-                            <option> بوشهر </option>
-                            <option> تهران </option>
-                            <option> چهارمحال و بختیاری </option>
-                            <option> خراسان جنوبی </option>
-                            <option> خراسان رضوی </option>
-                            <option> خراسان شمالی </option>
-                            <option> خوزستان </option>
-                            <option> زنجان </option>
-                            <option> سمنان </option>
-                            <option> سیستان و بلوچستان </option>
-                            <option> فارس </option>
-                            <option> قزوین </option>
-                            <option> قم </option>
-                            <option> کردستان </option>
-                            <option> کرمان </option>
-                            <option> کرمانشاه </option>
-                            <option> کهگیلویه و بویراحمد </option>
-                            <option> گلستان </option>
-                            <option> گیلان </option>
-                            <option> لرستان </option>
-                            <option> مازندران </option>
-                            <option> مرکزی </option>
-                            <option> هرمزگان </option>
-                            <option> همدان </option>
-                            <option> یزد </option>
+                            <option onclick="selectList(this)"> آذربایجان شرقی </option>
+                            <option onclick="selectList(this)"> آذربایجان غربی </option>
+                            <option onclick="selectList(this)"> اردبیل </option>
+                            <option onclick="selectList(this)"> اصفهان </option>
+                            <option onclick="selectList(this)"> البرز </option>
+                            <option onclick="selectList(this)"> ایلام </option>
+                            <option onclick="selectList(this)"> بوشهر </option>
+                            <option onclick="selectList(this)"> تهران </option>
+                            <option onclick="selectList(this)"> چهارمحال و بختیاری </option>
+                            <option onclick="selectList(this)"> خراسان جنوبی </option>
+                            <option onclick="selectList(this)"> خراسان رضوی </option>
+                            <option onclick="selectList(this)"> خراسان شمالی </option>
+                            <option onclick="selectList(this)"> خوزستان </option>
+                            <option onclick="selectList(this)"> زنجان </option>
+                            <option onclick="selectList(this)"> سمنان </option>
+                            <option onclick="selectList(this)"> سیستان و بلوچستان </option>
+                            <option onclick="selectList(this)"> فارس </option>
+                            <option onclick="selectList(this)"> قزوین </option>
+                            <option onclick="selectList(this)"> قم </option>
+                            <option onclick="selectList(this)"> کردستان </option>
+                            <option onclick="selectList(this)"> کرمان </option>
+                            <option onclick="selectList(this)"> کرمانشاه </option>
+                            <option onclick="selectList(this)"> کهگیلویه و بویراحمد </option>
+                            <option onclick="selectList(this)"> گلستان </option>
+                            <option onclick="selectList(this)"> گیلان </option>
+                            <option onclick="selectList(this)"> لرستان </option>
+                            <option onclick="selectList(this)"> مازندران </option>
+                            <option onclick="selectList(this)"> مرکزی </option>
+                            <option onclick="selectList(this)"> هرمزگان </option>
+                            <option onclick="selectList(this)"> همدان </option>
+                            <option onclick="selectList(this)"> یزد </option>
                         </select>
+                        <script>
+                            /* $('#ostan option').click(function () {
+                                //var txt = $(this).text();
+                                alert(1);
+                            }); */
+
+                            function selectList(tag) {
+                                option_tag = $(tag);
+                                var txt = option_tag.text();
+                                //alert(txt);
+                            }
+                            
+                        </script>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input type="url" name="telegram" class="form-control" placeholder="کانال تلگرام">
+                        <input id="telegram" type="url" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}" required autocomplete="telegram" autofocus placeholder="کانال تلگرام">
+                                @error('telegram')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="col-12 col-md-6">
-                        <input type="url" name="instagram" class="form-control" placeholder="صفحه اینستاگرام">
+                        <input id="instagram" type="url" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" required autocomplete="instagram" autofocus placeholder="صفحه اینستاگرام">
+                                @error('instagram')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="col-12">
                         <textarea name="address" class="form-control" id="Message" cols="30" rows="10" placeholder="آدرس"></textarea>
@@ -134,4 +172,5 @@
         </div>
     </div>
 </div>
+
 @endsection
