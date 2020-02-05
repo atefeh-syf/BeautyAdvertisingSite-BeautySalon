@@ -223,15 +223,15 @@
         </footer>
         <!-- ****** Footer Area End ****** -->
         <!-- jQuery-2.2.4 js -->
-        <script src="resources/js/jquery-2.2.4.min.js'"></script>
-        <script src="resources/js/jquery-3.0.0.min.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/jquery-3.0.0.min.js') }}"></script>
         <!-- Popper js -->
-        <script src="resources/js/popper.min.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
         <!-- Bootstrap-4 js -->
-        <script src="resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <!-- All Plugins js -->
-        <script src="resources/js/plugins.js"></script>
-        <script src="resources/js/active.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/plugins.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/active.js') }}"></script>
     </div>
 </body>
 </html>
