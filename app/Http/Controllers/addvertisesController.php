@@ -23,28 +23,40 @@ class addvertisesController extends Controller
         return view('submitAdd');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         /* $addvertise = new Addvertise();
         $addvertise->name = request('name');
         $addvertise->title = request('title');
         $request->input('ostan');
         $addvertise->save(); */
-        
 
-
-        $data = request()->validate([
+        $request->validate([
             'name' => 'required',
             'phone' => 'required',
         ]);
-       
-        $city = request()->input('ostan');
-        Addvertise::create([
-            'ostan' => $city,
+        $input = $request->all();
+        $student = Addvertise::create($input);
 
+
+
+
+        /* $data = request()->validate([
+           'name' => 'required',
+           'phone' => 'required',
         ]);
         
-        
+        Addvertise::create($data);
+        $city= request()->input('ostan'); */
+
+
+
+        /* Addvertise::create([
+            'name'=>$data['name'],
+            'title'=>$data['name'],
+            'phone'=>$data['phone'],
+            'ostan' => $city,
+        ]); */
         //return redirect('/');
         //$addvertises = Addvertise::create($request->all());
         //dd($request->all());
