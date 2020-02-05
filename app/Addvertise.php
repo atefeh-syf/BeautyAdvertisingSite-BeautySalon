@@ -8,6 +8,9 @@ class Addvertise extends Model
 {
     //
     protected $guarded = [];
+    protected $fillable = [
+        'name', 
+    ];
 
     public function user()
     {

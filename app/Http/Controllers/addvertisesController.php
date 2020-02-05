@@ -2,38 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Addvertise;
+use Addvertises;
 use Illuminate\Http\Request;
-use \App\Addvertise;
+
+use Illuminate\Database\Eloquent\Model;
 
 class addvertisesController extends Controller
 {
     //
-   /*  public function index()
+    public function index()
     {
         $addvertises = Addvertise::all();
-        return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();;
+        return view('welcome')->with(('addvertises'), $addvertises);
+        //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();;
     }
- */
+
     public function create()
     {
         return view('submitAdd');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $data = request()->validate([
-           'name' => 'required',
-           'title' => 'required',
-           'description' => 'required',
-           'phone' => 'required',
-        ]);
-        //dd($data.'<br>');
-        user()->addvertises()->create([
-            'name' =>$data['name'],
-            'title' =>$data['title'],
-            ]);
-        return redirect('/');
+        /* $addvertise = new Addvertise();
+        $addvertise->name = request('name');
+        $addvertise->title = request('title');
+        $request->input('ostan');
+        $addvertise->save(); */
+        
 
+
+        $data = request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+       
+        $city = request()->input('ostan');
+        Addvertise::create([
+            'ostan' => $city,
+
+        ]);
+        
+        
+        //return redirect('/');
         //$addvertises = Addvertise::create($request->all());
         //dd($request->all());
     }

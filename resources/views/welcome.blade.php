@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    {{-- @foreach ($addvertises as $addvertise)
+   @foreach ($addvertises as $addvertise)
         {{$addvertise}}<br>
-    @endforeach --}}
+    @endforeach
+    
 <!-- ***Welcome Area Start*** -->
 <section class= "dorne-welcome-area bg-img bg-overlay" style="background-image: url(pic/purple-flowers.jpg);">
     <div class="container h-100">
@@ -158,101 +159,27 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/2.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
+            @foreach ($addvertises as $addvertise)
+                <div class="col-12 col-lg-6">
+                    <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
+                        <div class="feature-events-thumb">
+                            <img src="pic/2.jpg" alt="">
+                            <div class="date-map-area d-flex">
+                                <a href="#">26 مهر</a>
+                                <a href="#"><img src="pic/map.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="feature-events-content">
+                            <h5>{{$addvertise->name}}</h5>
+                            <h6>{{$addvertise->ostan}}</h6>
+                            <p>{{$addvertise->description}}</p>
+                        </div>
+                        <div class="feature-events-details-btn">
+                            <a href="#">+</a>
                         </div>
                     </div>
-                    <div class="feature-events-content">
-                        <h5> سالن زیبایی مریم </h5>
-                        <h6>تهران</h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.4s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/3.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="feature-events-content">
-                        <h5> آموزشگاه زیبایی کبیری </h5>
-                        <h6>شیراز</h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.5s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/4.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="feature-events-content">
-                        <h5>فروشگاه لوازم آرایشی بهداشتی کرکره</h5>
-                        <h6> تهران </h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.6s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/1.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="feature-events-content">
-                        <h5>کلینیک زیبایی گل یخ</h5>
-                        <h6>کرج</h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.7s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/2.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="feature-events-content">
-                        <h5> سالن زیبایی مریم </h5>
-                        <h6>تهران</h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

@@ -58,26 +58,26 @@
                     </div>
                     
                     <div class="col-12 col-md-4">
-                        <select class="form-control" id="ostan" name="ostan">
-                            <option selected>استان</option>
-                            <option onclick="selectList(this)"> آذربایجان شرقی </option>
-                            <option onclick="selectList(this)"> آذربایجان غربی </option>
-                            <option onclick="selectList(this)"> اردبیل </option>
-                            <option onclick="selectList(this)"> اصفهان </option>
-                            <option onclick="selectList(this)"> البرز </option>
-                            <option onclick="selectList(this)"> ایلام </option>
-                            <option onclick="selectList(this)"> بوشهر </option>
-                            <option onclick="selectList(this)"> تهران </option>
-                            <option onclick="selectList(this)"> چهارمحال و بختیاری </option>
-                            <option onclick="selectList(this)"> خراسان جنوبی </option>
-                            <option onclick="selectList(this)"> خراسان رضوی </option>
-                            <option onclick="selectList(this)"> خراسان شمالی </option>
-                            <option onclick="selectList(this)"> خوزستان </option>
-                            <option onclick="selectList(this)"> زنجان </option>
-                            <option onclick="selectList(this)"> سمنان </option>
-                            <option onclick="selectList(this)"> سیستان و بلوچستان </option>
-                            <option onclick="selectList(this)"> فارس </option>
-                            <option onclick="selectList(this)"> قزوین </option>
+                        <select class="form-control" id="ostan" class="ostan" name="ostan" onclick="getValue(this)">
+                            <option>استان</option>
+                            <option value="آذربایجان شرقی" selected> آذربایجان شرقی </option>
+                            <option value="آذربایجان غربی"> آذربایجان غربی </option>
+                            <option value="اردبیل"> اردبیل </option>
+                            <option value="اصفهان"> اصفهان </option>
+                            <option value="البرز"> البرز </option>
+                            <option value="ایلام"> ایلام </option>
+                            <option> بوشهر </option>
+                            <option> تهران </option>
+                            <option> چهارمحال و بختیاری </option>
+                            <option> خراسان جنوبی </option>
+                            <option> خراسان رضوی </option>
+                            <option> خراسان شمالی </option>
+                            <option> خوزستان </option>
+                            <option> زنجان </option>
+                            <option> سمنان </option>
+                            <option> سیستان و بلوچستان </option>
+                            <option> فارس </option>
+                            <option> قزوین </option>
                             <option onclick="selectList(this)"> قم </option>
                             <option onclick="selectList(this)"> کردستان </option>
                             <option onclick="selectList(this)"> کرمان </option>
@@ -92,18 +92,44 @@
                             <option onclick="selectList(this)"> همدان </option>
                             <option onclick="selectList(this)"> یزد </option>
                         </select>
+                    
                         <script>
+                            
+                            /* function getValue(tag){
+                                var selectTag= $(tag);
+                                var v=selectTag.find("option:selected").val;
+                                alert(v);
+                            } */
+
                             /* $('#ostan option').click(function () {
                                 //var txt = $(this).text();
                                 alert(1);
                             }); */
 
-                            function selectList(tag) {
+                            /* function selectList(tag) {
                                 option_tag = $(tag);
                                 var txt = option_tag.text();
-                                //alert(txt);
+
+                                $('#ostan').change(function(){ 
+                                    //var value = $(this).val();
+                                    $(this).val()=txt;
+
+                                });
                             }
-                            
+/*  */
+                            /* $(document).ready(function(){
+                                $("select#ostan").change(function(){
+                                var selectedCountry = $(this).children("option:selected").val();
+                                    alert("You have selected the city");
+                                });
+                            }); */ 
+
+                            /* $(document).ready(function(){
+                                $("select#ostan").change(function(){
+                                    var selectedCountry = $(this).children("option:selected").val();
+                                    alert("You have selected the country - " + selectedCountry);
+                                });
+                            }); */
                         </script>
                     </div>
                     <div class="col-12 col-md-4">
