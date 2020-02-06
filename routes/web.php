@@ -64,7 +64,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
 Route::get('/a/create', 'addvertisesController@create');
 Route::post('/a', 'addvertisesController@store');
+Route::get('/a/{addvertise}', 'addvertisesController@show')->name('addvertise.show');
+
+Route::post('/c', 'commentsController@store');
+
+Route::get('/cat/{catname}', 'categoriesController@show');

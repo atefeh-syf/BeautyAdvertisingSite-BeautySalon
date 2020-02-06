@@ -16,4 +16,12 @@ class Addvertise extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'DESC');
+    }
+    public function category()
+    {
+        return $this->hasOne(Category::class);
+    }
 }

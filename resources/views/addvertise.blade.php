@@ -57,29 +57,29 @@
         <div class="col-sm-12 col-xs-12 add-section box-hover d-flex justify-content-between">
             <div class="row d-md-flex">
                 <div class="col-md-5">
-                    <img src="pic/2.jpg" class="add-img">
+                    <img src="/storage/{{$addvertise->image}}" class="add-img">
                 </div>
                 <div class="col-md-7 col-sm-12 col-xs-12">
                     <div class="description">
                         <div class="section-heading dark justify-content-center">
-                            <h3> سالن زیبایی مریم </h3>
+                            <h3>{{$addvertise->cat}} {{$addvertise->name}} </h3>
                             <span id="add-span"></span>
                         </div>
                         <p>
-                            <i class="fas fa-map-marker-alt"> </i> آدرس سالن زیبایی مریم:
+                            <i class="fas fa-map-marker-alt"> </i> آدرس {{$addvertise->cat}} {{$addvertise->name}}:
                             <br>
-                            تهران، خیابان اقدسیه، بعد از سفارت چين، روبروی خیابان فیروزبخش، جنب بانک صادرات، پلاک 84، ساختمان نیما،
-                            طبقه اول، واحد
-                            4
+                            {{$addvertise->address}}
                         </p>
-                        <a href="#" class="add-phone"><i class="fas fa-phone"></i> 09121111111</a>
-                        <a href="#" class="add-phone"><i class="fas fa-phone"></i> 09121111111</a>
+                        <a href="#" class="add-phone"><i class="fas fa-phone"></i> {{$addvertise->phone}} </a>
                 
-                        <button type="button" class="btn btn-primary tele"> <i class="fa fa-telegram" aria-hidden="true"></i> تلگرام ما
-                        </button>
-                        <button type="button" class="btn btn-primary insta"> <i class="fa fa-instagram" aria-hidden="true"></i>
-                            اینستاگرام ما
-                        </button>
+                        <a href="https://t.me/{{$addvertise->telegram}}/" style="display: inline;">
+                            <button type="button" class="btn btn-primary tele"> <i class="fa fa-telegram" aria-hidden="true"></i> تلگرام ما </button>
+                        </a>
+                        <a href="https://www.instagram.com/{{$addvertise->insta}}/" style="display: inline;">
+                            <button type="button" class="btn btn-primary insta"> <i class="fa fa-instagram" aria-hidden="true"></i>
+                                اینستاگرام ما
+                            </button>
+                        </a>
                 
                     </div>
                 </div>
@@ -91,13 +91,9 @@
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
                     <div class="information">
-                        <h4><i class="fas fa-info-circle"></i> درباره سالن زیبایی مریم </h4>
+                        <h4><i class="fas fa-info-circle"></i> درباره {{$addvertise->cat}} {{$addvertise->name}} </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel
-                            augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat
-                            ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu
-                            felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc
-                            vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur.
+                            {{$addvertise->description}}
                         </p>
                     </div>
                 </div>
@@ -107,20 +103,46 @@
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
                     <h4><i class="fas fa-comment-alt"></i> نظرات کاربران </h4>
+                            @foreach ($comments as $comment)
+                            @if ($comment->banner_id == $addvertise->id && $comment->confirm ==1)
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="description">
+                                        <p>
+                                            <i class="fas fa-map-marker-alt"> </i>{{$comment->name}} :
+                                            <br>
+                                            {{$comment->description}}
+                                        </p>
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
                     <br>
                     <p><i class="fas fa-comment"></i> نوشتن دیدگاه جدید </p>
                     <div class="comments-form">
-                        <form action="#">
+                        <form action="/c" enctype="multipart/form-data" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام و نام خانوادگی">
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="email" name="email" class="form-control" placeholder="ایمیل">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="دیدگاه "></textarea>
+                                    <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="دیدگاه " required></textarea>
                                 </div>
+                                {{-- {{ Form::hidden('banner_id', $addvertise->id) }} --}}
+                                <input id="banner_id" name="banner_id" type="hidden" class="form-control @error('banner_id') is-invalid @enderror" value="{{$addvertise->id}}">
                                 <div class="col-12">
                                     <button type="submit" class="btn dorne-btn"> ارسال </button>
                                 </div>

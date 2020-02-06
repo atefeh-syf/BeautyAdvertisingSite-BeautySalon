@@ -56,9 +56,17 @@
                                 </span>
                                 @enderror
                     </div>
-                    
                     <div class="col-12 col-md-4">
-                        <select class="form-control" id="ostan" class="ostan" name="ostan" onclick="getValue(this)">
+                        <select class="form-control" id="cat" class="cat" name="cat">
+                            <option>گروه ها</option>
+                            <option value=" سالن های زیبایی " selected>  سالن های زیبایی  </option>
+                            <option value=" آموزشگاه های زیبایی ">  آموزشگاه های زیبایی  </option>
+                            <option value=" خدمات زیبایی ">  خدمات زیبایی  </option>
+                            <option value=" لوازم آرایشی و بهداشتی ">  لوازم آرایشی و بهداشتی  </option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <select class="form-control" id="ostan" class="ostan" name="ostan">
                             <option>استان</option>
                             <option value="آذربایجان شرقی" selected> آذربایجان شرقی </option>
                             <option value="آذربایجان غربی"> آذربایجان غربی </option>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-   @foreach ($addvertises as $addvertise)
+   {{-- @foreach ($addvertises as $addvertise)
         {{$addvertise}}<br>
-    @endforeach
+    @endforeach --}}
     
 <!-- ***Welcome Area Start*** -->
 <section class= "dorne-welcome-area bg-img bg-overlay" style="background-image: url(pic/purple-flowers.jpg);">
@@ -80,7 +80,7 @@
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.2s">
                                 <div class="catagory-content">
                                     <img src="pic/facial-treatment.png" alt="">
-                                    <a href="beautysalons.html">
+                                    <a href="cat/beautysalons">
                                         <h6> سالن های زیبایی </h6>
                                     </a>
                                 </div>
@@ -172,7 +172,7 @@
                         <div class="feature-events-content">
                             <h5>{{$addvertise->name}}</h5>
                             <h6>{{$addvertise->ostan}}</h6>
-                            <p>{{$addvertise->description}}</p>
+                            <p>{{-- {{$addvertise->description}} --}}</p>
                         </div>
                         <div class="feature-events-details-btn">
                             <a href="#">+</a>

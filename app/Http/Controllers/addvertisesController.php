@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Addvertise;
+use App\Comment;
 use Addvertises;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,12 @@ class addvertisesController extends Controller
         //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();;
     }
 
+    public function show(Addvertise $addvertise)
+    {
+        $comments = Comment::all();
+        return view('addvertise', compact(['addvertise', 'comments']));
+    }
+
     public function create()
     {
         return view('submitAdd');
@@ -36,12 +43,13 @@ class addvertisesController extends Controller
             'phone' => 'required',
             'title' => 'required',
 
-        ]);   
+        ]);
         $addvertise = new Addvertise();
         $addvertise->name = request('name');
         $addvertise->email = request('email');
         $addvertise->phone = request('phone');
         $addvertise->title = request('title');
+        $addvertise->cat = $request->input('cat');
         $addvertise->telegram = request('telegram');
         $addvertise->insta = request('instagram');
         $addvertise->address = request('address');
@@ -49,6 +57,7 @@ class addvertisesController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
         $addvertise->image = $imagePath;
         $addvertise->confirm = 0;
+        $addvertise->is_admin = 0;
         $addvertise->save();
 
 
