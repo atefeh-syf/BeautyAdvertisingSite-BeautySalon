@@ -17,10 +17,11 @@ class Addvertises extends Migration
         Schema::create('addvertises', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('email');
             $table->string('title')->nullable();
             $table->string('cat')->nullable();
             $table->string('ostan')->nullable();
-            $table->string('address')->nullable();
+            $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('insta')->nullable();
             $table->string('telegram')->nullable();

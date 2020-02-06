@@ -7,6 +7,7 @@ use Addvertises;
 use Illuminate\Http\Request;
 
 use Illuminate\Database\Eloquent\Model;
+use \Morilog\Jalali\Jalalian;
 
 class addvertisesController extends Controller
 {
@@ -14,6 +15,11 @@ class addvertisesController extends Controller
     public function index()
     {
         $addvertises = Addvertise::all();
+        foreach ($addvertises  as $key => $addvertise) {
+            $date = $addvertise->created_at;
+            $date = Jalalian::forge($date)->format('Y-m-d');
+            $addvertises[$key]['jalali'] = $date;
+        }
         return view('welcome')->with(('addvertises'), $addvertises);
         //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();;
     }
@@ -25,31 +31,41 @@ class addvertisesController extends Controller
 
     public function store(Request $request)
     {
-        /* $addvertise = new Addvertise();
-        $addvertise->name = request('name');
-        $addvertise->title = request('title');
-        $request->input('ostan');
-        $addvertise->save(); */
+        $this->validate(request(), [
+            'name' => 'required',
+            'phone' => 'required',
+            'title' => 'required',
 
-        $request->validate([
+        ]);   
+        $addvertise = new Addvertise();
+        $addvertise->name = request('name');
+        $addvertise->email = request('email');
+        $addvertise->phone = request('phone');
+        $addvertise->title = request('title');
+        $addvertise->telegram = request('telegram');
+        $addvertise->insta = request('instagram');
+        $addvertise->address = request('address');
+        $addvertise->ostan = $request->input('ostan');
+        $imagePath = request('image')->store('uploads', 'public');
+        $addvertise->image = $imagePath;
+        $addvertise->confirm = 0;
+        $addvertise->save();
+
+
+        /* $request->validate([
             'name' => 'required',
             'phone' => 'required',
         ]);
         $input = $request->all();
-        $student = Addvertise::create($input);
-
-
-
+        $student = Addvertise::create($input); */
 
         /* $data = request()->validate([
-           'name' => 'required',
-           'phone' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
         ]);
-        
+        $data['ostan'] = request()->input('ostan');
         Addvertise::create($data);
-        $city= request()->input('ostan'); */
-
-
+ */
 
         /* Addvertise::create([
             'name'=>$data['name'],

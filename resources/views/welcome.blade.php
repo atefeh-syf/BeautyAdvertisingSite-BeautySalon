@@ -163,9 +163,9 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
                         <div class="feature-events-thumb">
-                            <img src="pic/2.jpg" alt="">
+                            <img src="storage/{{$addvertise->image}}" alt="">
                             <div class="date-map-area d-flex">
-                                <a href="#">26 مهر</a>
+                                <a href="#">{{$addvertise->jalali}}</a>
                                 <a href="#"><img src="pic/map.png" alt=""></a>
                             </div>
                         </div>

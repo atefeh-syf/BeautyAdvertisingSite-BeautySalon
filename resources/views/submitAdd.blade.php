@@ -49,8 +49,8 @@
                         <h6> مشخصات آگهی </h6>
                     </div>
                     <div class="col-12 col-md-4">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="عنوان آگهی">
-                                @error('name')
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus placeholder="عنوان آگهی">
+                                @error('title')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -66,31 +66,31 @@
                             <option value="اصفهان"> اصفهان </option>
                             <option value="البرز"> البرز </option>
                             <option value="ایلام"> ایلام </option>
-                            <option> بوشهر </option>
-                            <option> تهران </option>
-                            <option> چهارمحال و بختیاری </option>
-                            <option> خراسان جنوبی </option>
-                            <option> خراسان رضوی </option>
-                            <option> خراسان شمالی </option>
-                            <option> خوزستان </option>
-                            <option> زنجان </option>
-                            <option> سمنان </option>
-                            <option> سیستان و بلوچستان </option>
-                            <option> فارس </option>
-                            <option> قزوین </option>
-                            <option onclick="selectList(this)"> قم </option>
-                            <option onclick="selectList(this)"> کردستان </option>
-                            <option onclick="selectList(this)"> کرمان </option>
-                            <option onclick="selectList(this)"> کرمانشاه </option>
-                            <option onclick="selectList(this)"> کهگیلویه و بویراحمد </option>
-                            <option onclick="selectList(this)"> گلستان </option>
-                            <option onclick="selectList(this)"> گیلان </option>
-                            <option onclick="selectList(this)"> لرستان </option>
-                            <option onclick="selectList(this)"> مازندران </option>
-                            <option onclick="selectList(this)"> مرکزی </option>
-                            <option onclick="selectList(this)"> هرمزگان </option>
-                            <option onclick="selectList(this)"> همدان </option>
-                            <option onclick="selectList(this)"> یزد </option>
+                            <option value="بوشهر"> بوشهر </option>
+                            <option value="تهران"> تهران </option>
+                            <option value="چهارمحال و بختیاری"> چهارمحال و بختیاری </option>
+                            <option value="خراسان جنوبی"> خراسان جنوبی </option>
+                            <option value="خراسان رضوی "> خراسان رضوی </option>
+                            <option value="خراسان شمالی"> خراسان شمالی </option>
+                            <option value="خوزستان"> خوزستان </option>
+                            <option value="زنجان"> زنجان </option>
+                            <option value="سمنان"> سمنان </option>
+                            <option value="سیستان و بلوچستان"> سیستان و بلوچستان </option>
+                            <option value="فارس"> فارس </option>
+                            <option value="قزوین"> قزوین </option>
+                            <option value="قم"> قم </option>
+                            <option value="کردستان"> کردستان </option>
+                            <option value="کرمان"> کرمان </option>
+                            <option value="کرمانشاه"> کرمانشاه </option>
+                            <option value="کهگیلویه و بویراحمد"> کهگیلویه و بویراحمد </option>
+                            <option value="گلستان"> گلستان </option>
+                            <option value="گیلان"> گیلان </option>
+                            <option value="لرستان"> لرستان </option>
+                            <option value="مازندران"> مازندران </option>
+                            <option value="مرکزی"> مرکزی </option>
+                            <option value="هرمزگان"> هرمزگان </option>
+                            <option value="همدان"> همدان </option>
+                            <option value="یزد"> یزد </option>
                         </select>
                     
                         <script>
@@ -135,13 +135,13 @@
                     <div class="col-12 col-md-4">
                             <div class="input-group mb-3">
                                 <div class="custom-file ">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                    <input type="file" class="custom-file-input image" id="inputGroupFile02 image" name="image">
                                     <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">آپلود گالری تصاویر</label>
                                 </div>
                             </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input id="telegram" type="url" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}" required autocomplete="telegram" autofocus placeholder="کانال تلگرام">
+                        <input id="telegram" type="text" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}" required autocomplete="telegram" autofocus placeholder="کانال تلگرام">
                                 @error('telegram')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -149,7 +149,7 @@
                                 @enderror
                     </div>
                     <div class="col-12 col-md-6">
-                        <input id="instagram" type="url" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" required autocomplete="instagram" autofocus placeholder="صفحه اینستاگرام">
+                        <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" required autocomplete="instagram" autofocus placeholder="صفحه اینستاگرام">
                                 @error('instagram')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
