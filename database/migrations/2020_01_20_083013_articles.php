@@ -18,7 +18,9 @@ class Articles extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
+            $table->text('text');
             $table->string('image');
+            $table->string('cat');
         });
     }
 

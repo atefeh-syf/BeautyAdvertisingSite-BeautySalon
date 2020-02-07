@@ -91,7 +91,7 @@
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.4s">
                                 <div class="catagory-content">
                                     <img src="pic/salon.png" alt="">
-                                    <a href="beautyclass.html">
+                                    <a href="cat/beautyclass">
                                         <h6> آموزشگاه های زیبایی </h6>
                                     </a>
                                 </div>
@@ -102,7 +102,7 @@
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.6s">
                                 <div class="catagory-content">
                                     <img src="pic/makeup.png" alt="">
-                                    <a href="cosmetic.html">
+                                    <a href="cat/cosmetic">
                                         <h6> لوازم آرایشی و بهداشتی </h6>
                                     </a>
                                 </div>
@@ -113,7 +113,7 @@
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.8s">
                                 <div class="catagory-content">
                                     <img src="pic/beauty-treatment.png" alt="">
-                                    <a href="beauty services.html">
+                                    <a href="cat/beauty_services">
                                         <h6> خدمات زیبایی </h6>
                                     </a>
                                 </div>
@@ -140,7 +140,7 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6">
+            {{-- <div class="col-12 col-lg-6">
                 <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
                     <div class="feature-events-thumb">
                         <img src="pic/1.jpg" alt="">
@@ -158,27 +158,40 @@
                         <a href="#">+</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             @foreach ($addvertises as $addvertise)
-                <div class="col-12 col-lg-6">
-                    <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
-                        <div class="feature-events-thumb">
-                            <img src="storage/{{$addvertise->image}}" alt="">
-                            <div class="date-map-area d-flex">
-                                <a href="#">{{$addvertise->jalali}}</a>
-                                <a href="#"><img src="pic/map.png" alt=""></a>
+                @if($addvertise->confirm=='1')
+                    <div class="col-12 col-lg-6">
+                        <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
+                            <div class="feature-events-thumb">
+                                <img src="storage/{{$addvertise->image}}" alt="">
+                                <div class="date-map-area d-flex">
+                                    <a href="#">  {{$addvertise->jalali}}</a>
+                                    <a href="#"><img src="pic/map.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="feature-events-content">
+                                <h5>
+                                    @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                    @elseif($addvertise->cat== '2')
+                                        آموزشگاه زیبایی
+                                    @elseif($addvertise->cat == '3')
+                                        کلینیک زیبایی
+                                    @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی
+                                    @endif
+                                    {{$addvertise->name}}
+                                </h5>
+                                <h6>{{$addvertise->ostan}}</h6>
+                                <p>{{-- {{$addvertise->description}} --}}</p>
+                            </div>
+                            <div class="feature-events-details-btn">
+                                <a href="#">+</a>
                             </div>
                         </div>
-                        <div class="feature-events-content">
-                            <h5>{{$addvertise->name}}</h5>
-                            <h6>{{$addvertise->ostan}}</h6>
-                            <p>{{-- {{$addvertise->description}} --}}</p>
-                        </div>
-                        <div class="feature-events-details-btn">
-                            <a href="#">+</a>
-                        </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </div>
@@ -201,22 +214,24 @@
             <div class="col-12">
                 <div class="features-slides owl-carousel">
                     <!-- Single Features Area -->
-                    <div class="single-features-area">
-                        <img src="pic/blog1.jpg" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p>نام دسته</p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5> عنوان مقاله </h5>
-                                <p> توصیحات </p>
+                    @foreach ($articles as $article)
+                        <div class="single-features-area">
+                            <img src="storage/{{$article->image}}" alt="">
+                            <!-- Price -->
+                            <div class="price-start">
+                                <p>نام دسته</p>
                             </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5> {{$article->title}} </h5>
+                                    <p> {{$article->description}} </p>
+                                </div>
+                                <div class="feature-favourite">
+                                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                     <!-- Single Features Area -->
                     <div class="single-features-area">
                         <img src="pic/blog2.jpg" alt="">

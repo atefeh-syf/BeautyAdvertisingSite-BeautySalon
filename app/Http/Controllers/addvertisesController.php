@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Addvertise;
 use App\Comment;
 use Addvertises;
+use App\Article;
 use Illuminate\Http\Request;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,14 +16,16 @@ class addvertisesController extends Controller
     //
     public function index()
     {
-        $addvertises = Addvertise::all();
+        
+        $addvertises = Addvertise::paginate(6);
         foreach ($addvertises  as $key => $addvertise) {
             $date = $addvertise->created_at;
             $date = Jalalian::forge($date)->format('Y-m-d');
             $addvertises[$key]['jalali'] = $date;
         }
-        return view('welcome')->with(('addvertises'), $addvertises);
-        //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();;
+        $articles = Article::paginate(5);
+        return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
+        //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();
     }
 
     public function show(Addvertise $addvertise)
@@ -46,6 +49,7 @@ class addvertisesController extends Controller
         ]);
         $addvertise = new Addvertise();
         $addvertise->name = request('name');
+        $addvertise->CustomerName = request('CustomerName');
         $addvertise->email = request('email');
         $addvertise->phone = request('phone');
         $addvertise->title = request('title');
@@ -59,6 +63,7 @@ class addvertisesController extends Controller
         $addvertise->confirm = 0;
         $addvertise->is_admin = 0;
         $addvertise->save();
+        return view('submitAdd');
 
 
         /* $request->validate([

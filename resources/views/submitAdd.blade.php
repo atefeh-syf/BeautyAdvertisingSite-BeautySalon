@@ -22,8 +22,8 @@
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام و نام خانوادگی">
-                               @error('name')
+                        <input id="CustomerName" type="text" class="form-control @error('CustomerName') is-invalid @enderror" name="CustomerName" value="{{ old('CustomerName') }}" required autocomplete="CustomerName" autofocus placeholder="نام و نام خانوادگی">
+                               @error('CustomerName')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -49,6 +49,14 @@
                         <h6> مشخصات آگهی </h6>
                     </div>
                     <div class="col-12 col-md-4">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام سالن،آموزشگاه،کلینک یا فروشگاه">
+                               @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                    </div>
+                    <div class="col-12 col-md-4">
                         <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus placeholder="عنوان آگهی">
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -59,10 +67,10 @@
                     <div class="col-12 col-md-4">
                         <select class="form-control" id="cat" class="cat" name="cat">
                             <option>گروه ها</option>
-                            <option value=" سالن های زیبایی " selected>  سالن های زیبایی  </option>
-                            <option value=" آموزشگاه های زیبایی ">  آموزشگاه های زیبایی  </option>
-                            <option value=" خدمات زیبایی ">  خدمات زیبایی  </option>
-                            <option value=" لوازم آرایشی و بهداشتی ">  لوازم آرایشی و بهداشتی  </option>
+                            <option value="1" selected>  سالن های زیبایی  </option>
+                            <option value="2">  آموزشگاه های زیبایی  </option>
+                            <option value="3">  خدمات زیبایی  </option>
+                            <option value="4">  لوازم آرایشی و بهداشتی  </option>
                         </select>
                     </div>
                     <div class="col-12 col-md-4">

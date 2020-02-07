@@ -16,6 +16,7 @@ class Addvertises extends Migration
         //
         Schema::create('addvertises', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('CustomerName');
             $table->string('name');
             $table->string('email');
             $table->string('title')->nullable();
