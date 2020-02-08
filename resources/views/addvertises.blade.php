@@ -6,15 +6,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading-lists dark text-center">
-                    <h4>آگهی های 
-                        @if($category=='beautysalons')
-                            سالن های زیبایی
+                    <h4>
+                        @if ($category=='last')
+                            آخرین آگهی ها  
+                        @elseif($category=='beautysalons')
+                             آگهی های سالن های زیبایی
                         @elseif($category== 'beautyclass')
-                          آموزشگاه های زیبایی
+                          آگهی های آموزشگاه های زیبایی
                         @elseif($category == 'beauty_services')
-                            خدمات زیبایی
+                            آگهی های خدمات زیبایی
                         @elseif($category == 'cosmetic')
-                            لوازم آرایشی و بهداشتی
+                            آگهی های لوازم آرایشی و بهداشتی 
                         @endif
                     </h4>
                     <span></span>
@@ -30,13 +32,13 @@
                         <img src="/storage/{{$addvertise->image}}" alt="">
                         <!-- Price -->
                         <div class="price-start">
-                            <p>  @if($category=='beautysalons')
+                            <p> @if($addvertise->cat=='1')
                                     سالن زیبایی
-                                @elseif($category== 'beautyclass')
+                                @elseif($addvertise->cat == '2')
                                     آموزشگاه زیبایی
-                                @elseif($category == 'beauty_services')
+                                @elseif($addvertise->cat== '3')
                                     کلینیک زیبایی 
-                                @elseif($category == 'cosmetic')
+                                @elseif($addvertise->cat == '4')
                                     فروشگاه لوازم آرایشی بهداشتی
                                 @endif
                                 {{$addvertise->name}} 

@@ -15,11 +15,22 @@
                     <h6> جدیدترین آگهی ها </h6>
                     
                     <ul>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
+                        
+                        @foreach ($addvertises as $addvertise)
+                            <li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;"> <a href="#"> 
+                                @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                @elseif($addvertise->cat == '2')
+                                    آموزشگاه زیبایی
+                                @elseif($addvertise->cat== '3')
+                                    کلینیک زیبایی 
+                                @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی 
+                                @endif
+                                {{$addvertise->name}} 
+                            </a></li>
+                        @endforeach
+                        
                     </ul>
                 </div>
             </div>
@@ -28,11 +39,11 @@
                     <h6> نوشته های تازه </h6>
             
                     <ul>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
+                        @foreach ($articles as $article)
+                            <li><a href="#">{{$article->title }}</a></li>
+                        @endforeach
+                        
+                       
                     </ul>
                 </div>
             </div>
@@ -41,10 +52,10 @@
                     <h6> دسته ها </h6>
             
                     <ul>
-                        <li> <a href="#"> سالن های زیبایی </a></li>
-                        <li> <a href="#"> آموزشگاه های زیبایی </a></li>
-                        <li> <a href="#"> خدمات زیبایی </a></li>
-                        <li> <a href="#"> لوازم آرایشی و بهداشتی </a></li>
+                        <li> <a href="/cat/beautysalons"> سالن های زیبایی </a></li>
+                        <li> <a href="/cat/beautyclass"> آموزشگاه های زیبایی </a></li>
+                        <li> <a href="/cat/beauty_services"> خدمات زیبایی </a></li>
+                        <li> <a href="/cat/cosmetic"> لوازم آرایشی و بهداشتی </a></li>
                         <li> <a href="#"> مجله آرایشی </a></li>
                     </ul>
                 </div>

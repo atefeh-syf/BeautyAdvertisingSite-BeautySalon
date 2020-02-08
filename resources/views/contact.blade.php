@@ -28,16 +28,32 @@
             <div class="contact-form-title">
                 <h6> فرم تماس با ما </h6>
             </div>
-            <form action="#">
+            <form action="/contact" enctype="multipart/form-data" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام و نام خانوادگی">
+                               @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
-                    <div class="col-12 col-md-6">
-                        <input type="email" name="email" class="form-control" placeholder="ایمیل">
+                    <div class="col-12 col-md-4">
+                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="col-12">
-                        <input type="text" name="subject" class="form-control" placeholder="موضوع">
+                        <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" value="{{ old('subject') }}"  autocomplete="subject" autofocus placeholder="موضوع">
+                               @error('subject')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
                     <div class="col-12">
                         <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="نظرات ،انتقادات و پیشنهادات"></textarea>

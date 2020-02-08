@@ -177,19 +177,19 @@
                 <div class="row ">
                     <div class="col-sm-3 align-items-right justify-content-between ">
                         <div class="section-heading dark text-center">
-                            <h5> درباره ما </h5>
+                            <a href="/aboutus"><h5> درباره ما </h5></a>
                             <span></span>
                         </div>
                     </div>
                     <div class="col-sm-3 align-items-right justify-content-between">
                         <div class="section-heading dark text-center">
-                            <h5> تماس با ما </h5>
+                            <a href="/contact/create"><h5> تماس با ما </h5></a>
                             <span></span>
                         </div>
                     </div>
                     <div class="col-sm-3 align-items-right justify-content-between">
                         <div class="section-heading dark text-center">
-                            <h5> آخرین آگهی ها </h5>
+                            <a href="/cat/last"><h5> آخرین آگهی ها </h5></a>
                             <span></span>
                         </div>
                     </div>

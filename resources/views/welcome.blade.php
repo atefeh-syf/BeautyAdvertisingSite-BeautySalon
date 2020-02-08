@@ -134,7 +134,7 @@
                 <div class="section-heading dark text-center">
                     <span></span>
                     <h4> آگهی ها </h4>
-                    <p> مشاهده همه آگهی ها > </p>
+                    <a href="/cat/last"><p> مشاهده همه آگهی ها > </p></a>
                 </div>
             </div>
         </div>
@@ -205,7 +205,7 @@
                 <div class="section-heading text-center">
                     <span></span>
                     <h4> مقالات </h4>
-                    <p> مشاهده آرشیو مقلات > </p>
+                    <p> مشاهده آرشیو مقالات > </p>
                 </div>
             </div>
         </div>
@@ -232,24 +232,8 @@
                             </div>
                         </div>
                     @endforeach
-                    <!-- Single Features Area -->
-                    <div class="single-features-area">
-                        <img src="pic/blog2.jpg" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p>نام دسته</p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5> عنوان مقاله </h5>
-                                <p> توصیحات </p>
-                            </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Features Area -->
+                    
+                    {{-- <!-- Single Features Area -->
                     <div class="single-features-area">
                         <img src="pic/blog1.jpg" alt="">
                         <!-- Price -->
@@ -265,41 +249,7 @@
                                 <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Features Area -->
-                    <div class="single-features-area">
-                        <img src="pic/blog2.jpg" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p>نام دسته</p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5> عنوان مقاله </h5>
-                                <p> توصیحات </p>
-                            </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Features Area -->
-                    <div class="single-features-area">
-                        <img src="pic/blog1.jpg" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p>نام دسته</p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5> عنوان مقاله </h5>
-                                <p> توصیحات </p>
-                            </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

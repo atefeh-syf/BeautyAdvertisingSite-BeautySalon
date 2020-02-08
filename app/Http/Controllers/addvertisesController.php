@@ -31,7 +31,9 @@ class addvertisesController extends Controller
     public function show(Addvertise $addvertise)
     {
         $comments = Comment::all();
-        return view('addvertise', compact(['addvertise', 'comments']));
+        $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");
+        $articles = Article::paginate(5)->sortByDesc("created_at");
+        return view('addvertise', compact(['addvertise', 'comments', 'addvertises', 'articles']));
     }
 
     public function create()

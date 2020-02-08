@@ -71,3 +71,6 @@ Route::get('/a/{addvertise}', 'addvertisesController@show')->name('addvertise.sh
 Route::post('/c', 'commentsController@store');
 
 Route::get('/cat/{catname}', 'categoriesController@show');
+
+Route::get('/contact/create', 'contactController@create');
+Route::post('/contact', 'contactController@store');

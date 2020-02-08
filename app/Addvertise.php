@@ -22,6 +22,6 @@ class Addvertise extends Model
     }
     public function category()
     {
-        return $this->belongsTo('App\Category', 'Cat');
+        return $this->belongsTo(Category::class)->orderBy('created_at', 'DESC');;
     }
 }

@@ -12,7 +12,9 @@ class categoriesController extends Controller
 
     public function show($Category)
     {
-        if ($Category == 'beautysalons') {
+        if ($Category == 'last') {
+            $Category_id = '';
+        } elseif ($Category == 'beautysalons') {
             $Category_id = '1';
         } elseif ($Category == 'beautyclass') {
             $Category_id = '2';
@@ -21,11 +23,16 @@ class categoriesController extends Controller
         } elseif ($Category == 'cosmetic') {
             $Category_id = '4';
         }
-        $category = Category::findOrFail($Category_id);
-        if ($category !== null) {
-            $addvertises = $category->addvertises;
-            //dd($addvertises);
-            return view('addvertises', ['addvertises' => $addvertises, 'category'=> $Category]);
+
+        if ($Category_id == '') {
+            $addvertises = Addvertise::paginate(12)->sortByDesc("created_at");
+            //return view('addvertises', ['addvertises' => $addvertises]);
+        } else {
+            $category = Category::findOrFail($Category_id);
+            if ($category !== null) {
+                $addvertises = $category->addvertises->sortByDesc("created_at");;
+            }
         }
+        return view('addvertises', ['addvertises' => $addvertises, 'category' => $Category]);
     }
 }
