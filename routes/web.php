@@ -58,6 +58,10 @@ Route::get('/submitAdd', function () {
   return view('submitAdd');
 });
 
+Route::get('/admin', function () {
+  return view('adminpage');
+});
+
 
 
 Auth::routes();
@@ -74,3 +78,6 @@ Route::get('/cat/{catname}', 'categoriesController@show');
 
 Route::get('/contact/create', 'contactController@create');
 Route::post('/contact', 'contactController@store');
+
+
+
