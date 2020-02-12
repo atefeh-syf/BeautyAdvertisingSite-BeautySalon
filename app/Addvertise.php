@@ -24,4 +24,6 @@ class Addvertise extends Model
     {
         return $this->belongsTo(Category::class)->orderBy('created_at', 'DESC');;
     }
+
+    
 }

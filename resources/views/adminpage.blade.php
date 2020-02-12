@@ -2,7 +2,7 @@
 @section('content')
 <!-- Page Wrapper -->
   <div id="wrapper">
-
+    
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -76,7 +76,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Susan Ahmadi</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$user_info->name}}</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -91,8 +91,17 @@
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  خروج از حساب کاربری
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          {{ __('خروج از حساب کاربری') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                  </i>
+                  
                 </a>
               </div>
             </li>
@@ -119,7 +128,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary  mb-1"> تعداد آگهی </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count}}</div>
                     </div>
                     <div class="col-auto"> 
                       <i class="far fa-newspaper fa-3x text-gray-300"></i>
@@ -135,7 +144,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success mb-1"> تعداد آگهی های تایید شده</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_confim}}</div>
                     </div>
                     <div class="col-auto">  
                       <i class="fas fa-certificate fa-3x text-gray-300"></i>
@@ -151,7 +160,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger mb-1"> تعداد آگهی های تایید نشده </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_no_confim}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="far fa-times-circle fa-3x text-gray-300"></i>
@@ -167,7 +176,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning mb-1"> تعداد کامنت ها </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_comment}}</div>
                     </div>
                     <div class="col-auto"> 
                       <i class="far fa-comments fa-3x text-gray-300"></i>
@@ -215,19 +224,33 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>سالن آرایشی مریم</td>
-                      <td>تهران</td>
-                      <td>مریم عظیمی</td>
-                      <td>
-                        <span> <a href="#" class="opration"> تایید </a> </span>
-                        <span> <a href="#" class="opration"> ویرایش </a> </span>
-                        <span> <a href="#" class="opration"> حذف </a> </span>
-                      </td>
-                      <td>1212</td>
-                      <td>98/8/12</td>
-                    </tr>
+                     
+                    @foreach ($addvertises as $addvertise)
+                        <tr>
+                        <td>{{$addvertise->id}}</td>
+                        <td>
+                            @if($addvertise->cat=='1')
+                                سالن زیبایی
+                            @elseif($addvertise->cat == '2')
+                                آموزشگاه زیبایی
+                            @elseif($addvertise->cat== '3')
+                                کلینیک زیبایی 
+                            @elseif($addvertise->cat == '4')
+                                فروشگاه لوازم آرایشی بهداشتی
+                            @endif
+                            {{$addvertise->name}}
+                        </td>
+                        <td>{{$addvertise->ostan}}</td>
+                        <td>{{$addvertise->CustomerName}}</td>
+                        <td>
+                            <span> <a href="#" class="opration"> تایید </a> </span>
+                            <span> <a href="#" class="opration"> ویرایش </a> </span>
+                            <span> <a href="#" class="opration"> حذف </a> </span>
+                        </td>
+                        <td>1212</td>
+                        <td>{{$addvertise->jalali}}</td>
+                        </tr>
+                    @endforeach
                     
                     
                   </tbody>
@@ -262,12 +285,14 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>علی عظیمی</td>
-                      <td>98/8/12</td>
-                      <td>aliazimi@live.com</td>
-                      <td>خیلی عالی بود</td>
-                    </tr>
+                    @foreach ($comments as $comment)
+                        <tr>
+                            <td>{{$comment->name}}</td>
+                            <td>{{$comment->jalali}}</td>
+                            <td>{{$comment->email}}</td>
+                            <td>{{$comment->description}}</td>
+                        </tr>
+                    @endforeach 
                   </tbody>
                 </table>
               </div>

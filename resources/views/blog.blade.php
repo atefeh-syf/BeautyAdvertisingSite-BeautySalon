@@ -15,24 +15,32 @@
                     <h6> جدیدترین آگهی ها </h6>
                     
                     <ul>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
-                        <li><img src="pic/side-pic.jpeg"> <a href="#"> عنوان مقاله </a></li>
+                        
+                        @foreach ($addvertises as $addvertise)
+                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;"> 
+                                @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                @elseif($addvertise->cat == '2')
+                                    آموزشگاه زیبایی
+                                @elseif($addvertise->cat== '3')
+                                    کلینیک زیبایی 
+                                @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی 
+                                @endif
+                                {{$addvertise->name}} 
+                            </li></a>
+                        @endforeach
+                        
                     </ul>
                 </div>
             </div>
             <div class="side-content" id="nav-tabContent">
                 <div class="add-posts box-hover">
                     <h6> نوشته های تازه </h6>
-            
                     <ul>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
-                        <li> <a href="#"> عنوان مقاله </a></li>
+                        @foreach ($arts as $art)
+                            <li><a href="#">{{$art->title }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -42,114 +50,28 @@
     <!-- Explore Map Area -->
     <div class="row explore-add-area mt-30 mb-30 d-md-flex">
         <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
+            @foreach ($articles as $article)
+                <div class="col-12 col-sm-6 col-lg-4">
+                    
+                        <div class="single-features-area mb-50">
+                            <img src="/storage/{{$article->image}}" alt="">
+                            <!-- Price -->
+                            <div class="price-start">
+                                <p> {{$article->title}} </p>
+                            </div>
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5> {{$article->description}} </h5>
+                                    <a> مشاهده مقاله </a>
+                                </div>
+                                <div class="feature-favourite">
+                                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-features-area mb-50">
-                    <img src="pic/2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p> سالن زیبایی لطیفه </p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>تهران-خیابان پاسداران</h5>
-                            <a> مشاهده آگهی </a>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>

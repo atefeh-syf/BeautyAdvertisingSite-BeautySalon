@@ -58,15 +58,19 @@ Route::get('/submitAdd', function () {
   return view('submitAdd');
 });
 
-Route::get('/admin', function () {
-  return view('adminpage');
-});
+//Route::get('/admin', function () {
+//  return view('adminpage');
+//});
+
+Route::get('/admin', 'AdminController@index')->name('home');
 
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/blog', 'articlesController@index');
+
 
 Route::get('/a/create', 'addvertisesController@create');
 Route::post('/a', 'addvertisesController@store');
@@ -78,6 +82,9 @@ Route::get('/cat/{catname}', 'categoriesController@show');
 
 Route::get('/contact/create', 'contactController@create');
 Route::post('/contact', 'contactController@store');
+
+
+Route::post('/search', 'addvertisesController@search');
 
 
 

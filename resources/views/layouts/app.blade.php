@@ -60,9 +60,9 @@
         <div class="top-header">
             <div class="row">
                 <div class=" col-sm-4">
-                    <a href="blog.html">مجله آرایشی </a> |
-                    <a href="contact.html">تماس با ما </a> |
-                    <a href="aboutus.html">درباره ما</a>
+                    <a href="/blog">مجله آرایشی </a> |
+                    <a href="/contact">تماس با ما </a> |
+                    <a href="/aboutus">درباره ما</a>
                 </div>
                 <div class="col-sm-4"></div>
                 <div class=" col-sm-4 ">
@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-sm-3 align-items-right justify-content-between">
                         <div class="section-heading dark text-center">
-                            <h5> آخرین مطالب </h5>
+                            <a href="/blog"><h5> آخرین مطالب </h5></a>
                             <span></span>
                         </div>
                     </div>

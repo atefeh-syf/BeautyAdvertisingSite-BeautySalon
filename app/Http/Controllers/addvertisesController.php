@@ -16,7 +16,6 @@ class addvertisesController extends Controller
     //
     public function index()
     {
-        
         $addvertises = Addvertise::paginate(6);
         foreach ($addvertises  as $key => $addvertise) {
             $date = $addvertise->created_at;
@@ -24,10 +23,18 @@ class addvertisesController extends Controller
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
+        
+        
         return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
-        //return view('welcome')->with(('addvertises'), $addvertises)->limit(1)->get();
+        
     }
-
+    public function search(Request $request){
+        $text=request('text');
+        $cat = $request->input('cat');
+        $ostan = $request->input('ostan');
+        $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")->orWhere('ostan',"$ostan")->get();
+        return view('welcome')->with(('search'), $searchs);
+    }
     public function show(Addvertise $addvertise)
     {
         $comments = Comment::all();

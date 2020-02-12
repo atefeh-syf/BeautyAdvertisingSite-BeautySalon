@@ -17,7 +17,7 @@
                     <ul>
                         
                         @foreach ($addvertises as $addvertise)
-                            <li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;"> <a href="#"> 
+                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;">
                                 @if($addvertise->cat=='1')
                                     سالن زیبایی
                                 @elseif($addvertise->cat == '2')
@@ -28,7 +28,7 @@
                                     فروشگاه آرایشی 
                                 @endif
                                 {{$addvertise->name}} 
-                            </a></li>
+                            </li></a>
                         @endforeach
                         
                     </ul>

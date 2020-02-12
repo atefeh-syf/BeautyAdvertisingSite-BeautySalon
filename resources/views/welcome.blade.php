@@ -14,52 +14,59 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
                             <h6 style="color: #fff;margin-right: 10px;margin-bottom: 30px;" >آرایشگاه،آموزشگاه،خدمات زیبایی و محصول آرایشی مورد نظر خود را جستجو کنید</h6>
-                            <form action="#" method="get">
-                                <input type="text" class="custom-select" style="width:24%;" placeholder="متن مورد نظر خود را وارد کنید" id="src-text">
-                                <select class="custom-select" style="width:24%;">
+                            <form action="/search" method="post">
+                                @csrf
+                                <input type="text"  name="text" class="custom-select" style="width:24%;" placeholder="متن مورد نظر خود را وارد کنید" id="src-text">
+                                <select name="cat" class="custom-select" style="width:24%;">
                                     <option> انتخاب همه </option>
-                                    <option> سالن های زیبایی </option>
-                                    <option> آموزشگاه های زیبایی </option>
-                                    <option> لوازم آرایشی و بهداشتی </option>
-                                    <option> خدمات زیبایی </option>
+                                    <option value="1"> سالن های زیبایی </option>
+                                    <option value="2"> آموزشگاه های زیبایی </option>
+                                    <option value="4"> لوازم آرایشی و بهداشتی </option>
+                                    <option value="3"> خدمات زیبایی </option>
                                 </select>
-                                <select class="custom-select" style="width:24%;">
-                                    <option> انتخاب همه </option>
-                                    <option> آذربایجان شرقی </option>
-                                    <option> آذربایجان غربی </option>
-                                    <option> اردبیل </option>
-                                    <option> اصفهان </option>
-                                    <option> البرز </option>
-                                    <option> ایلام </option>
-                                    <option> بوشهر </option>
-                                    <option> تهران </option>
-                                    <option> چهارمحال و بختیاری </option>
-                                    <option> خراسان جنوبی </option>
-                                    <option> خراسان رضوی </option>
-                                    <option> خراسان شمالی </option>
-                                    <option> خوزستان </option>
-                                    <option> زنجان </option>
-                                    <option> سمنان </option>
-                                    <option> سیستان و بلوچستان </option>
-                                    <option> فارس </option>
-                                    <option> قزوین </option>
-                                    <option> قم </option>
-                                    <option> کردستان </option>
-                                    <option> کرمان </option>
-                                    <option> کرمانشاه </option>
-                                    <option> کهگیلویه و بویراحمد </option>
-                                    <option> گلستان </option>
-                                    <option> گیلان </option>
-                                    <option> لرستان </option>
-                                    <option> مازندران </option>
-                                    <option> مرکزی </option>
-                                    <option> هرمزگان </option>
-                                    <option> همدان </option>
-                                    <option> یزد </option>
+                                <select name="ostan" class="custom-select" style="width:24%;">
+                                    <option>استان</option>
+                                    <option value="آذربایجان شرقی" selected> آذربایجان شرقی </option>
+                                    <option value="آذربایجان غربی"> آذربایجان غربی </option>
+                                    <option value="اردبیل"> اردبیل </option>
+                                    <option value="اصفهان"> اصفهان </option>
+                                    <option value="البرز"> البرز </option>
+                                    <option value="ایلام"> ایلام </option>
+                                    <option value="بوشهر"> بوشهر </option>
+                                    <option value="تهران"> تهران </option>
+                                    <option value="چهارمحال و بختیاری"> چهارمحال و بختیاری </option>
+                                    <option value="خراسان جنوبی"> خراسان جنوبی </option>
+                                    <option value="خراسان رضوی "> خراسان رضوی </option>
+                                    <option value="خراسان شمالی"> خراسان شمالی </option>
+                                    <option value="خوزستان"> خوزستان </option>
+                                    <option value="زنجان"> زنجان </option>
+                                    <option value="سمنان"> سمنان </option>
+                                    <option value="سیستان و بلوچستان"> سیستان و بلوچستان </option>
+                                    <option value="فارس"> فارس </option>
+                                    <option value="قزوین"> قزوین </option>
+                                    <option value="قم"> قم </option>
+                                    <option value="کردستان"> کردستان </option>
+                                    <option value="کرمان"> کرمان </option>
+                                    <option value="کرمانشاه"> کرمانشاه </option>
+                                    <option value="کهگیلویه و بویراحمد"> کهگیلویه و بویراحمد </option>
+                                    <option value="گلستان"> گلستان </option>
+                                    <option value="گیلان"> گیلان </option>
+                                    <option value="لرستان"> لرستان </option>
+                                    <option value="مازندران"> مازندران </option>
+                                    <option value="مرکزی"> مرکزی </option>
+                                    <option value="هرمزگان"> هرمزگان </option>
+                                    <option value="همدان"> همدان </option>
+                                    <option value="یزد"> یزد </option>
                                 </select>
+                            
                                 <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i>
                                     جستجو </button>
                             </form>
+                            @isset($searchs)
+                                @foreach ($searchs as $search)
+                                    {{$search}}<br>
+                                @endforeach
+                            @endisset
                         </div>
                     </div>
                 </div>
