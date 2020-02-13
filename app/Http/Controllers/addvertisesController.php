@@ -33,7 +33,8 @@ class addvertisesController extends Controller
         $cat = $request->input('cat');
         $ostan = $request->input('ostan');
         $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")->orWhere('ostan',"$ostan")->get();
-        return view('welcome')->with(('search'), $searchs);
+        //return view('welcome')->with(('search'), $searchs);
+        return redirect('/')->with(('search'), $searchs);
     }
     public function show(Addvertise $addvertise)
     {
