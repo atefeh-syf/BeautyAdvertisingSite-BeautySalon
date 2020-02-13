@@ -1180,3 +1180,8 @@ label{
 .comments-form textarea.form-control {
     height: 110px;
 }
+select.form-control, input.form-control {
+    padding: 0 !important;
+    padding-right: 10px !important;
+    height: 50px !important;
+}

@@ -21,7 +21,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="/admin">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>داشبورد </span></a>
+          <span>همه آگهی ها </span></a>
           <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -137,130 +137,73 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary  mb-1"> تعداد آگهی </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count}}</div>
-                    </div>
-                    <div class="col-auto"> 
-                      <i class="far fa-newspaper fa-3x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success mb-1"> تعداد آگهی های تایید شده</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_confim}}</div>
-                    </div>
-                    <div class="col-auto">  
-                      <i class="fas fa-certificate fa-3x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger mb-1"> تعداد آگهی های تایید نشده </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_no_confim}}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="far fa-times-circle fa-3x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning mb-1"> تعداد کامنت ها </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$count_comment}}</div>
-                    </div>
-                    <div class="col-auto"> 
-                      <i class="far fa-comments fa-3x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Content Row -->
-
           <div class="row justify-content-center">
+
             <!-- DataTales Example -->
             <div class="col-xl-12 col-lg-7">
               <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">کامنت ها</h6>
+              <h6 class="m-0 font-weight-bold text-primary">آگهی ها</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>نام فرستنده</th>
-                      <th>تاریخ </th>
-                      <th>ایمیل</th>
-                      <th>متن کامنات </th>
+                      <th>شماره</th>
+                      <th>عنوان </th>
+                      <th>استان</th>
+                      <th>ثبت کننده</th>
+                      <th>عملیات</th>
+                      <th>بازدید ها</th>
+                      <th>تاریخ ثبت</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>نام فرستنده</th>
-                      <th>تاریخ </th>
-                      <th>ایمیل</th>
-                      <th>متن کامنات </th>
+                      <th>شماره</th>
+                      <th>عنوان </th>
+                      <th>استان</th>
+                      <th>ثبت کننده</th>
+                      <th>عملیات</th>
+                      <th>بازدید ها</th>
+                      <th>تاریخ ثبت</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach ($comments as $comment)
+                     
+                    @foreach ($addvertises as $addvertise)
                         <tr>
-                            <td>{{$comment->name}}</td>
-                            <td>{{$comment->jalali}}</td>
-                            <td>{{$comment->email}}</td>
-                            <td>{{$comment->description}}</td>
+                        <td>{{$addvertise->id}}</td>
+                        <td>
+                            @if($addvertise->cat=='1')
+                                سالن زیبایی
+                            @elseif($addvertise->cat == '2')
+                                آموزشگاه زیبایی
+                            @elseif($addvertise->cat== '3')
+                                کلینیک زیبایی 
+                            @elseif($addvertise->cat == '4')
+                                فروشگاه لوازم آرایشی بهداشتی
+                            @endif
+                            {{$addvertise->name}}
+                        </td>
+                        <td>{{$addvertise->ostan}}</td>
+                        <td>{{$addvertise->CustomerName}}</td>
+                        <td>
+                            <span> <a href="#" class="opration"> تایید </a> </span>
+                            <span> <a href="#" class="opration"> ویرایش </a> </span>
+                            <span> <a href="#" class="opration"> حذف </a> </span>
+                        </td>
+                        <td>1212</td>
+                        <td>{{$addvertise->jalali}}</td>
                         </tr>
-                    @endforeach 
+                    @endforeach
+                    
+                    
                   </tbody>
                 </table>
               </div>
             </div>
-              </div>
-            </div>
-            <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">نرخ بازدید</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
               </div>
             </div>
             

@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,7 +21,7 @@
     <!-- main css-->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}"> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css)">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pe-icon-7-stroke.css') }}">
@@ -34,7 +34,7 @@
    
     <!-- Fav icon-->
     <link rel="icon" href="{{ asset('pic/favicon.ico') }}">
-    <script src="{{ asset('js/main.js') }}"></script> 
+    
     
 </head>
 <body>
@@ -224,7 +224,7 @@
         <!-- ****** Footer Area End ****** -->
         <!-- jQuery-2.2.4 js -->
         <script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.4.min.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('js/jquery-3.0.0.min.js') }}"></script>
+        <!--<script type="text/javascript" src="{{ URL::asset('js/jquery-3.0.0.min.js') }}"></script>-->
         <!-- Popper js -->
         <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
         <!-- Bootstrap-4 js -->

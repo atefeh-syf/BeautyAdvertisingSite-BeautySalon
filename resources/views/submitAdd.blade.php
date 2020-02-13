@@ -66,8 +66,8 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <select class="form-control" id="cat" class="cat" name="cat">
-                            <option>گروه ها</option>
-                            <option value="1" selected>  سالن های زیبایی  </option>
+                            <option selected disabled>گروه ها</option>
+                            <option value="1">  سالن های زیبایی  </option>
                             <option value="2">  آموزشگاه های زیبایی  </option>
                             <option value="3">  خدمات زیبایی  </option>
                             <option value="4">  لوازم آرایشی و بهداشتی  </option>
@@ -75,8 +75,8 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <select class="form-control" id="ostan" class="ostan" name="ostan">
-                            <option>استان</option>
-                            <option value="آذربایجان شرقی" selected> آذربایجان شرقی </option>
+                            <option selected disabled>استان</option>
+                            <option value="آذربایجان شرقی"> آذربایجان شرقی </option>
                             <option value="آذربایجان غربی"> آذربایجان غربی </option>
                             <option value="اردبیل"> اردبیل </option>
                             <option value="اصفهان"> اصفهان </option>

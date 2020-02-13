@@ -61,6 +61,11 @@ Route::get('/submitAdd', function () {
 //Route::get('/admin', function () {
 //  return view('adminpage');
 //});
+Route::get('/adminblogadd', function () {
+    return view('adminpage-blog-all.blade');
+  });
+
+
 
 Route::get('/admin', 'AdminController@index')->name('home');
 
