@@ -163,6 +163,28 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-12 col-xs-12 add-section box-hover d-flex justify-content-center">
+            <div class="row d-md-flex justify-content-center">
+                <div class="col-md-12">
+                    <h4><i class="fas fa-comment-alt"></i> نظرات کاربران </h4>
+                    <br>
+                    <p><i class="fas fa-comment"></i> همه دیدگاه ها </p>
+                    <div class="comments-form">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">نام و نام خانوادگی</label>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="دیدگاه "></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </section>
 <!-- ****** Addvertise Area End ****** -->

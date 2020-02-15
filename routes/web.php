@@ -22,6 +22,10 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
+Route::get('/single-blog', function () {
+    return view('single-blog');
+});
+
 Route::get('/addvertise', function () {
     return view('addvertise');
 });
@@ -94,7 +98,7 @@ Route::get('/show-blog', function () {
 });
 
 Route::get('/add-blog', function () {
-    return view('show-blog');
+    return view('add-blog');
 });
 
 Route::get('/single-blog', function () {
