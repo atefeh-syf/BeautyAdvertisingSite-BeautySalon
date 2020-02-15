@@ -30,7 +30,7 @@
           </a>
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="#">همه آگهی ها</a>
+              <a class="collapse-item" href="/adminblogadd">همه آگهی ها</a>
               <a class="collapse-item" href="#">افزودن آگهی</a>
               <a class="collapse-item" href="#">دسته ها</a>
             </div>
@@ -222,17 +222,17 @@
                       <th>نام فرستنده</th>
                       <th>تاریخ </th>
                       <th>ایمیل</th>
-                      <th>متن کامنات </th>
+                      <th>متن کامنت </th>
                     </tr>
                   </thead>
-                  <tfoot>
+                  {{-- <tfoot>
                     <tr>
                       <th>نام فرستنده</th>
                       <th>تاریخ </th>
                       <th>ایمیل</th>
                       <th>متن کامنات </th>
                     </tr>
-                  </tfoot>
+                  </tfoot> --}}
                   <tbody>
                     @foreach ($comments as $comment)
                         <tr>

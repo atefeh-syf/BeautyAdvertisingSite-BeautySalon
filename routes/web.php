@@ -58,16 +58,43 @@ Route::get('/submitAdd', function () {
   return view('submitAdd');
 });
 
-//Route::get('/admin', function () {
-//  return view('adminpage');
-//});
+
 Route::get('/adminblogadd', function () {
-    return view('adminpage-blog-all.blade');
-  });
+    return view('adminpage-blog-all');
+});
+
+Route::get('/admin-profile', function () {
+    return view('admin-profile');
+});
+
+Route::get('/admin-profile-setting', function () {
+    return view('admin-profile-setting');
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+
+Route::get('/blog-add', function () {
+    return view('blog-add');
+});
+
+
+Route::get('/blog-all', function () {
+    return view('blog-all');
+});
+
+Route::get('/blog-categories', function () {
+    return view('blog-categories');
+});
 
 
 
-Route::get('/admin', 'AdminController@index')->name('home');
+
+
+Route::get('/admin', 'AdminController@index');
+Route::get('/adminblogadd', 'AdminController@showAddvertise');
 
 
 

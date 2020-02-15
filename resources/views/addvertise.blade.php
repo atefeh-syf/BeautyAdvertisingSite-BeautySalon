@@ -7,7 +7,7 @@
         <!-- Explore Search Form -->
         <div class="explore-search-form">
             <div class="search-sidebar mt-50 mb-30">
-                <input class="search-form-control" type="text" placeholder="کلمه یا متن مورد نظر خود را جستجو کنید " aria-label="Search">
+                {{-- <input class="search-form-control" type="text" placeholder="کلمه یا متن مورد نظر خود را جستجو کنید " aria-label="Search"> --}}
             </div>
             <!-- Sidebar Content -->
             <div class="side-content" id="nav-tabContent">

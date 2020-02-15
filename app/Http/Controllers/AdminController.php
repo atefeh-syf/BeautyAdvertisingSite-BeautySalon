@@ -21,12 +21,8 @@ class AdminController extends Controller
         $count_confim= Addvertise::where('confirm','1')->count();
         $count_no_confim= Addvertise::where('confirm','0')->count();
         $count_comment=Comment::count();
-        $addvertises = Addvertise::all();
-        foreach ($addvertises  as $key => $addvertise) {
-            $date = $addvertise->created_at;
-            $date = Jalalian::forge($date)->format('Y-m-d');
-            $addvertises[$key]['jalali'] = $date;
-        }
+        
+        
         $comments = Comment::all();
         foreach ($comments  as $key => $comment) {
             $date = $comment->created_at;
@@ -35,7 +31,17 @@ class AdminController extends Controller
         }
         
         $user_info=auth()->user();
-        return view('adminpage',['count'=>$count, 'count_confim'=> $count_confim, 'count_no_confim'=> $count_no_confim, 'count_comment'=> $count_comment, 'addvertises'=> $addvertises, 'comments'=> $comments, 'user_info'=> $user_info]);
+        return view('adminpage',['count'=>$count, 'count_confim'=> $count_confim, 'count_no_confim'=> $count_no_confim, 'count_comment'=> $count_comment, 'comments'=> $comments, 'user_info'=> $user_info]);
+
+    }
+    public function showAddvertise(){
+        $addvertises = Addvertise::all();
+        foreach ($addvertises  as $key => $addvertise) {
+            $date = $addvertise->created_at;
+            $date = Jalalian::forge($date)->format('Y-m-d');
+            $addvertises[$key]['jalali'] = $date;
+            return view('adminpage-blog-all',['addvertises' => $addvertises]);
+        }
 
     }
 }
