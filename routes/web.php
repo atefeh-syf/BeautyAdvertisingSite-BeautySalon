@@ -76,17 +76,25 @@ Route::get('/blog', function () {
 });
 
 
-Route::get('/blog-add', function () {
-    return view('blog-add');
+Route::get('/addvertise-add', function () {
+    return view('addvertise-add');
 });
 
 
-Route::get('/blog-all', function () {
-    return view('blog-all');
+Route::get('/addvertise-all', function () {
+    return view('addvertise-all');
 });
 
-Route::get('/blog-categories', function () {
-    return view('blog-categories');
+Route::get('/addvertise-categories', function () {
+    return view('addvertise-categories');
+});
+
+Route::get('/show-blog', function () {
+    return view('show-blog');
+});
+
+Route::get('/add-blog', function () {
+    return view('show-blog');
 });
 
 
