@@ -45,10 +45,15 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>داشبورد </span></a>
       <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-         <i class="fas fa-newspaper"></i>
+        <i class="fas fa-newspaper"></i>
           <span>آگهی ها</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -61,7 +66,7 @@
         <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-pen"></i>
+          <i class="fas fa-pen"></i>
           <span>نوشته ها</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -70,6 +75,7 @@
             <a class="collapse-item" href="/add-blog">افزودن نوشته</a>
           </div>
         </div>
+      
       
     </ul>
     <!-- End of Sidebar -->
@@ -156,14 +162,15 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">افزودن آگهی</h1>
+            <h1 class="h3 mb-0 text-gray-800">افزودن نوشته</h1>
           </div>
+
           <!-- Content Row -->
 
           <div class="row">
             <div class="col-md-8">
-              <input type="text" class="form-control" placeholder="عنوان آگهی">
-              <textarea class="txt-area">متن آگهی</textarea>
+              <input type="text" class="form-control" placeholder="عنوان نوشته">
+              <textarea class="txt-area">متن نوشته</textarea>
           </div>
             <div class="col-md-4">
               <div class="card mb-4">
@@ -191,33 +198,13 @@
                       <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                       </span>
-                      <span class="text">نمایش آگهی</span>
+                      <span class="text">نمایش نوشته</span>
                       </a>
                     </div>
-
                     
                   </div>
                 </div>
               </div>
-
-              <div class="card mb-4">
-                <div class="card-header">دسته ها</div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                    <select class="form-control" id="cat" class="cat" name="cat">
-                            
-                            <option value="1">  سالن های زیبایی  </option>
-                            <option value="2">  آموزشگاه های زیبایی  </option>
-                            <option value="3">  خدمات زیبایی  </option>
-                            <option value="4">  لوازم آرایشی و بهداشتی  </option>
-                        </select>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
               <div class="card mb-4">
                 <div class="card-header">عکس شاخص</div>
                 <div class="card-body">
@@ -233,7 +220,6 @@
             </div>
             
           </div>
-          
 
           
         </div>

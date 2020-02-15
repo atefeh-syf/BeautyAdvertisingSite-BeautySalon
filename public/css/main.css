@@ -80,7 +80,7 @@ p {
 }
 
 img {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
 }
 
@@ -1086,6 +1086,7 @@ label{
 .side-content{
     margin-right: 30px;
     margin-top: 20px;
+    position: fixed;
 }
 .add-posts ,.add-section{
     padding: 40px 30px;

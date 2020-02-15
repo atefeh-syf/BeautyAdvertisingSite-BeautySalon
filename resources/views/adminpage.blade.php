@@ -24,17 +24,29 @@
           <span>داشبورد </span></a>
           <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>آگهی ها</span>
-          </a>
-          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="/adminblogadd">همه آگهی ها</a>
-              <a class="collapse-item" href="#">افزودن آگهی</a>
-              <a class="collapse-item" href="#">دسته ها</a>
-            </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+         <i class="fas fa-newspaper"></i>
+          <span>آگهی ها</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="blog-all.html">همه آگهی ها</a>
+            <a class="collapse-item" href="blog-add.html">افزودن آگهی</a>
+            <a class="collapse-item" href="blog-categories.html">دسته ها</a>
           </div>
+        </div>
+        <!-- Nav Item - Blog Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-pen"></i>
+          <span>نوشته ها</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="/show-blog">همه نوشته ها</a>
+            <a class="collapse-item" href="/add-blog">افزودن نوشته</a>
+          </div>
+        </div>
     </ul>
     
       </li>

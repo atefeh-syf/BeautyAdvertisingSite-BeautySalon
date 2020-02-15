@@ -11181,3 +11181,6 @@ body.sidebar-toggled footer.sticky-footer {
 .dataTables_info ,.paginate_button {
   display: none;
 }
+.txt-area{
+  width: 720px;
+}
