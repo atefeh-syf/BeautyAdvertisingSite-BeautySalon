@@ -1086,7 +1086,8 @@ label{
 .side-content{
     margin-right: 30px;
     margin-top: 20px;
-    position: fixed;
+    height: auto;
+    
 }
 .add-posts ,.add-section{
     padding: 40px 30px;
@@ -1142,6 +1143,11 @@ label{
     border-radius: 10px;
     width: 400px;
     height: 400px;
+}
+.blog-img{
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
 }
 .tele{
     background-color: #0088CC;
