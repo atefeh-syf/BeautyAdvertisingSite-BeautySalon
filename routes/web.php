@@ -97,6 +97,10 @@ Route::get('/add-blog', function () {
     return view('show-blog');
 });
 
+Route::get('/single-blog', function () {
+    return view('single-blog');
+});
+
 
 
 
