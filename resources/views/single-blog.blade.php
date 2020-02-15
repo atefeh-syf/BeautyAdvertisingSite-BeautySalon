@@ -16,7 +16,7 @@
                     
                     <ul>
                         
-                        @foreach ($addvertises as $addvertise)
+                       {{--  @foreach ($addvertises as $addvertise)
                             <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;">
                                 @if($addvertise->cat=='1')
                                     سالن زیبایی
@@ -29,7 +29,7 @@
                                 @endif
                                 {{$addvertise->name}} 
                             </li></a>
-                        @endforeach
+                        @endforeach --}}
                         
                     </ul>
                 </div>
@@ -39,9 +39,9 @@
                     <h6> نوشته های تازه </h6>
             
                     <ul>
-                        @foreach ($articles as $article)
+                       {{--  @foreach ($articles as $article)
                             <li><a href="#">{{$article->title }}</a></li>
-                        @endforeach
+                        @endforeach --}}
                         
                        
                     </ul>
