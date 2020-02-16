@@ -40,8 +40,11 @@ class AdminController extends Controller
             $date = $addvertise->created_at;
             $date = Jalalian::forge($date)->format('Y-m-d');
             $addvertises[$key]['jalali'] = $date;
-            return view('adminpage-blog-all',['addvertises' => $addvertises]);
+            return view('addvertise-all',['addvertises' => $addvertises]);
         }
 
+    }
+    public function confirm(Addvertise $addvertise){
+        
     }
 }

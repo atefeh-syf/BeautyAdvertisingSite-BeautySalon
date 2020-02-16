@@ -183,7 +183,7 @@
                       <th>تاریخ ثبت</th>
                     </tr>
                   </thead>
-                  <tfoot>
+                  {{-- <tfoot>
                     <tr>
                       <th>شماره</th>
                       <th>عنوان </th>
@@ -193,33 +193,46 @@
                       <th>بازدید ها</th>
                       <th>تاریخ ثبت</th>
                     </tr>
-                  </tfoot>
+                  </tfoot> --}}
                   <tbody>
+                    @foreach ($addvertises as $addvertise)
                     <tr>
-                      <td>1</td>
-                      <td>سالن آرایشی مریم</td>
-                      <td>تهران</td>
-                      <td>مریم عظیمی</td>
-                      <td>
-                        <span>
-                            <a href="#" class="btn btn-success btn-circle btn-sm">
-                                <i class="fas fa-check"></i>
-                            </a>
-                        </span>
-                        <span>
-                            <a href="#" class="btn btn-info btn-circle btn-sm">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </span>
-                        <span>
-                            <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </span>
-                      </td>
-                      <td>1212</td>
-                      <td>98/8/12</td>
-                    </tr>
+                        <td>{{$addvertise->id}}</td>
+                        <td>
+                            @if($addvertise->cat=='1')
+                                سالن زیبایی
+                            @elseif($addvertise->cat == '2')
+                                آموزشگاه زیبایی
+                            @elseif($addvertise->cat== '3')
+                                کلینیک زیبایی 
+                            @elseif($addvertise->cat == '4')
+                                فروشگاه لوازم آرایشی بهداشتی
+                            @endif
+                            {{$addvertise->name}}
+                        </td>
+                        <td>{{$addvertise->ostan}}</td>
+                        <td>{{$addvertise->CustomerName}}</td>
+                        <td>
+                          <span>
+                              <a href="#" class="btn btn-success btn-circle btn-sm">
+                                  <i class="fas fa-check"></i>
+                              </a>
+                          </span>
+                          <span>
+                              <a href="#" class="btn btn-info btn-circle btn-sm">
+                                  <i class="fas fa-info-circle"></i>
+                              </a>
+                          </span>
+                          <span>
+                              <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                  <i class="fas fa-trash"></i>
+                              </a>
+                          </span>
+                        </td>
+                        <td>1212</td>
+                        <td>{{$addvertise->jalali}}</td>
+                      </tr>
+                    @endforeach
                     
                     
                   </tbody>

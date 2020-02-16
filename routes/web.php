@@ -110,7 +110,7 @@ Route::get('/single-blog', function () {
 
 
 Route::get('/admin', 'AdminController@index');
-Route::get('/adminblogadd', 'AdminController@showAddvertise');
+Route::get('/addvertise-all', 'AdminController@showAddvertise');
 
 
 
