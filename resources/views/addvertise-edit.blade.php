@@ -17,7 +17,13 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+  <!-- Tiny MCE-->
+  <script src="https://cdn.tiny.cloud/1/m4e73qfmbf6mj7k75so6if3rk59fz1jj3o97nmkdgwhat5ke/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
 </head>
 
 <body id="page-top">
@@ -39,11 +45,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>داشبورد </span></a>
       <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -69,7 +70,6 @@
             <a class="collapse-item" href="/add-blog">افزودن نوشته</a>
           </div>
         </div>
-      
       
     </ul>
     <!-- End of Sidebar -->
@@ -156,68 +156,86 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">دسته بندی ها</h1>
+            <h1 class="h3 mb-0 text-gray-800">ویریش آگهی</h1>
           </div>
-
           <!-- Content Row -->
 
-          <div class="row justify-content-center">
-            <div class="col-md-4">
-              <label data-error="wrong" data-success="right">نام دسته</label>
-              <input type="text" class="form-control">
-
-              <label data-error="wrong" data-success="right">عنوان</label>
-              <textarea class="form-control" cols="30" rows="10"></textarea>
-
-              <a href="#" class="btn btn-success btn-icon-split">
-                <span class="icon text-white-50">
-                  <i class="fas fa-check"></i>
-                </span>
-                <span class="text">افزودن</span>
-              </a>
-            </div>
+          <div class="row">
             <div class="col-md-8">
-              <!-- DataTales Example -->
-            <div class="col-xl-12 col-lg-7">
-              <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">آگهی ها</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                  
-                    <tr>
-                      <th>نام</th>
-                      <th>عنوان </th>
-                      
-                    </tr>
-                  </thead>
-                  {{-- <tfoot>
-                    <tr>
-                      <th>نام</th>
-                      <th>عنوان </th>
-                      <th>تعداد</th>
-                    </tr>
-                  </tfoot> --}}
-                  <tbody>
-                    @foreach ($category as $cat)
-                      <tr>
-                      <td>{{$cat->name}}</td>
-                        <td>{{$cat->title}}</td>
-                        
-                      </tr>
-                    @endforeach
-                  </tbody>
-                </table>
+              <input type="text" class="form-control" placeholder="عنوان آگهی">
+              <textarea class="txt-area">متن آگهی</textarea>
+          </div>
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-header">عملیات</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-flag"></i>
+                        </span>
+                        <span class="text">دخیره پیش نویس</span>
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#" class="btn btn-success btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-check"></i>
+                        </span>
+                        <span class="text">انتشار</span>
+                      </a>
+                    </div>
+                    <div class="col-md-8">
+                      <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-arrow-right"></i>
+                      </span>
+                      <span class="text">نمایش آگهی</span>
+                      </a>
+                    </div>
+
+                    
+                  </div>
+                </div>
               </div>
-            </div>
+
+              <div class="card mb-4">
+                <div class="card-header">دسته ها</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                    <select class="form-control" id="cat" class="cat" name="cat">
+                            
+                            <option value="1">  سالن های زیبایی  </option>
+                            <option value="2">  آموزشگاه های زیبایی  </option>
+                            <option value="3">  خدمات زیبایی  </option>
+                            <option value="4">  لوازم آرایشی و بهداشتی  </option>
+                        </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-header">عکس شاخص</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                    
+                    <input type="file" id="img" name="img" accept="image/*">
+                    </div>
+
+                  </div>
+                </div>
               </div>
             </div>
             
-            </div>
           </div>
+          
+
+          
         </div>
         <!-- /.container-fluid -->
       </div>

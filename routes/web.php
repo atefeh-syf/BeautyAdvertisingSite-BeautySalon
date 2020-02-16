@@ -85,6 +85,11 @@ Route::get('/addvertise-add', function () {
 });
 
 
+Route::get('/addvertise-edit', function () {
+    return view('addvertise-edit');
+});
+
+
 Route::get('/addvertise-all', function () {
     return view('addvertise-all');
 });
@@ -110,7 +115,13 @@ Route::get('/single-blog', function () {
 
 
 Route::get('/admin', 'AdminController@index');
-Route::get('/addvertise-all', 'AdminController@showAddvertise');
+Route::get('/add-all', 'AdminController@showAddvertise');
+Route::get('/add-cat', 'AdminController@showCategory');
+Route::get('/blog-all', 'AdminController@showArticle');
+Route::post('/blog-add', 'AdminController@blogStore');
+Route::post('/add', 'AdminController@addvertiseStore');
+Route::get('/add/{addvertise}/edit', 'AdminController@edit');
+Route::patch('/add/{addvertise}', 'AdminController@update');
 
 
 

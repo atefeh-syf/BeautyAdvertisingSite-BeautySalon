@@ -21,6 +21,7 @@ class Articles extends Migration
             $table->text('text');
             $table->string('image');
             $table->string('cat');
+            $table->timestamps();
         });
     }
 

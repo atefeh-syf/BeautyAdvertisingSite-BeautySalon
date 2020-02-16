@@ -30,9 +30,9 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/addvertise-all">همه آگهی ها</a>
+            <a class="collapse-item" href="/add-all">همه آگهی ها</a>
             <a class="collapse-item" href="/addvertise-add">افزودن آگهی</a>
-            <a class="collapse-item" href="/addvertise-categories">دسته ها</a>
+            <a class="collapse-item" href="/add-cat">دسته ها</a>
           </div>
         </div>
         <!-- Nav Item - Blog Menu -->
@@ -43,7 +43,7 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/show-blog">همه نوشته ها</a>
+            <a class="collapse-item" href="/blog-all">همه نوشته ها</a>
             <a class="collapse-item" href="/add-blog">افزودن نوشته</a>
           </div>
         </div>

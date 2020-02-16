@@ -197,29 +197,29 @@
                   <tbody>
                     @foreach ($addvertises as $addvertise)
                     <tr>
-                        <td>{{$addvertise->id}}</td>
-                        <td>
-                            @if($addvertise->cat=='1')
-                                سالن زیبایی
-                            @elseif($addvertise->cat == '2')
-                                آموزشگاه زیبایی
-                            @elseif($addvertise->cat== '3')
-                                کلینیک زیبایی 
-                            @elseif($addvertise->cat == '4')
-                                فروشگاه لوازم آرایشی بهداشتی
-                            @endif
-                            {{$addvertise->name}}
-                        </td>
-                        <td>{{$addvertise->ostan}}</td>
-                        <td>{{$addvertise->CustomerName}}</td>
-                        <td>
+                          <td>{{$addvertise->id}}</td>
+                          <td>
+                              @if($addvertise->cat=='1')
+                                  سالن زیبایی
+                              @elseif($addvertise->cat == '2')
+                                  آموزشگاه زیبایی
+                              @elseif($addvertise->cat== '3')
+                                  کلینیک زیبایی 
+                              @elseif($addvertise->cat == '4')
+                                  فروشگاه لوازم آرایشی بهداشتی
+                              @endif
+                              {{$addvertise->name}}
+                          </td>
+                          <td>{{$addvertise->ostan}}</td>
+                          <td>{{$addvertise->CustomerName}}</td>
+                          <td>
                           <span>
                               <a href="#" class="btn btn-success btn-circle btn-sm">
                                   <i class="fas fa-check"></i>
                               </a>
                           </span>
                           <span>
-                              <a href="#" class="btn btn-info btn-circle btn-sm">
+                              <a href="/add/{{$addvertise->id}}/edit" class="btn btn-info btn-circle btn-sm">
                                   <i class="fas fa-info-circle"></i>
                               </a>
                           </span>
@@ -228,9 +228,9 @@
                                   <i class="fas fa-trash"></i>
                               </a>
                           </span>
-                        </td>
-                        <td>1212</td>
-                        <td>{{$addvertise->jalali}}</td>
+                          </td>
+                          <td>1212</td>
+                          <td>{{$addvertise->jalali}}</td>
                       </tr>
                     @endforeach
                     

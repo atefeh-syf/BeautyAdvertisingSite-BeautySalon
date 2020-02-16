@@ -179,7 +179,7 @@
                       <th>نویسنده</th>
                       <th>عملیات</th>
                     </tr>
-                  </thead>
+                  </thead>{{-- 
                   <tfoot>
                     <tr>
                       <th>شماره</th>
@@ -187,31 +187,32 @@
                       <th>نویسنده</th>
                       <th>عملیات</th>
                     </tr>
-                  </tfoot>
+                  </tfoot> --}}
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>مقاله اموزشی</td>
-                      <td>مدیر سایت</td>
-                      <td>
-                        <span>
-                            <a href="#" class="btn btn-success btn-circle btn-sm">
-                                <i class="fas fa-check"></i>
-                            </a>
-                        </span>
-                        <span>
-                            <a href="#" class="btn btn-info btn-circle btn-sm">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </span>
-                        <span>
-                            <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </span>
-                      </td>
-                    </tr>
-                    
+                      @foreach ($article as $atr)
+                          <tr>
+                          <td>{{$atr->id}}</td>
+                          <td> {{$atr->title}}</td>
+                          <td>مدیر سایت</td>
+                          <td>
+                            <span>
+                                <a href="#" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-check"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="btn btn-info btn-circle btn-sm">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </span>
+                          </td>
+                        </tr>
+                      @endforeach 
                     
                   </tbody>
                 </table>
