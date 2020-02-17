@@ -120,8 +120,16 @@ Route::get('/add-cat', 'AdminController@showCategory');
 Route::get('/blog-all', 'AdminController@showArticle');
 Route::post('/blog-add', 'AdminController@blogStore');
 Route::post('/add', 'AdminController@addvertiseStore');
-Route::get('/add/{addvertise}/edit', 'AdminController@edit');
-Route::patch('/add/{addvertise}', 'AdminController@update');
+Route::get('/add/{addvertise}/edit', 'AdminController@addvertiseEdit');
+Route::patch('/add/{addvertise}', 'AdminController@addvertiseUpdate');
+
+Route::get('/blog/{blog}/edit', 'AdminController@blogEdit');
+Route::patch('/blog/{blog}', 'AdminController@blogUpdate');
+
+
+Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
+
+
 
 
 

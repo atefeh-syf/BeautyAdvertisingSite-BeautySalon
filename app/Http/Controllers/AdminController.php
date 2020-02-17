@@ -8,6 +8,7 @@ use App\Comment;
 use App\Category;
 use App\Article;
 use App\User;
+use App\Blog;
 use \Morilog\Jalali\Jalalian;
 
 class AdminController extends Controller
@@ -73,7 +74,8 @@ class AdminController extends Controller
         return view('addvertise-add');
     }
 
-    public function blogStore(Request $request){
+    public function blogStore(Request $request)
+    {
         $this->validate(request(), [
             'title' => 'required',
             'text' => 'required',
@@ -92,23 +94,31 @@ class AdminController extends Controller
     public function showCategory()
     {
         $category = Category::all();
-        return view('addvertise-categories',compact('category',$category));
+        return view('addvertise-categories', compact('category', $category));
     }
-    
+
     public function showArticle()
     {
         $article = Article::all();
-        return view('show-blog',compact('article', $article));
+        return view('show-blog', compact('article', $article));
     }
-    public function edit(Addvertise $addvertise)
+    public function addvertiseEdit(Addvertise $addvertise)
     {
         return view('addvertise-edit', compact('addvertise'));
     }
-    public function update(Addvertise $addvertise)
+    public function addvertiseUpdate(Addvertise $addvertise)
+    {
+    }
+    public function blogEdit(Article $blog)
+    {
+        return view('edit-blog', compact('blog'));
+    }
+    public function blogUpdate(Article $blog)
     {
     }
 
     public function confirm(Addvertise $addvertise)
     {
+       
     }
 }

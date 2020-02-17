@@ -8,17 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  
 
   <title>Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   
   <!-- Custom styles for this template-->
-  <link href="{{asset('css/sb-admin-2.css" rel="stylesheet')}}">
-  <link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-  
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- Tiny MCE-->
+  <script src="https://cdn.tiny.cloud/1/m4e73qfmbf6mj7k75so6if3rk59fz1jj3o97nmkdgwhat5ke/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
 </head>
 
 <body id="page-top">
@@ -40,10 +45,15 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>داشبورد </span></a>
       <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-         <i class="fas fa-newspaper"></i>
+        <i class="fas fa-newspaper"></i>
           <span>آگهی ها</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -56,7 +66,7 @@
         <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-pen"></i>
+          <i class="fas fa-pen"></i>
           <span>نوشته ها</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -65,6 +75,7 @@
             <a class="collapse-item" href="/add-blog">افزودن نوشته</a>
           </div>
         </div>
+      
       
     </ul>
     <!-- End of Sidebar -->
@@ -121,7 +132,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Susan Ahmadi</span>
-                {{-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> --}}
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -151,84 +162,67 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">ویریش آگهی</h1>
+            <h1 class="h3 mb-0 text-gray-800">افزودن نوشته</h1>
           </div>
+
           <!-- Content Row -->
-
-          <div class="row">
-            <div class="col-md-8">
-              <input type="text" class="form-control" placeholder="عنوان آگهی">
-              <textarea class="txt-area">متن آگهی</textarea>
-          </div>
-            <div class="col-md-4">
-              <div class="card mb-4">
-                <div class="card-header">عملیات</div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+          <form action="/blog-add" enctype="multipart/form-data" method="post">
+            @csrf
+            <div class="row">
+              <div class="col-md-8">
+                <input type="text" name="title" class="form-control" placeholder="عنوان نوشته">
+                <input type="text" name="description"  class="form-control" placeholder="توضیح">
+                <textarea class="txt-area"  name="text" placeholder="متن نوشته"></textarea>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4">
+                  <div class="card-header">عملیات</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-flag"></i>
+                          </span>
+                          <span class="text">دخیره پیش نویس</span>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <button type="submit" href="#" class="btn btn-success btn-icon-split btn-sm">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-check"></i>
+                          </span>
+                          <span class="text">انتشار</span>
+                        </button>
+                      </div>
+                      <div class="col-md-8">
+                        <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
                         <span class="icon text-white-50">
-                          <i class="fas fa-flag"></i>
+                          <i class="fas fa-arrow-right"></i>
                         </span>
-                        <span class="text">دخیره پیش نویس</span>
-                      </a>
+                        <span class="text">نمایش نوشته</span>
+                        </a>
+                      </div>
+                      
                     </div>
-                    <div class="col-md-4">
-                      <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-check"></i>
-                        </span>
-                        <span class="text">انتشار</span>
-                      </a>
-                    </div>
-                    <div class="col-md-8">
-                      <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text">نمایش آگهی</span>
-                      </a>
-                    </div>
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <div class="card-header">عکس شاخص</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                      
+                      <input type="file" id="img" name="image" accept="image/*">
+                      </div>
 
-                    
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="card mb-4">
-                <div class="card-header">دسته ها</div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                    <select class="form-control" id="cat" class="cat" name="cat">
-                            
-                            <option value="1">  سالن های زیبایی  </option>
-                            <option value="2">  آموزشگاه های زیبایی  </option>
-                            <option value="3">  خدمات زیبایی  </option>
-                            <option value="4">  لوازم آرایشی و بهداشتی  </option>
-                        </select>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="card mb-4">
-                <div class="card-header">عکس شاخص</div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                    
-                    <input type="file" id="img" name="img" accept="image/*">
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+              
             </div>
-            
-          </div>
-          
+          </form>
 
           
         </div>
@@ -246,24 +240,23 @@
   </a>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{ URL::asset('js/sb-admin-2.min.js')}}"></script>
+  <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  {{-- <script src="{{ URL::asset('vendor/chart.js/Chart.min.js')}}"></script> --}}
-  <script src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 
   <!-- Page level custom scripts -->
-  {{-- <script src="{{ URL::asset('js/demo/chart-area-demo.js')}}"></script> --}}
-  <script src="{{ URL::asset('js/demo/datatables-demo.js')}}"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 
-  
 </body>
 
 </html>

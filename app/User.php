@@ -44,4 +44,10 @@ class User extends Authenticatable
         return $this->hasMany(Addvertise::class)->orderBy('created_at', 'DESC');
     }
     
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class)->orderBy('created_at', 'DESC');
+    }
+    
 }
