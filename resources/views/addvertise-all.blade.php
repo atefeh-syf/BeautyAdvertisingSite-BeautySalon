@@ -178,6 +178,7 @@
                       <th>عنوان </th>
                       <th>استان</th>
                       <th>ثبت کننده</th>
+                      <th>وضعیت</th>
                       <th>عملیات</th>
                       <th>بازدید ها</th>
                       <th>تاریخ ثبت</th>
@@ -211,23 +212,46 @@
                               {{$addvertise->name}}
                           </td>
                           <td>{{$addvertise->ostan}}</td>
-                          <td>{{$addvertise->CustomerName}}</td>
+                          <td>
+                            @if($addvertise->is_admin == 0) 
+                              {{$addvertise->CustomerName}}
+                            @elseif($addvertise->is_admin == 1)
+                              مدیر سایت
+                            @endif
+                          </td>
+                          <td>
+                            @if($addvertise->confirm == 0) 
+                              تایید نشده
+                            @elseif($addvertise->confirm == 1)
+                              تایید شده
+                            @endif
+                          </td>
                           <td>
                           <span>
-                              <a href="#" class="btn btn-success btn-circle btn-sm">
-                                  <i class="fas fa-check"></i>
-                              </a>
+                            @if($addvertise->confirm == 0)
+                              <form action="/confirm/{{$addvertise->id}}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" href="#" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                              </form>
+                            @endif
                           </span>
                           <span>
+                            
                               <a href="/add/{{$addvertise->id}}/edit" class="btn btn-info btn-circle btn-sm">
                                   <i class="fas fa-info-circle"></i>
                               </a>
                           </span>
                           <span>
-                              <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                  <i class="fas fa-trash"></i>
-                              </a>
-                          </span>
+                              <form action="/add/{{$addvertise->id}}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                           </td>
                           <td>1212</td>
                           <td>{{$addvertise->jalali}}</td>

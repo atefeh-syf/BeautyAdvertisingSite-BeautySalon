@@ -122,10 +122,12 @@ Route::post('/blog-add', 'AdminController@blogStore');
 Route::post('/add', 'AdminController@addvertiseStore');
 Route::get('/add/{addvertise}/edit', 'AdminController@addvertiseEdit');
 Route::patch('/add/{addvertise}', 'AdminController@addvertiseUpdate');
+Route::delete('/add/{addvertise}', 'AdminController@addvertiseDestroy');
+
 
 Route::get('/blog/{blog}/edit', 'AdminController@blogEdit');
 Route::patch('/blog/{blog}', 'AdminController@blogUpdate');
-
+Route::delete('/blog/{blog}', 'AdminController@blogDestroy');
 
 Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
 

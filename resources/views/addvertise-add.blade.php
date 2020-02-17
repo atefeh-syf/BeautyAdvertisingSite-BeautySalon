@@ -170,7 +170,7 @@
                 <input type="text" class="form-control" placeholder="عنوان آگهی" name="title">
                 <textarea class="txt-area" name="description" placeholder="متن آگهی"></textarea><br>
                 <textarea class="txt-area" name="address" placeholder="آدرس"></textarea>
-            </div>
+              </div>
               <div class="col-md-4">
                 <div class="card mb-4">
                   <div class="card-header">عملیات</div>

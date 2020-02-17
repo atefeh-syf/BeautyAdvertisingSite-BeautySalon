@@ -178,6 +178,7 @@
                       <th>عنوان </th>
                       <th>نویسنده</th>
                       <th>عملیات</th>
+                      <th>تاریخ ثبت</th>
                     </tr>
                   </thead>{{-- 
                   <tfoot>
@@ -189,28 +190,31 @@
                     </tr>
                   </tfoot> --}}
                   <tbody>
-                      @foreach ($article as $atr)
+                      @foreach ($articles as $atr)
                           <tr>
                           <td>{{$atr->id}}</td>
-                          <td> {{$atr->title}}</td>
+                          <td>{{$atr->title}}</td>
                           <td>مدیر سایت</td>
                           <td>
+                            
                             <span>
-                                <a href="#" class="btn btn-success btn-circle btn-sm">
-                                    <i class="fas fa-check"></i>
-                                </a>
-                            </span>
-                            <span>
-                                <a href="#" class="btn btn-info btn-circle btn-sm">
+                                <a href="/blog/{{$atr->id}}/edit" class="btn btn-info btn-circle btn-sm">
                                     <i class="fas fa-info-circle"></i>
                                 </a>
                             </span>
-                            <span>
-                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+
+                            <form action="/blog/{{$atr->id}}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
                                     <i class="fas fa-trash"></i>
-                                </a>
+                                </button>
+                            </form>
+                            <span>
+                                
                             </span>
                           </td>
+                          <td>{{$atr->jalali}}</td>
                         </tr>
                       @endforeach 
                     

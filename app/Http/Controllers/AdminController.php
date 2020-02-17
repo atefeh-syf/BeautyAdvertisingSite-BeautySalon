@@ -44,8 +44,8 @@ class AdminController extends Controller
             $date = $addvertise->created_at;
             $date = Jalalian::forge($date)->format('Y-m-d');
             $addvertises[$key]['jalali'] = $date;
-            return view('addvertise-all', ['addvertises' => $addvertises]);
         }
+        return view('addvertise-all', ['addvertises' => $addvertises]);
     }
     public function addvertiseStore(Request $request)
     {
@@ -99,8 +99,13 @@ class AdminController extends Controller
 
     public function showArticle()
     {
-        $article = Article::all();
-        return view('show-blog', compact('article', $article));
+        $articles = Article::all();
+        foreach ($articles  as $key => $article) {
+            $date = $article->created_at;
+            $date = Jalalian::forge($date)->format('Y-m-d');
+            $articles[$key]['jalali'] = $date;
+        }
+        return view('show-blog', compact('articles', $articles));
     }
     public function addvertiseEdit(Addvertise $addvertise)
     {
@@ -108,6 +113,27 @@ class AdminController extends Controller
     }
     public function addvertiseUpdate(Addvertise $addvertise)
     {
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'phone' => 'required',
+                'title' => 'required',
+            ]
+        );
+        if (request('image')){
+            $imagePath = request('image')->store('uploads', 'public');
+        }
+        $addvertise->update(array_merge(
+            $data,
+            ['image' => $imagePath]
+        ));
+    
+    }
+    public function addvertiseDestroy(Addvertise $addvertise)
+    {
+        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
+        $addvertiseInfo->delete($addvertiseInfo->id);
+        return redirect('/add-all');
     }
     public function blogEdit(Article $blog)
     {
@@ -115,10 +141,20 @@ class AdminController extends Controller
     }
     public function blogUpdate(Article $blog)
     {
+        
+    }
+    public function blogDestroy(Article $blog)
+    {
+        $blogInfo = Article::findOrFail($blog->id);
+        $blogInfo->delete($blogInfo->id);
+        return redirect('/blog-all');
     }
 
     public function confirm(Addvertise $addvertise)
     {
-       
+        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
+        $addvertiseInfo->confirm ='1';
+        $addvertiseInfo->save();
+        return redirect('/add-all');
     }
 }
