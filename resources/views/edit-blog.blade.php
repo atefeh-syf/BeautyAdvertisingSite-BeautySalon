@@ -12,18 +12,19 @@
   <title>Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!--<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
+  <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
   
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <!-- Tiny MCE-->
-  <script src="https://cdn.tiny.cloud/1/m4e73qfmbf6mj7k75so6if3rk59fz1jj3o97nmkdgwhat5ke/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-    tinymce.init({
-      selector: '#mytextarea'
-    });
-  </script>
+
+  <!--<link href="css/sb-admin-2.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
+
+  <!--<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}">
+
+  
 </head>
 
 <body id="page-top">
@@ -240,22 +241,31 @@
   </a>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!--<script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
+  <script type="text/javascript" src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
+
+  <script type="text/javascript" src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <!--<script src="js/sb-admin-2.min.js"></script>-->
+
+  <script type="text/javascript" src="{{ URL::asset('js/sb-admin-2.min.js') }}"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  
+  <!--<script src="vendor/datatables/jquery.dataTables.min.js"></script>-->
+  <script type="text/javascript" src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/datatables-demo.js"></script>
+  
+  <!--<script src="js/demo/datatables-demo.js"></script>-->
+  <script type="text/javascript" src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
 
 </body>
 
