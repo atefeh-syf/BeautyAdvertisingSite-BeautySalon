@@ -9,6 +9,8 @@ use App\Category;
 use App\Article;
 use App\User;
 use App\Blog;
+use App\Option;
+use DB;
 use \Morilog\Jalali\Jalalian;
 
 class AdminController extends Controller
@@ -18,7 +20,6 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-
     public function index()
     {
         $count = Addvertise::count();
@@ -35,7 +36,7 @@ class AdminController extends Controller
         }
 
         $user_info = auth()->user();
-        return view('adminpage', ['count' => $count, 'count_confim' => $count_confim, 'count_no_confim' => $count_no_confim, 'count_comment' => $count_comment, 'comments' => $comments, 'user_info' => $user_info]);
+        return view('admin.admin-index', ['count' => $count, 'count_confim' => $count_confim, 'count_no_confim' => $count_no_confim, 'count_comment' => $count_comment, 'comments' => $comments, 'user_info' => $user_info]);
     }
     public function showAddvertise()
     {
@@ -45,7 +46,7 @@ class AdminController extends Controller
             $date = Jalalian::forge($date)->format('Y-m-d');
             $addvertises[$key]['jalali'] = $date;
         }
-        return view('addvertise-all', ['addvertises' => $addvertises]);
+        return view('admin.addvertise-all', ['addvertises' => $addvertises]);
     }
     public function addvertiseStore(Request $request)
     {
@@ -71,9 +72,8 @@ class AdminController extends Controller
         $addvertise->confirm = 1;
         $addvertise->is_admin = 1;
         $addvertise->save();
-        return view('addvertise-add');
+        return redirect('');
     }
-
     public function blogStore(Request $request)
     {
         $this->validate(request(), [
@@ -90,13 +90,27 @@ class AdminController extends Controller
         $article->save();
         return view('add-blog');
     }
-
     public function showCategory()
     {
         $category = Category::all();
-        return view('addvertise-categories', compact('category', $category));
+        return view('admin.addvertise-categories', compact('category', $category));
     }
 
+    public function categoryStore(Request $request)
+    {
+        dd('yes');
+        $name = $request->input('name');
+        $title = $request->input('title');
+        $data = array('name' => $name, "title" => $title);
+        // Call insertData() method of Page Model
+        $value = Category::insertData($data);
+        if ($value) {
+            echo $value;
+        } else {
+            echo 0;
+        }
+        exit; 
+    }
     public function showArticle()
     {
         $articles = Article::all();
@@ -105,29 +119,37 @@ class AdminController extends Controller
             $date = Jalalian::forge($date)->format('Y-m-d');
             $articles[$key]['jalali'] = $date;
         }
-        return view('show-blog', compact('articles', $articles));
+        return view('admin.blog-all', compact('articles', $articles));
     }
     public function addvertiseEdit(Addvertise $addvertise)
     {
-        return view('addvertise-edit', compact('addvertise'));
+        return view('admin.addvertise-edit', compact('addvertise'));
     }
-    public function addvertiseUpdate(Addvertise $addvertise)
+    public function addvertiseUpdate(Request $request,$id)
     {
-        $data = request()->validate(
-            [
-                'name' => 'required',
-                'phone' => 'required',
-                'title' => 'required',
-            ]
-        );
-        if (request('image')){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'title' => 'required',
+            'address' => 'required',
+            'cat' => 'required',
+            'ostan' => 'required',
+            'description' => '',
+            'email' => '',
+            'CustomerName' => '',
+            'image' => '',
+        ]);
+
+        if (request('image')) {
             $imagePath = request('image')->store('uploads', 'public');
+            $validatedData = array_merge(
+                $validatedData,
+                ['image' => $imagePath]
+            );
         }
-        $addvertise->update(array_merge(
-            $data,
-            ['image' => $imagePath]
-        ));
-    
+
+        Addvertise::whereId($id)->update($validatedData);
+        return redirect('/add-all');
     }
     public function addvertiseDestroy(Addvertise $addvertise)
     {
@@ -137,11 +159,26 @@ class AdminController extends Controller
     }
     public function blogEdit(Article $blog)
     {
-        return view('edit-blog', compact('blog'));
+        return view('admin.blog-edit', compact('blog'));
     }
-    public function blogUpdate(Article $blog)
+    public function blogUpdate(Request $request,$id)
     {
-        
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'text' => 'required',
+            'description' => '',
+            'image' => '',
+        ]);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('uploads', 'public');
+            $validatedData = array_merge(
+                $validatedData,
+                ['image' => $imagePath]
+            );
+        }
+        Article::whereId($id)->update($validatedData);
+        return redirect('/blog-all');
     }
     public function blogDestroy(Article $blog)
     {
@@ -153,8 +190,55 @@ class AdminController extends Controller
     public function confirm(Addvertise $addvertise)
     {
         $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
-        $addvertiseInfo->confirm ='1';
+        $addvertiseInfo->confirm = '1';
         $addvertiseInfo->save();
         return redirect('/add-all');
     }
+    public function profileEdit(User $user){
+        return view('admin.profile-setting', compact('user'));
+    }
+
+    public function profileUpdate(Request $request, $id){
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => '',
+            'username' => '',
+            'image' => '',
+        ]);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('uploads', 'public');
+            $validatedData = array_merge(
+                $validatedData,
+                ['image' => $imagePath]
+            );
+        }
+        User::whereId($id)->update($validatedData);
+        return redirect('/admin');
+    }
+
+    public function getSetting(){
+        $options=Option::all();
+        $option_news = [];
+        foreach ($options as $option) {
+            $setting = $option['setting'];
+            $value = $option['value'];
+            $option_news[$setting] = $value;
+        }
+        return view('admin.site-setting', compact('option_news'));
+    }
+
+    public function updateSetting(Request $request)
+    {
+
+        $id=[1,2,3,4];
+        DB::table('options')->where('id', $id[0])->where('setting', 'title')->update(['value' => $request->title]);
+        DB::table('options')->where('id', $id[1])->where('setting', 'desc')->update(['value' => $request->desc]);
+        DB::table('options')->where('id', $id[2])->where('setting', 'site')->update(['value' => $request->site]);
+        DB::table('options')->where('id', $id[3])->where('setting', 'email_admin')->update(['value' => $request->email_admin]);
+        return redirect('/setting');
+    }
+
 }
