@@ -6,6 +6,7 @@ use App\Addvertise;
 use App\Comment;
 use Addvertises;
 use App\Article;
+use App\Option;
 use Illuminate\Http\Request;
 
 use Illuminate\Database\Eloquent\Model;
@@ -23,10 +24,43 @@ class addvertisesController extends Controller
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
+
         
-        
+
         return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
         
+    }
+    public function createSpecial()
+    {
+        return view('submitAddSpecial');
+    }
+
+    public function storeSpecial(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'phone' => 'required',
+            'title' => 'required',
+
+        ]);
+        $addvertise = new Addvertise();
+        $addvertise->name = request('name');
+        $addvertise->CustomerName = request('CustomerName');
+        $addvertise->email = request('email');
+        $addvertise->phone = request('phone');
+        $addvertise->title = request('title');
+        $addvertise->cat = $request->input('cat');
+        $addvertise->telegram = request('telegram');
+        $addvertise->insta = request('instagram');
+        $addvertise->address = request('address');
+        $addvertise->ostan = $request->input('ostan');
+        $imagePath = request('image')->store('uploads', 'public');
+        $addvertise->image = $imagePath;
+        $addvertise->confirm = 0;
+        $addvertise->Special = 1;
+        $addvertise->is_admin = 0;
+        $addvertise->save();
+        return redirect('/a/create/special');
     }
     public function search(Request $request){
         $text=request('text');
@@ -71,9 +105,10 @@ class addvertisesController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
         $addvertise->image = $imagePath;
         $addvertise->confirm = 0;
+        $addvertise->Special = 0;
         $addvertise->is_admin = 0;
         $addvertise->save();
-        return view('submitAdd');
+        return redirect('/a/create');
 
 
         /* $request->validate([

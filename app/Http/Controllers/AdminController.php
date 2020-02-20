@@ -233,11 +233,19 @@ class AdminController extends Controller
     public function updateSetting(Request $request)
     {
 
-        $id=[1,2,3,4];
+        $id=[1,2,3,4,5,6,7,8,9,10,11,12];
         DB::table('options')->where('id', $id[0])->where('setting', 'title')->update(['value' => $request->title]);
         DB::table('options')->where('id', $id[1])->where('setting', 'desc')->update(['value' => $request->desc]);
         DB::table('options')->where('id', $id[2])->where('setting', 'site')->update(['value' => $request->site]);
         DB::table('options')->where('id', $id[3])->where('setting', 'email_admin')->update(['value' => $request->email_admin]);
+        DB::table('options')->where('id', $id[4])->where('setting', 'address')->update(['value' => $request->address]);
+        DB::table('options')->where('id', $id[5])->where('setting', 'phon1')->update(['value' => $request->phon1]);
+        DB::table('options')->where('id', $id[6])->where('setting', 'phon2')->update(['value' => $request->phon2]);
+        DB::table('options')->where('id', $id[7])->where('setting', 'tel')->update(['value' => $request->tel]);
+        DB::table('options')->where('id', $id[8])->where('setting', 'insta')->update(['value' => $request->insta]);
+        DB::table('options')->where('id', $id[9])->where('setting', 'linkdin')->update(['value' => $request->linkdin]);
+        DB::table('options')->where('id', $id[10])->where('setting', 'facebook')->update(['value' => $request->facebook]);
+        DB::table('options')->where('id', $id[11])->where('setting', 'youtube')->update(['value' => $request->youtube]);
         return redirect('/setting');
     }
 

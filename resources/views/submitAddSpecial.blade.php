@@ -5,7 +5,7 @@
     <!-- Contact Form Area -->
     <div class="contact-form-area ">
         <div class="contact-text">
-            <h4> ثبت رایگان آگهی </h4>
+            <h4> ثبت آگهی ویژه</h4>
             <p>در این بخش شما میتوانید آگهی آرایشگاه ،آموزشگاه ،فروشگاه لوازم آرایشی و انواع خدمات آرایشی و بهداشتی
                 خود را  به ضورت کاملا رایگان ثبت کنید.
                 پس  تمامی اطلاعات درخواست شده را به درستی ثبت کنید تا مخاطبان عزیز بتوانند به شما دسترسی
@@ -18,7 +18,7 @@
             <div class="contact-form-title">
                 <h6> مشخصات ثبت کننده آگهی </h6>
             </div>
-        <form action="/a" enctype="multipart/form-data" method="post">
+        <form action="/a/special" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-4">

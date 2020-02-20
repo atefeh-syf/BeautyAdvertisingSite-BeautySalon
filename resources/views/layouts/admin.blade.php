@@ -81,6 +81,7 @@
           </button>
 
           <!-- Topbar Search -->
+          <!--
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="جستجو..." aria-label="Search" aria-describedby="basic-addon2">
@@ -91,7 +92,7 @@
               </div>
             </div>
           </form>
-
+           -->
           <!-- Topbar Navbar -->
           <ul class="navbar-nav mr-auto">
 
@@ -117,25 +118,33 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Susan Ahmadi</span>
-                {{-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> --}}
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="margin-top: 11px;margin-left: 8px;">{{   Auth::user()->name  }} </span>
+                @if(Auth::user()->image!='')
+                 
+                  <img class="img-profile rounded-circle" src="{{asset('storage')}}{{'/'}}{{Auth::user()->image}}">
+                @else
+                  <img class="img-profile rounded-circle" src="{{asset('storage/uploads/user.png')}}">
+                @endif
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="admin-profile.html">
+                <a class="dropdown-item" href="/profile/{{Auth::user()->id}}/edit">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   پروفایل
                 </a>
-                <a class="dropdown-item" href="admin-profile-setting.html">
+                <a class="dropdown-item" href="/setting">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  تنظیمات
+                  تنظیمات سایت
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  خروج از حساب کاربری
-                </a>
-              </div>
+                    <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                          خروج از حساب کاربری       
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                </div>
             </li>
 
           </ul>

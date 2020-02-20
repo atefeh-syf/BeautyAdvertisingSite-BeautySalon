@@ -100,11 +100,15 @@ Route::group(['prefix' => 'setting'], function () {
 
 Route::group(['prefix' => 'a'], function () {
     Route::get('/create', 'addvertisesController@create');
+    Route::get('/create/special', 'addvertisesController@createSpecial');
     Route::post('', 'addvertisesController@store');
+    Route::post('/special', 'addvertisesController@storeSpecial');
     Route::get('/{addvertise}', 'addvertisesController@show')->name('addvertise.show');
 });
 
 Route::get('/admin', 'AdminController@index');
+Route::get('/header', 'optionsController@index');
+Route::get('/footer', 'optionsController@index');
 Route::get('/add-all', 'AdminController@showAddvertise');
 Route::get('/add-cat', 'AdminController@showCategory');
 Route::post('/add-addCat', 'AdminController@categoryStore');

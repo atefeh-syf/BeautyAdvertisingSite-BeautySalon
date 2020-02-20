@@ -27,6 +27,7 @@ class Addvertises extends Migration
             $table->string('insta')->nullable();
             $table->string('telegram')->nullable();
             $table->string('confirm')->nullable();
+            $table->string('Special')->nullable();
             $table->string('is_admin')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
