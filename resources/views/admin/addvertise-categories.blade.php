@@ -10,22 +10,30 @@
           <!-- Content Row -->
 
           <div class="row justify-content-center">
-            <div class="col-md-4">
-              <label data-error="wrong" data-success="right">نام دسته</label>
-              <input type="text" id="title" name="title" class="form-control">
+             <form action="/add-addCat" enctype="multipart/form-data" method="post">
+                @csrf
+                <div class="col-md-4">
+                  <label data-error="wrong" data-success="right">نام دسته</label>
+                  <input type="text" id="title" name="title" class="form-control">
 
-              <label data-error="wrong" data-success="right">عنوان</label>
-              <textarea id="name" name="name" class="form-control" cols="30" rows="10"></textarea>
+                  <label data-error="wrong" data-success="right">عنوان</label>
+                  <textarea id="name" name="name" class="form-control" cols="30" rows="10"></textarea>
 
-              <button id="add" value="add" href="#" class="btn btn-success btn-icon-split">
-                <span class="icon text-white-50">
-                  <i class="fas fa-check"></i>
-                </span>
-                <span class="text">افزودن</span>
-              </a>
-            </div>
-            
+                  <button type="submit" id="add" value="add" href="#" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">افزودن</span>
+                  </button>
+                </div>
+              </form>
+              
             <div class="col-md-8">
+               @if (Session::has('message'))
+                <div class="alert alert-success" style="text-align: center;">
+                {{ Session::get('message') }}
+                </div>
+              @endif
               <!-- DataTales Example -->
             <div class="col-xl-12 col-lg-7">
               <div class="card shadow mb-4">
@@ -40,6 +48,7 @@
                     <tr>
                       <th>نام</th>
                       <th>عنوان </th>
+                      <th>عملیات</th>
                     </tr>
                   </thead>
                   {{-- <tfoot>
@@ -54,6 +63,17 @@
                       <tr>
                         <td>{{$cat->name}}</td>
                         <td>{{$cat->title}}</td>
+                        <td>
+                          <span>
+                              <form action="/catdel/{{$cat->id}}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button onclick="return confirm('آیا مطمئن به حذف  این کامنت هستید؟')" type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                          </span>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>

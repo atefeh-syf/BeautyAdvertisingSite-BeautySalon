@@ -65,7 +65,7 @@
                                 @enderror
                     </div>
                     <div class="col-12 col-md-4">
-                        <select class="form-control" id="cat" class="cat" name="cat">
+                        <select class="form-control" id="cat" class="cat" name="cat" required>
                             <option selected disabled>گروه ها</option>
                             <option value="1">  سالن های زیبایی  </option>
                             <option value="2">  آموزشگاه های زیبایی  </option>
@@ -74,7 +74,7 @@
                         </select>
                     </div>
                     <div class="col-12 col-md-4">
-                        <select class="form-control" id="ostan" class="ostan" name="ostan">
+                        <select class="form-control" id="ostan" class="ostan" name="ostan" required>
                             <option selected disabled>استان</option>
                             <option value="آذربایجان شرقی"> آذربایجان شرقی </option>
                             <option value="آذربایجان غربی"> آذربایجان غربی </option>
@@ -151,13 +151,13 @@
                     <div class="col-12 col-md-4">
                             <div class="input-group mb-3">
                                 <div class="custom-file ">
-                                    <input type="file" class="custom-file-input image" id="inputGroupFile02 image" name="image">
+                                    <input type="file" class="custom-file-input image" id="inputGroupFile02 image" name="image" required>
                                     <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">آپلود گالری تصاویر</label>
                                 </div>
                             </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input id="telegram" type="text" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}" required autocomplete="telegram" autofocus placeholder="کانال تلگرام">
+                        <input id="telegram" type="text" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') }}"  autocomplete="telegram" autofocus placeholder="کانال تلگرام">
                                 @error('telegram')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -165,7 +165,7 @@
                                 @enderror
                     </div>
                     <div class="col-12 col-md-6">
-                        <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" required autocomplete="instagram" autofocus placeholder="صفحه اینستاگرام">
+                        <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}"  autocomplete="instagram" autofocus placeholder="صفحه اینستاگرام">
                                 @error('instagram')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -173,7 +173,7 @@
                                 @enderror
                     </div>
                     <div class="col-12">
-                        <textarea name="address" class="form-control" id="Message" cols="30" rows="10" placeholder="آدرس"></textarea>
+                        <textarea name="address" class="form-control" id="Message" cols="30" rows="10" placeholder="آدرس" required></textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn dorne-btn"> ارسال </button>

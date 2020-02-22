@@ -7,7 +7,7 @@
         <!-- Explore Search Form -->
         <div class="explore-search-form">
             <div class="search-sidebar mt-50 mb-30">
-                <input class="search-form-control" type="text" placeholder="کلمه یا متن مورد نظر خود را جستجو کنید " aria-label="Search">
+               {{--  <input class="search-form-control" type="text" placeholder="کلمه یا متن مورد نظر خود را جستجو کنید " aria-label="Search"> --}}
             </div>
             <!-- Sidebar Content -->
             <div class="side-content" id="nav-tabContent">
@@ -62,7 +62,7 @@
                             <div class="feature-content d-flex align-items-center justify-content-between">
                                 <div class="feature-title">
                                     <h5> {{$article->description}} </h5>
-                                    <a> مشاهده مقاله </a>
+                                    <a href="/blog/{{$article->id}}"> مشاهده مقاله </a>
                                 </div>
                                 <div class="feature-favourite">
                                     <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>

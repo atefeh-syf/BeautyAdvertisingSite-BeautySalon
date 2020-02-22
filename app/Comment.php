@@ -17,4 +17,8 @@ class Comment extends Model
     {
         return $this->belongsTo(Addvertise::class)->orderBy('created_at', 'DESC');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

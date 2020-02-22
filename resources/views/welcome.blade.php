@@ -194,7 +194,7 @@
                                 <p>{{-- {{$addvertise->description}} --}}</p>
                             </div>
                             <div class="feature-events-details-btn">
-                                <a href="#">+</a>
+                                <a href="/a/{{$addvertise->id}}">+</a>
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
                 <div class="section-heading text-center">
                     <span></span>
                     <h4> مقالات </h4>
-                    <p> مشاهده آرشیو مقالات > </p>
+                    <a href="/blog"><p> مشاهده آرشیو مقالات > </p></a>
                 </div>
             </div>
         </div>
@@ -222,7 +222,9 @@
                 <div class="features-slides owl-carousel">
                     <!-- Single Features Area -->
                     @foreach ($articles as $article)
+                    
                         <div class="single-features-area">
+                            <a href="/blog/{{$article->id}}">
                             <img src="storage/{{$article->image}}" alt="">
                             <!-- Price -->
                             <div class="price-start">
@@ -237,6 +239,7 @@
                                     <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     @endforeach
                     

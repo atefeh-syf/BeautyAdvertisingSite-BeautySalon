@@ -44,22 +44,46 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                  <textarea class="txt-area" name="description" placeholder="متن آگهی">{{$addvertise->description}}</textarea><br>
-                <textarea class="txt-area" name="address" placeholder="آدرس">{{$addvertise->address}}</textarea>
+                    <div class="form-check form-check-inline">
+                      <label class="container">آگهی ویژه
+                        <input type="radio" checked="checked" name="Special" value="1" {{ $addvertise->Special == 1 ? 'checked' : '' }}>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="container">آگهی رایگان
+                        <input type="radio" name="Special" value="0" {{ $addvertise->Special == 0 ? 'checked' : '' }}>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <input type="text" placeholder="آدرس تلگرام" class="form-control @error('telegram') is-invalid @enderror" name="telegram" value="{{ old('telegram') ?? $addvertise->telegram }}"  autocomplete="telegram" autofocus>
+                      @error('telegram')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                    <input type="text" placeholder="آدرس اینستاگرام" class="form-control @error('insta') is-invalid @enderror" name="insta" value="{{ old('insta') ?? $addvertise->insta }}"  autocomplete="insta" autofocus>
+                      @error('insta')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                    <textarea class="txt-area" name="description" placeholder="متن آگهی">{{$addvertise->description}}</textarea><br>
+                    <textarea class="txt-area" name="address" placeholder="آدرس">{{$addvertise->address}}</textarea>
               </div>
               <div class="col-md-4">
                 <div class="card mb-4">
                   <div class="card-header">عملیات</div>
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-8">
+                      {{-- <div class="col-md-8">
                         <a href="#" class="btn btn-primary btn-icon-split btn-sm">
                           <span class="icon text-white-50">
                             <i class="fas fa-flag"></i>
                           </span>
                           <span class="text">دخیره پیش نویس</span>
                         </a>
-                      </div>
+                      </div> --}}
                       <div class="col-md-4">
                         <button type="submit" href="#" class="btn btn-success btn-icon-split btn-sm">
                           <span class="icon text-white-50">
@@ -69,7 +93,7 @@
                         </button>
                       </div>
                       <div class="col-md-8">
-                        <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                        <a href="/a/{{$addvertise->id}}" class="btn btn-secondary btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                           <i class="fas fa-arrow-right"></i>
                         </span>
@@ -87,7 +111,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-8">
-                      <select class="form-control" id="cat" class="cat" name="cat" selected="{{$addvertise->cat}}">
+                      <select class="form-control" id="cat" class="cat" required name="cat" selected="{{$addvertise->cat}}" >
                               <option value="1" {{ $addvertise->cat == 1 ? 'selected' : '' }}>  سالن های زیبایی  </option>
                               <option value="2" {{ $addvertise->cat == 2 ? 'selected' : '' }}>  آموزشگاه های زیبایی  </option>
                               <option value="3" {{ $addvertise->cat == 3 ? 'selected' : '' }}>  خدمات زیبایی  </option>
@@ -96,7 +120,7 @@
                       </div>
                     <br>
                       <div class="col-12 col-md-4">
-                          <select class="form-control" id="ostan" class="ostan" name="ostan">
+                          <select class="form-control" id="ostan" class="ostan" required name="ostan" >
                               <option selected disabled>استان</option>
                               <option value="آذربایجان شرقی" {{ $addvertise->ostan == 'آذربایجان شرقی'  ? 'selected' : '' }}> آذربایجان شرقی </option>
                               <option value="آذربایجان غربی" {{ $addvertise->ostan == 'آذربایجان غربی' ? 'selected' : '' }}> آذربایجان غربی </option>
@@ -142,7 +166,7 @@
                     <div class="row">
                       <div class="col-md-8">
                       
-                      <input type="file" id="img" src="storage/{{$addvertise->image}}" name="image" accept="image/*">
+                      <input type="file" id="img" value="storage/{{$addvertise->image}}" name="image" accept="image/*" >
                        @if($addvertise->image!='')
                           <img src="/storage/{{$addvertise->image}}" alt="" style="Width:50px;">
                        @endif

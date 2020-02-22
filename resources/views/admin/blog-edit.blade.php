@@ -34,14 +34,14 @@
                     <div class="card-header">عملیات</div>
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-8">
+                        {{-- <div class="col-md-8">
                           <a href="#" class="btn btn-primary btn-icon-split btn-sm">
                             <span class="icon text-white-50">
                               <i class="fas fa-flag"></i>
                             </span>
                             <span class="text">دخیره پیش نویس</span>
                           </a>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4">
                           <button type="submit" href="#" class="btn btn-success btn-icon-split btn-sm">
                             <span class="icon text-white-50">
@@ -51,7 +51,7 @@
                           </button>
                         </div>
                         <div class="col-md-8">
-                          <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                          <a href="/blog/{{$blog->id}}" class="btn btn-secondary btn-icon-split btn-sm">
                           <span class="icon text-white-50">
                             <i class="fas fa-arrow-right"></i>
                           </span>

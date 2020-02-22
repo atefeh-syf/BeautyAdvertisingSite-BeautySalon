@@ -11,7 +11,11 @@
           <!-- Content Row -->
 
           <div class="row justify-content-center">
-
+            @if (Session::has('message'))
+                <div class="alert alert-success">
+                {{ Session::get('message') }}
+                </div>
+            @endif
             <!-- DataTales Example -->
             <div class="col-xl-12 col-lg-7">
               <div class="card shadow mb-4">
@@ -55,7 +59,7 @@
                             <form action="/blog/{{$atr->id}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                <button  onclick="return confirm('آیا مطمئن به حذف این نوشته هستید؟')"    type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>

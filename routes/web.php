@@ -86,6 +86,7 @@ Route::group(['prefix' => 'blog'], function () {
     Route::patch('/{blog}', 'AdminController@blogUpdate');
     Route::delete('/{blog}', 'AdminController@blogDestroy');
     Route::get('', 'articlesController@index');
+    Route::get('/{blog}', 'articlesController@show');
 });
 
 Route::group(['prefix' => 'profile'], function () {
@@ -116,6 +117,9 @@ Route::get('/blog-all', 'AdminController@showArticle');
 Route::post('/blog-add', 'AdminController@blogStore');
 
 Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
+Route::patch('/confirmcmt/{comment}', 'AdminController@confirmComment');
+Route::delete('/cmtdel/{comment}', 'AdminController@commentDestroy');
+Route::delete('/catdel/{category}', 'AdminController@categoryDestroy');
 
 Auth::routes();
 

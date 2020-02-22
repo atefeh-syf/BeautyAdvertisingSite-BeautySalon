@@ -11,7 +11,11 @@
           <!-- Content Row -->
 
           <div class="row justify-content-center">
-
+            @if (Session::has('message'))
+                <div class="alert alert-success">
+                {{ Session::get('message') }}
+                </div>
+            @endif
             <!-- DataTales Example -->
             <div class="col-xl-12 col-lg-7">
               <div class="card shadow mb-4">
@@ -23,10 +27,11 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>شماره</th>
+                      <th>شماره آگهی</th>
                       <th>عنوان </th>
                       <th>استان</th>
-                      <th>ثبت کننده</th>
+                      <th>نام ثبت کننده آگهی</th>
+                      <th> نام مالک</th>
                       <th>وضعیت</th>
                       <th>عملیات</th>
                       <th>بازدید ها</th>
@@ -69,6 +74,9 @@
                             @endif
                           </td>
                           <td>
+                              {{$addvertise->CustomerName}}
+                          </td>
+                          <td>
                             @if($addvertise->confirm == 0) 
                               تایید نشده
                             @elseif($addvertise->confirm == 1)
@@ -81,7 +89,7 @@
                               <form action="/confirm/{{$addvertise->id}}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit" href="#" class="btn btn-success btn-circle btn-sm">
+                                <button  onclick="return confirm('آیا مطمئن به تایید این آگهی هستید؟')"   type="submit" href="#" class="btn btn-success btn-circle btn-sm">
                                     <i class="fas fa-check"></i>
                                 </button>
                               </form>
@@ -97,7 +105,7 @@
                               <form action="/add/{{$addvertise->id}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                <button onclick="return confirm('آیا مطمئن به حذف این آگهی هستید؟')"  type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>

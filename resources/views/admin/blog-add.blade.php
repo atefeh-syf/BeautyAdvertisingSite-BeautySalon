@@ -13,23 +13,23 @@
             @csrf
             <div class="row">
               <div class="col-md-8">
-                <input type="text" name="title" class="form-control" placeholder="عنوان نوشته">
-                <input type="text" name="description"  class="form-control" placeholder="توضیح">
-                <textarea class="txt-area"  name="text" placeholder="متن نوشته"></textarea>
+                <input type="text" name="title" class="form-control" placeholder="عنوان نوشته" required>
+                <input type="text" name="description"  class="form-control" placeholder="توضیح" required>
+                <textarea class="txt-area"  name="text" placeholder="متن نوشته" required></textarea>
               </div>
               <div class="col-md-4">
                 <div class="card mb-4">
                   <div class="card-header">عملیات</div>
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-8">
+                      {{-- <div class="col-md-8">
                         <a href="#" class="btn btn-primary btn-icon-split btn-sm">
                           <span class="icon text-white-50">
                             <i class="fas fa-flag"></i>
                           </span>
                           <span class="text">دخیره پیش نویس</span>
                         </a>
-                      </div>
+                      </div> --}}
                       <div class="col-md-4">
                         <button type="submit" href="#" class="btn btn-success btn-icon-split btn-sm">
                           <span class="icon text-white-50">
@@ -39,7 +39,7 @@
                         </button>
                       </div>
                       <div class="col-md-8">
-                        <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                        <a href="" class="btn btn-secondary btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                           <i class="fas fa-arrow-right"></i>
                         </span>
@@ -56,7 +56,7 @@
                     <div class="row">
                       <div class="col-md-8">
                       
-                      <input type="file" id="img" name="image" accept="image/*">
+                      <input type="file" id="img" name="image" accept="image/*" required>
                       </div>
 
                     </div>

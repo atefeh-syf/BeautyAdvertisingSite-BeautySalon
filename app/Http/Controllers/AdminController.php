@@ -11,6 +11,8 @@ use App\User;
 use App\Blog;
 use App\Option;
 use DB;
+use  Response;
+use Illuminate\Support\Facades\Redirect;
 use \Morilog\Jalali\Jalalian;
 
 class AdminController extends Controller
@@ -62,17 +64,18 @@ class AdminController extends Controller
         $addvertise->phone = request('phone');
         $addvertise->title = request('title');
         $addvertise->cat = $request->input('cat');
-        //$addvertise->telegram = request('telegram');
-        ///$addvertise->insta = request('instagram');
+        $addvertise->telegram = request('telegram');
+        $addvertise->insta = request('instagram');
         $addvertise->address = request('address');
         $addvertise->description = request('description');
         $addvertise->ostan = $request->input('ostan');
+        $addvertise->Special = $request->input('Special');
         $imagePath = request('image')->store('uploads', 'public');
         $addvertise->image = $imagePath;
         $addvertise->confirm = 1;
         $addvertise->is_admin = 1;
         $addvertise->save();
-        return redirect('');
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت  ثبت شد ');
     }
     public function blogStore(Request $request)
     {
@@ -88,7 +91,7 @@ class AdminController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
         $article->image = $imagePath;
         $article->save();
-        return view('add-blog');
+        return redirect('/blog-all')->withMessage(' نوشته شما با موفقیت  ثبت شد ');
     }
     public function showCategory()
     {
@@ -98,7 +101,19 @@ class AdminController extends Controller
 
     public function categoryStore(Request $request)
     {
-        dd('yes');
+        $category = new Category();
+        $category->name = request('name');
+        $category->title = request('title');
+        $category->save();
+        return redirect('/add-cat')->withMessage(' دسته جدید با موفقیت  ثبت شد ');
+       /*  //$productId = $request->product_id;
+        $category   =   Category::updateOrCreate(
+            ['name' => $request->name],
+            ['title' => $request->title]
+        );
+        return Response::json($category);
+ */
+       /*  dd('yes');
         $name = $request->input('name');
         $title = $request->input('title');
         $data = array('name' => $name, "title" => $title);
@@ -109,7 +124,7 @@ class AdminController extends Controller
         } else {
             echo 0;
         }
-        exit; 
+        exit;  */
     }
     public function showArticle()
     {
@@ -138,6 +153,8 @@ class AdminController extends Controller
             'email' => '',
             'CustomerName' => '',
             'image' => '',
+            'insta' => '',
+            'telegram' => '',
         ]);
 
         if (request('image')) {
@@ -149,13 +166,27 @@ class AdminController extends Controller
         }
 
         Addvertise::whereId($id)->update($validatedData);
-        return redirect('/add-all');
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت ویرایش شد ');;
+    }
+    public function commentDestroy(Comment $comment)
+    {
+        $commentInfo = Comment::findOrFail($comment->id);
+        $commentInfo->delete($commentInfo->id);
+        //return redirect('/admin');
+        return redirect('/admin')->withMessage(' کامنت مورد نظر با موفقیت حذف شد ');
+    }
+    public function categoryDestroy(Category $category)
+    {
+        $categoryInfo = Category::findOrFail($category->id);
+        $categoryInfo->delete($categoryInfo->id);
+        //return redirect('/admin');
+        return redirect('/add-cat')->withMessage(' دسته مورد نظر با موفقیت حذف شد ');
     }
     public function addvertiseDestroy(Addvertise $addvertise)
     {
         $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
         $addvertiseInfo->delete($addvertiseInfo->id);
-        return redirect('/add-all');
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت حذف شد ');
     }
     public function blogEdit(Article $blog)
     {
@@ -178,13 +209,13 @@ class AdminController extends Controller
             );
         }
         Article::whereId($id)->update($validatedData);
-        return redirect('/blog-all');
+        return redirect('/blog-all')->withMessage(' نوشته مورد نظر با موفقیت ویرایش شد ');
     }
     public function blogDestroy(Article $blog)
     {
         $blogInfo = Article::findOrFail($blog->id);
         $blogInfo->delete($blogInfo->id);
-        return redirect('/blog-all');
+        return redirect('/blog-all')->withMessage(' نوشته مورد نظر با موفقیت حذف شد ');
     }
 
     public function confirm(Addvertise $addvertise)
@@ -192,7 +223,16 @@ class AdminController extends Controller
         $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
         $addvertiseInfo->confirm = '1';
         $addvertiseInfo->save();
-        return redirect('/add-all');
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت تایید شد ');
+    }
+
+    public function confirmComment(Comment $comment)
+    {
+    
+        $commentInfo = Comment::findOrFail($comment->id);
+        $commentInfo->confirm = '1';
+        $commentInfo->save();
+        return redirect('/admin')->withMessage(' کامنت مورد نظر با موفقیت تایید شد ');
     }
     public function profileEdit(User $user){
         return view('admin.profile-setting', compact('user'));
@@ -216,7 +256,7 @@ class AdminController extends Controller
             );
         }
         User::whereId($id)->update($validatedData);
-        return redirect('/admin');
+        return redirect('/admin')->withMessage(' پروفایل شما با موفقیت ویرایش شد. ');
     }
 
     public function getSetting(){
@@ -246,7 +286,7 @@ class AdminController extends Controller
         DB::table('options')->where('id', $id[9])->where('setting', 'linkdin')->update(['value' => $request->linkdin]);
         DB::table('options')->where('id', $id[10])->where('setting', 'facebook')->update(['value' => $request->facebook]);
         DB::table('options')->where('id', $id[11])->where('setting', 'youtube')->update(['value' => $request->youtube]);
-        return redirect('/setting');
+        return redirect('/admin')->withMessage(' تنظیمات با موفقیت ویرایش شد ');
     }
 
 }

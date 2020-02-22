@@ -16,8 +16,8 @@
                     
                     <ul>
                         
-                       {{--  @foreach ($addvertises as $addvertise)
-                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;">
+                        @foreach ($addvertises as $addvertise)
+                            <a href="/a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;">
                                 @if($addvertise->cat=='1')
                                     سالن زیبایی
                                 @elseif($addvertise->cat == '2')
@@ -29,7 +29,7 @@
                                 @endif
                                 {{$addvertise->name}} 
                             </li></a>
-                        @endforeach --}}
+                        @endforeach
                         
                     </ul>
                 </div>
@@ -39,11 +39,9 @@
                     <h6> نوشته های تازه </h6>
             
                     <ul>
-                       {{--  @foreach ($articles as $article)
-                            <li><a href="#">{{$article->title }}</a></li>
-                        @endforeach --}}
-                        
-                       
+                        @foreach ($articles as $article)
+                            <li><a href="/blog/{{$article->id}}">{{$article->title }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -58,18 +56,14 @@
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
                     
-                    <img src="pic/blog.jpg" class="blog-img">
-                    
+                    <img src="/storage/{{$blog->image}}" class="blog-img">
+                    <br>
                 </div>
                 <div class="col-md-12">
                     <div class="information">
-                        <h4><i class="fas fa-info-circle"></i> عنوان نوشته </h4>
+                        <h4><i class="fas fa-info-circle"></i> {{$blog->title}} </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel
-                            augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat
-                            ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu
-                            felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc
-                            vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur.
+                            {{$blog->text}}
                         </p>
                     </div>
                 </div>

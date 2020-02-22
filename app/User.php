@@ -53,5 +53,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Option::class);
     }
+    public function cantents()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    public function commands()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     
 }
+

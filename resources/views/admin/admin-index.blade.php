@@ -81,6 +81,13 @@
 
           <div class="row justify-content-center">
             <!-- DataTales Example -->
+          
+             @if (Session::has('message'))
+                <div class="alert alert-success">
+                {{ Session::get('message') }}
+                </div>
+            @endif
+          
             <div class="col-xl-12 col-lg-7">
               <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -95,6 +102,8 @@
                       <th>تاریخ </th>
                       <th>ایمیل</th>
                       <th>متن کامنت </th>
+                      <th>وضعیت</th>
+                      <th>عملیات</th>
                     </tr>
                   </thead>
                   {{-- <tfoot>
@@ -112,6 +121,34 @@
                             <td>{{$comment->jalali}}</td>
                             <td>{{$comment->email}}</td>
                             <td>{{$comment->description}}</td>
+                            <td>
+                            @if($comment->confirm == 0) 
+                              تایید نشده
+                            @elseif($comment->confirm == 1)
+                              تایید شده
+                            @endif
+                          </td>
+                          <td>
+                          <span>
+                            @if($comment->confirm == 0)
+                              <form action="/confirmcmt/{{$comment->id}}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button  onclick="return confirm('آیا مطمئن به تایید این کامنت هستید؟')"  type="submit" href="#" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                              </form>
+                            @endif
+                          </span>
+                          <span>
+                              <form action="/cmtdel/{{$comment->id}}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button onclick="return confirm('آیا مطمئن به حذف  این کامنت هستید؟')" type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                          </td>
                         </tr>
                     @endforeach 
                   </tbody>

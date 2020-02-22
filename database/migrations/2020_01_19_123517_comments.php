@@ -22,6 +22,8 @@ class Comments extends Migration
             $table->text('description')->nullable();
             $table->string('confirm');
             $table->timestamps();
+            
+            $table->index('id');
         });
     }
     /**
