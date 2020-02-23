@@ -94,38 +94,47 @@
                             </div>
                         </div>
                         <!-- Single Catagory Area -->
+                        
                         <div class="col-12 col-sm-6 col-md">
+                        <a href="cat/beautyclass">
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.4s">
                                 <div class="catagory-content">
                                     <img src="pic/salon.png" alt="">
-                                    <a href="cat/beautyclass">
+                                    
                                         <h6> آموزشگاه های زیبایی </h6>
-                                    </a>
+                                    
                                 </div>
                             </div>
+                            </a>
                         </div>
+                        
                         <!-- Single Catagory Area -->
                         <div class="col-12 col-sm-6 col-md">
+                        <a href="cat/cosmetic">
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.6s">
                                 <div class="catagory-content">
                                     <img src="pic/makeup.png" alt="">
-                                    <a href="cat/cosmetic">
+                                    
                                         <h6> لوازم آرایشی و بهداشتی </h6>
-                                    </a>
+                                    
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <!-- Single Catagory Area -->
                         <div class="col-12 col-sm-6 col-md">
+                        <a href="cat/beauty_services">
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.8s">
                                 <div class="catagory-content">
                                     <img src="pic/beauty-treatment.png" alt="">
-                                    <a href="cat/beauty_services">
+                                    
                                         <h6> خدمات زیبایی </h6>
-                                    </a>
+                                    
                                 </div>
                             </div>
+                            </a>
                         </div>
+                        
                     </div>
                 </div>
             </div>

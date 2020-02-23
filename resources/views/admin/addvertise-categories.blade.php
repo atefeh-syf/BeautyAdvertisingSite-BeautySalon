@@ -12,7 +12,7 @@
           <div class="row justify-content-center">
              <form action="/add-addCat" enctype="multipart/form-data" method="post">
                 @csrf
-                <div class="col-md-4">
+                <div class="col-md-12">
                   <label data-error="wrong" data-success="right">نام دسته</label>
                   <input type="text" id="title" name="title" class="form-control">
 

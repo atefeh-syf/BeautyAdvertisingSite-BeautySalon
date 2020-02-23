@@ -50,7 +50,7 @@
                           <td>مدیر سایت</td>
                           <td>
                             
-                            <span>
+                            <span style="display: inline;float: right;">
                                 <a href="/blog/{{$atr->id}}/edit" class="btn btn-info btn-circle btn-sm">
                                     <i class="fas fa-info-circle"></i>
                                 </a>
@@ -63,7 +63,7 @@
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
-                            <span>
+                            <span style="display: inline;float: right;">
                                 
                             </span>
                           </td>

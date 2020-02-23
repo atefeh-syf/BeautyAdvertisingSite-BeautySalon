@@ -17,7 +17,7 @@
                     <ul>
                         
                         @foreach ($addvertises as $addvertise)
-                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;height:50px;">
+                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;">
                                 @if($addvertise->cat=='1')
                                     سالن زیبایی
                                 @elseif($addvertise->cat == '2')
@@ -77,11 +77,11 @@
                             <span id="add-span"></span>
                         </div>
                         <p>
-                            <i class="fas fa-map-marker-alt"> </i> آدرس {{$addvertise->cat}} {{$addvertise->name}}:
+                            <i class="fa fa-map-marker-alt"> </i> آدرس {{$addvertise->cat}} {{$addvertise->name}}:
                             <br>
                             {{$addvertise->address}}
                         </p>
-                        <a href="#" class="add-phone"><i class="fas fa-phone"></i> {{$addvertise->phone}} </a>
+                        <a href="#" class="add-phone"><i class="fa fa-phone"></i> {{$addvertise->phone}} </a>
                 
                         <a href="https://t.me/{{$addvertise->telegram}}/" style="display: inline;">
                             <button type="button" class="btn btn-primary tele"> <i class="fa fa-telegram" aria-hidden="true"></i> تلگرام ما </button>
@@ -102,7 +102,7 @@
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
                     <div class="information">
-                        <h4><i class="fas fa-info-circle"></i> درباره {{$addvertise->cat}} {{$addvertise->name}} </h4>
+                        <h4><i class="fa fa-info-circle"></i> درباره {{$addvertise->cat}} {{$addvertise->name}} </h4>
                         <p>
                             {{$addvertise->description}}
                         </p>
@@ -113,28 +113,14 @@
         <div class="col-sm-12 col-xs-12 add-section box-hover d-flex justify-content-center">
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
-                    <h4><i class="fas fa-comment-alt"></i> نظرات کاربران </h4>
-                            @foreach ($comments as $comment)
-                            @if ($comment->banner_id == $addvertise->id && $comment->confirm ==1)
-                                <div class="col-md-7 col-sm-12 col-xs-12">
-                                    <div class="description">
-                                        <p>
-                                            <i class="fas fa-map-marker-alt"> </i>{{$comment->name}} :
-                                            <br>
-                                            {{$comment->description}}
-                                        </p>
-                                    </div>
-                                </div>
-                                @endif
-                            @endforeach
-                    <br>
-                    <p><i class="fas fa-comment"></i> نوشتن دیدگاه جدید </p>
+                    <h4> <i class="fa fa-comment"></i> نوشتن دیدگاه جدید </h4>
+                    <br/>
                     <div class="comments-form">
                         <form action="/c" enctype="multipart/form-data" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="نام و نام خانوادگی">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="نام و نام خانوادگی">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -142,7 +128,7 @@
                                         @enderror
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="ایمیل">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -163,24 +149,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-xs-12 add-section box-hover d-flex justify-content-center">
+        <div class="col-sm-12 col-xs-12 add-section box-hover d-flex">
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
-                    <h4><i class="fas fa-comment-alt"></i> نظرات کاربران </h4>
-                    <br>
-                    <p><i class="fas fa-comment"></i> همه دیدگاه ها </p>
-                    <div class="comments-form">
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">نام و نام خانوادگی</label>
+                    <h4><i class="fa fa-comment-alt"></i> نظرات کاربران </h4>
+                            @foreach ($comments as $comment)
+                            @if ($comment->banner_id == $addvertise->id && $comment->confirm ==1)
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="description">
+                                        <p class="comments">
+                                            <i class="fa fa-map-marker-alt"> </i>{{$comment->name}} 
+                                            <br>
+                                             <span>{{$comment->description}}</span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-12">
-                                    <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="دیدگاه "></textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                                @endif
+                            @endforeach
                 </div>
             </div>
         </div>
@@ -200,20 +185,20 @@
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
-                    <i class="fas fa-user prefix grey-text"></i>
+                    <i class="fa fa-user prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="orangeForm-name">نام کاربری</label>
                     <input type="text" id="orangeForm-name" class="form-control">
 
                 </div>
                 <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <i class="fa fa-envelope prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="orangeForm-email">ایمیل</label>
                     <input type="email" id="orangeForm-email" class="form-control">
 
                 </div>
 
                 <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
+                    <i class="fa fa-lock prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="orangeForm-pass">رمزعبور</label>
                     <input type="password" id="orangeForm-pass" class="form-control">
 

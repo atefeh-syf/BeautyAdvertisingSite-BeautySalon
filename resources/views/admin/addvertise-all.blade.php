@@ -84,7 +84,7 @@
                             @endif
                           </td>
                           <td>
-                          <span>
+                          <span style="display: inline;float: right;">
                             @if($addvertise->confirm == 0)
                               <form action="/confirm/{{$addvertise->id}}" method="POST">
                                 @csrf
@@ -95,13 +95,13 @@
                               </form>
                             @endif
                           </span>
-                          <span>
+                          <span style="display: inline;float: right;">
                             
                               <a href="/add/{{$addvertise->id}}/edit" class="btn btn-info btn-circle btn-sm">
                                   <i class="fas fa-info-circle"></i>
                               </a>
                           </span>
-                          <span>
+                          <span style="display: inline;float: right;">
                               <form action="/add/{{$addvertise->id}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

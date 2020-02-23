@@ -129,7 +129,7 @@
                             @endif
                           </td>
                           <td>
-                          <span>
+                          <span style="display: inline;float: right;">
                             @if($comment->confirm == 0)
                               <form action="/confirmcmt/{{$comment->id}}" method="POST">
                                 @csrf
@@ -140,7 +140,7 @@
                               </form>
                             @endif
                           </span>
-                          <span>
+                          <span style="display: inline;float: right;">
                               <form action="/cmtdel/{{$comment->id}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

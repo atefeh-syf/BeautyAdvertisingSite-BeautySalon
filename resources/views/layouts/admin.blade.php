@@ -40,17 +40,24 @@
 
       <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link" href="/admin">
+         <i class="fas fa-user"></i>
+          <span>داشبرد</span>
+        </a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities">
          <i class="fas fa-newspaper"></i>
           <span>آگهی ها</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/add-all">همه آگهی ها</a>
             <a class="collapse-item" href="/add-form">افزودن آگهی</a>
             <a class="collapse-item" href="/add-cat">دسته ها</a>
           </div>
         </div>
+        </li>
         <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -63,7 +70,7 @@
             <a class="collapse-item" href="/blog-from">افزودن نوشته</a>
           </div>
         </div>
-      
+</li>
     </ul>
     <!-- End of Sidebar -->
 

@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body p-0">
                 <div class="row">
-                    <div class="col-lg-5 d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-lg-block" style="background: url(pic/reg.jpg);background-position: center;background-size: cover;"></div>
                     <div class="col-lg-7">
                         <div class="header">{{ __('ثبت نام') }}</div>
                         <form method="POST" action="{{ route('register') }}">

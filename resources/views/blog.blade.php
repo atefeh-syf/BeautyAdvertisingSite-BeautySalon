@@ -49,7 +49,6 @@
     </div>
     <!-- Explore Map Area -->
     <div class="row explore-add-area mt-30 mb-30 d-md-flex">
-        <div class="row">
             @foreach ($articles as $article)
                 <div class="col-12 col-sm-6 col-lg-4">
                     
@@ -72,7 +71,6 @@
                 </div>
             @endforeach
             
-        </div>
     </div>
 </section>
 <!-- ****** Addvertise Area End ****** -->

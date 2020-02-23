@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="information">
-                        <h4><i class="fas fa-info-circle"></i> {{$blog->title}} </h4>
+                        <h4><i class="fa fa-info-circle"></i> {{$blog->title}} </h4>
                         <p>
                             {{$blog->text}}
                         </p>
