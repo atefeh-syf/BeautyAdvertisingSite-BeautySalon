@@ -45,6 +45,19 @@
                     </ul>
                 </div>
             </div>
+            <div class="side-content" id="nav-tabContent">
+                <div class="add-posts box-hover">
+                    <h6> دسته ها </h6>
+            
+                    <ul>
+                        <li> <a href="/cat/beautysalons"> سالن های زیبایی </a></li>
+                        <li> <a href="/cat/beautyclass"> آموزشگاه های زیبایی </a></li>
+                        <li> <a href="/cat/beauty_services"> خدمات زیبایی </a></li>
+                        <li> <a href="/cat/cosmetic"> لوازم آرایشی و بهداشتی </a></li>
+                        <li> <a href="/blog"> مجله آرایشی </a></li>
+                    </ul>
+                </div>
+            </div>
             
         </div>
 
