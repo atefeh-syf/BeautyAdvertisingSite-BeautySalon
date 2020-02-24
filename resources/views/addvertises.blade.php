@@ -17,6 +17,8 @@
                             آگهی های خدمات زیبایی
                         @elseif($category == 'cosmetic')
                             آگهی های لوازم آرایشی و بهداشتی 
+                        @elseif($category == 'search')
+                            نتیجه جستجو 
                         @else
                             آگهی های استان {{$category}} 
                         @endif

@@ -69,7 +69,8 @@ class addvertisesController extends Controller
         $ostan = $request->input('ostan');
         $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")->orWhere('ostan',"$ostan")->get();
         //return view('welcome')->with(('search'), $searchs);
-        return redirect('/')->with(('search'), $searchs);
+        return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
+    
     }
     
     public function showOstan($ostan,Request $request){

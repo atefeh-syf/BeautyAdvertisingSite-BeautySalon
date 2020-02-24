@@ -11,7 +11,8 @@
                 quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum.
                 Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper,
                 eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam.
-                Lorem ipsum dolor sit amet, consectetur.</p>
+                Lorem ipsum dolor sit amet, consectetur.
+            </p>
                 
             <div class="contact-info d-lg-flex">
                 <div class="single-contact-info">
