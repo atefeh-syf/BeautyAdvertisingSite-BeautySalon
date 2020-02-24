@@ -24,6 +24,13 @@
                 </div>
             </div>
         </div>
+        <span style="width: 100%;text-align: center;display: block;color: #2a2a2a;">
+            @if (Session::has('message'))
+                <div class="alert alert-success" style="display: inline-block;">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
+        </span>
         <div class="contact-form">
             <div class="contact-form-title">
                 <h6> فرم تماس با ما </h6>
@@ -40,7 +47,7 @@
                                 @enderror
                     </div>
                     <div class="col-12 col-md-4">
-                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

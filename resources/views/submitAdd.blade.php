@@ -12,7 +12,15 @@
                 سریع و راحت داشته باشند.
                 با تشکر مدیریت وبسایت 
                 </p>
+                
             <br>
+            <span style="width: 100%;text-align: center;display: block;color: #2a2a2a;">
+                @if (Session::has('message'))
+                <div class="alert alert-success" style="display: inline-block;">
+                {{ Session::get('message') }}
+                </div>
+                @endif
+            </span>
         </div>
         <div class="contact-form">
             <div class="contact-form-title">

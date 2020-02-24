@@ -104,8 +104,9 @@ Route::group(['prefix' => 'a'], function () {
     Route::get('/create/special', 'addvertisesController@createSpecial');
     Route::post('', 'addvertisesController@store');
     Route::post('/special', 'addvertisesController@storeSpecial');
-    Route::get('/{addvertise}', 'addvertisesController@show')->name('addvertise.show');
+    
 });
+Route::get('/a/{addvertise}', 'addvertisesController@show');
 
 Route::get('/admin', 'AdminController@index');
 Route::get('/header', 'optionsController@index');
@@ -127,6 +128,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/c', 'commentsController@store');
 Route::get('/cat/{catname}', 'categoriesController@show');
+Route::get('/ostan/{ostanname}', 'addvertisesController@showOstan');
 
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/create', 'contactController@create');

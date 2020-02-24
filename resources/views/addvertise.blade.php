@@ -16,18 +16,18 @@
                     
                     <ul>
                         
-                        @foreach ($addvertises as $addvertise)
-                            <a href="a/{{$addvertise->id}}"><li><img src="/storage/{{$addvertise->image}}" style="width:75px;">
-                                @if($addvertise->cat=='1')
+                        @foreach ($addvertises as $addver)
+                            <a href="/a/{{$addver->id}}"><li><img src="/storage/{{$addver->image}}" style="width:75px;">
+                                @if($addver->cat=='1')
                                     سالن زیبایی
-                                @elseif($addvertise->cat == '2')
+                                @elseif($addver->cat == '2')
                                     آموزشگاه زیبایی
-                                @elseif($addvertise->cat== '3')
+                                @elseif($addver->cat== '3')
                                     کلینیک زیبایی 
-                                @elseif($addvertise->cat == '4')
+                                @elseif($addver->cat == '4')
                                     فروشگاه آرایشی 
                                 @endif
-                                {{$addvertise->name}} 
+                                {{$addver->name}} 
                             </li></a>
                         @endforeach
                         
@@ -40,7 +40,7 @@
             
                     <ul>
                         @foreach ($articles as $article)
-                            <li><a href="#">{{$article->title }}</a></li>
+                            <li><a href="/blog/{{$article->id}}">{{$article->title }}</a></li>
                         @endforeach
                         
                        
@@ -56,7 +56,7 @@
                         <li> <a href="/cat/beautyclass"> آموزشگاه های زیبایی </a></li>
                         <li> <a href="/cat/beauty_services"> خدمات زیبایی </a></li>
                         <li> <a href="/cat/cosmetic"> لوازم آرایشی و بهداشتی </a></li>
-                        <li> <a href="#"> مجله آرایشی </a></li>
+                        <li> <a href="/blog"> مجله آرایشی </a></li>
                     </ul>
                 </div>
             </div>
@@ -73,11 +73,31 @@
                 <div class="col-md-7 col-sm-12 col-xs-12">
                     <div class="description">
                         <div class="section-heading dark justify-content-center">
-                            <h3>{{$addvertise->cat}} {{$addvertise->name}} </h3>
+                            <h3>
+                                @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                @elseif($addvertise->cat == '2')
+                                    آموزشگاه زیبایی
+                                @elseif($addvertise->cat== '3')
+                                    کلینیک زیبایی 
+                                @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی 
+                                @endif
+                                {{$addvertise->name}} </h3>
                             <span id="add-span"></span>
                         </div>
                         <p>
-                            <i class="fa fa-map-marker-alt"> </i> آدرس {{$addvertise->cat}} {{$addvertise->name}}:
+                            <i class="fa fa-map-marker-alt"> </i> آدرس 
+                                @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                @elseif($addvertise->cat == '2')
+                                    آموزشگاه زیبایی
+                                @elseif($addvertise->cat== '3')
+                                    کلینیک زیبایی 
+                                @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی 
+                                @endif
+                                {{$addvertise->name}}:
                             <br>
                             {{$addvertise->address}}
                         </p>
@@ -102,7 +122,18 @@
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
                     <div class="information">
-                        <h4><i class="fa fa-info-circle"></i> درباره {{$addvertise->cat}} {{$addvertise->name}} </h4>
+                        <h4><i class="fa fa-info-circle"></i> درباره 
+                                @if($addvertise->cat=='1')
+                                    سالن زیبایی
+                                @elseif($addvertise->cat == '2')
+                                    آموزشگاه زیبایی
+                                @elseif($addvertise->cat== '3')
+                                    کلینیک زیبایی 
+                                @elseif($addvertise->cat == '4')
+                                    فروشگاه آرایشی 
+                                @endif
+                                {{$addvertise->name}}
+                        </h4>
                         <p>
                             {{$addvertise->description}}
                         </p>
@@ -113,6 +144,13 @@
         <div class="col-sm-12 col-xs-12 add-section box-hover d-flex justify-content-center">
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
+                    <span style="width: 100%;text-align: center;display: block;color: #2a2a2a;">
+                        @if (Session::has('message'))
+                        <div class="alert alert-success" style="display: inline-block;">
+                        {{ Session::get('message') }}
+                        </div>
+                        @endif
+                    </span>
                     <h4> <i class="fa fa-comment"></i> نوشتن دیدگاه جدید </h4>
                     <br/>
                     <div class="comments-form">
@@ -152,20 +190,28 @@
         <div class="col-sm-12 col-xs-12 add-section box-hover d-flex">
             <div class="row d-md-flex justify-content-center">
                 <div class="col-md-12">
-                    <h4><i class="fa fa-comment-alt"></i> نظرات کاربران </h4>
-                            @foreach ($comments as $comment)
-                            @if ($comment->banner_id == $addvertise->id && $comment->confirm ==1)
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="description">
-                                        <p class="comments">
-                                            <i class="fa fa-map-marker-alt"> </i>{{$comment->name}} 
-                                            <br>
-                                             <span>{{$comment->description}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                @endif
-                            @endforeach
+                    
+                        <h4><i class="fa fa-comment-alt"></i> نظرات کاربران </h4>
+                        
+                            @if(count($comments)==0)
+                                <h6 style="margin-right: 52px;margin-top: 52px;;text-align: center;">
+                                    هیچ نظری برای نمایش وجود ندارد  
+                                </h6>
+                            @else
+                                @foreach ($comments as $comment)
+                                    
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="description">
+                                                <p class="comments">
+                                                    <i class="fa fa-map-marker-alt"> </i>{{$comment->name}} 
+                                                    <br>
+                                                    <span>{{$comment->description}}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    
+                                @endforeach
+                            @endif
                 </div>
             </div>
         </div>

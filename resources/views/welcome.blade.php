@@ -182,23 +182,25 @@
                             <div class="feature-events-thumb">
                                 <img src="storage/{{$addvertise->image}}" alt="">
                                 <div class="date-map-area d-flex">
-                                    <a href="#">  {{$addvertise->jalali}}</a>
-                                    <a href="#"><img src="pic/map.png" alt=""></a>
+                                    <a style="color:#fff;text-ali">{{$addvertise->jalali}}</a>
+                                    <a><img src="pic/map.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="feature-events-content">
-                                <h5>
-                                    @if($addvertise->cat=='1')
-                                    سالن زیبایی
-                                    @elseif($addvertise->cat== '2')
-                                        آموزشگاه زیبایی
-                                    @elseif($addvertise->cat == '3')
-                                        کلینیک زیبایی
-                                    @elseif($addvertise->cat == '4')
-                                    فروشگاه آرایشی
-                                    @endif
-                                    {{$addvertise->name}}
-                                </h5>
+                                <a href="/a/{{$addvertise->id}}">
+                                    <h5>
+                                        @if($addvertise->cat=='1')
+                                        سالن زیبایی
+                                        @elseif($addvertise->cat== '2')
+                                            آموزشگاه زیبایی
+                                        @elseif($addvertise->cat == '3')
+                                            کلینیک زیبایی
+                                        @elseif($addvertise->cat == '4')
+                                        فروشگاه آرایشی
+                                        @endif
+                                        {{$addvertise->name}}
+                                    </h5>
+                                </a>
                                 <h6>{{$addvertise->ostan}}</h6>
                                 <p>{{-- {{$addvertise->description}} --}}</p>
                             </div>
@@ -225,7 +227,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <div class="features-slides owl-carousel">

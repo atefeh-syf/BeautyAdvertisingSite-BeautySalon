@@ -49,60 +49,60 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> گروه ها <i class="fa fa-angle-down"
                                                 aria-hidden="true"></i></a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="cat/beautysalons"> سالن های زیبایی </a>
-                                            <a class="dropdown-item" href="cat/beautyclass"> آموزشگاه های زیبایی </a>
-                                            <a class="dropdown-item" href="cat/beauty_services"> خدمات زیبایی </a>
-                                            <a class="dropdown-item" href="cat/cosmetic"> لوازم آرایشی و بهداشتی </a>
+                                            <a class="dropdown-item" href="/cat/beautysalons"> سالن های زیبایی </a>
+                                            <a class="dropdown-item" href="/cat/beautyclass"> آموزشگاه های زیبایی </a>
+                                            <a class="dropdown-item" href="/cat/beauty_services"> خدمات زیبایی </a>
+                                            <a class="dropdown-item" href="/cat/cosmetic"> لوازم آرایشی و بهداشتی </a>
                                         </div>
                                     </li>
-                                    <!-- <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> استان ها <i class="fa fa-angle-down"
                                                 aria-hidden="true"></i></a>
                                         <div class="dropdown-menu dropdown-multicol2" aria-labelledby="navbarDropdown2">
                                             <div class="dropdown-col">
-                                                <a class="dropdown-item" href="#"> آذربایجان شرقی </a>
-                                                <a class="dropdown-item" href="#"> آذربایجان غربی </a>
-                                                <a class="dropdown-item" href="#"> اردبیل </a>
-                                                <a class="dropdown-item" href="#"> اصفهان </a>
-                                                <a class="dropdown-item" href="#"> البرز </a>
-                                                <a class="dropdown-item" href="#"> ایلام </a>
-                                                <a class="dropdown-item" href="#"> بوشهر </a>
-                                                <a class="dropdown-item" href="#"> تهران </a>
-                                                <a class="dropdown-item" href="#"> چهارمحال و بختیاری </a>
-                                                <a class="dropdown-item" href="#"> خراسان جنوبی </a>
+                                                <a class="dropdown-item" href="/ostan/آذربایجان شرقی"> آذربایجان شرقی </a>
+                                                <a class="dropdown-item" href="/ostan/آذربایجان غربی"> آذربایجان غربی </a>
+                                                <a class="dropdown-item" href="/ostan/اردبیل"> اردبیل </a>
+                                                <a class="dropdown-item" href="/ostan/اصفهان"> اصفهان </a>
+                                                <a class="dropdown-item" href="/ostan/البرز"> البرز </a>
+                                                <a class="dropdown-item" href="/ostan/ایلام"> ایلام </a>
+                                                <a class="dropdown-item" href="/ostan/بوشهر"> بوشهر </a>
+                                                <a class="dropdown-item" href="/ostan/تهران"> تهران </a>
+                                                <a class="dropdown-item" href="/ostan/چهارمحال و بختیاری"> چهارمحال و بختیاری </a>
+                                                <a class="dropdown-item" href="/ostan/خراسان جنوبی"> خراسان جنوبی </a>
                                                 
                                             </div>
                                             <div class="dropdown-col">
-                                                <a class="dropdown-item" href="#"> خراسان رضوی </a>
-                                                <a class="dropdown-item" href="#"> خراسان شمالی </a>
-                                                <a class="dropdown-item" href="#"> خوزستان </a>
-                                                <a class="dropdown-item" href="#"> زنجان </a>
-                                                <a class="dropdown-item" href="#"> سمنان </a>
-                                                <a class="dropdown-item" href="#"> سیستان و بلوچستان </a>
-                                                <a class="dropdown-item" href="#"> فارس </a>
-                                                <a class="dropdown-item" href="#"> قزوین </a>
-                                                <a class="dropdown-item" href="#"> قم </a>
-                                                <a class="dropdown-item" href="#"> کردستان </a>
+                                                <a class="dropdown-item" href="/ostan/خراسان رضوی"> خراسان رضوی </a>
+                                                <a class="dropdown-item" href="/ostan/خراسان شمالی"> خراسان شمالی </a>
+                                                <a class="dropdown-item" href="/ostan/خوزستان"> خوزستان </a>
+                                                <a class="dropdown-item" href="/ostan/زنجان"> زنجان </a>
+                                                <a class="dropdown-item" href="/ostan/سمنان"> سمنان </a>
+                                                <a class="dropdown-item" href="/ostan/سیستان و بلوچستان"> سیستان و بلوچستان </a>
+                                                <a class="dropdown-item" href="/ostan/فارس"> فارس </a>
+                                                <a class="dropdown-item" href="/ostan/قزوین"> قزوین </a>
+                                                <a class="dropdown-item" href="/ostan/قم"> قم </a>
+                                                <a class="dropdown-item" href="/ostan/کردستان"> کردستان </a>
                                                 
                                                 
                                                 
                                             </div>
                                             <div class="dropdown-col ">
-                                                <a class="dropdown-item" href="#"> کرمان </a>
-                                                <a class="dropdown-item" href="#"> کهگیلویه و بویراحمد </a>
-                                                <a class="dropdown-item" href="#"> گلستان </a>
-                                                <a class="dropdown-item" href="#"> گیلان </a>
-                                                <a class="dropdown-item" href="#"> لرستان </a>
-                                                <a class="dropdown-item" href="#"> مازندران </a>
-                                                <a class="dropdown-item" href="#"> مرکزی </a>
-                                                <a class="dropdown-item" href="#"> هرمزگان </a>
-                                                <a class="dropdown-item" href="#"> همدان </a>
-                                                <a class="dropdown-item" href="#"> یزد </a>
+                                                <a class="dropdown-item" href="کرمان"> کرمان </a>
+                                                <a class="dropdown-item" href="کهگیلویه و بویراحمد"> کهگیلویه و بویراحمد </a>
+                                                <a class="dropdown-item" href="گلستان"> گلستان </a>
+                                                <a class="dropdown-item" href="گیلان"> گیلان </a>
+                                                <a class="dropdown-item" href="لرستان"> لرستان </a>
+                                                <a class="dropdown-item" href="مازندران"> مازندران </a>
+                                                <a class="dropdown-item" href="مرکزی"> مرکزی </a>
+                                                <a class="dropdown-item" href="هرمزگان"> هرمزگان </a>
+                                                <a class="dropdown-item" href="همدان"> همدان </a>
+                                                <a class="dropdown-item" href="یزد"> یزد </a>
 
                                             </div>
                                         </div>
-                                    </li>-->
+                                    </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/blog"> مجله آرایشی </a>
                                     </li>

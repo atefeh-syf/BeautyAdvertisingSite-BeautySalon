@@ -20,7 +20,7 @@ class addvertisesController extends Controller
         $addvertises = Addvertise::paginate(6);
         foreach ($addvertises  as $key => $addvertise) {
             $date = $addvertise->created_at;
-            $date = Jalalian::forge($date)->format('Y-m-d');
+            $date = Jalalian::forge($date)->format('%d %B');
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
@@ -60,7 +60,8 @@ class addvertisesController extends Controller
         $addvertise->Special = 1;
         $addvertise->is_admin = 0;
         $addvertise->save();
-        return redirect('/a/create/special');
+        return redirect('/a/create/special')->withMessage(' آگهی شما با موفقیت ثبت شد پس از تایید مدیر سایت نمایش داده می شود ');
+
     }
     public function search(Request $request){
         $text=request('text');
@@ -70,12 +71,22 @@ class addvertisesController extends Controller
         //return view('welcome')->with(('search'), $searchs);
         return redirect('/')->with(('search'), $searchs);
     }
+    
+    public function showOstan($ostan,Request $request){
+        //$ostan = $request->input('ostan');
+        $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();
+        //return view('welcome')->with(('search'), $searchs);
+        
+        return view('addvertises', ['addvertises' => $addvertises, 'category' => $ostan]);
+    }
     public function show(Addvertise $addvertise)
     {
-        $comments = Comment::all();
+        $baner_id= $addvertise->id;
+        $comments = Comment::query()->where('banner_id', "$baner_id")->where('confirm', "1")->get();
         $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");
         $articles = Article::paginate(5)->sortByDesc("created_at");
-        return view('addvertise', compact(['addvertise', 'comments', 'addvertises', 'articles']));
+
+        return view('addvertise', compact(['addvertises', 'comments','addvertise' , 'articles']));
     }
 
     public function create()
@@ -108,32 +119,6 @@ class addvertisesController extends Controller
         $addvertise->Special = 0;
         $addvertise->is_admin = 0;
         $addvertise->save();
-        return redirect('/a/create');
-
-
-        /* $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-        $input = $request->all();
-        $student = Addvertise::create($input); */
-
-        /* $data = request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-        $data['ostan'] = request()->input('ostan');
-        Addvertise::create($data);
- */
-
-        /* Addvertise::create([
-            'name'=>$data['name'],
-            'title'=>$data['name'],
-            'phone'=>$data['phone'],
-            'ostan' => $city,
-        ]); */
-        //return redirect('/');
-        //$addvertises = Addvertise::create($request->all());
-        //dd($request->all());
+        return redirect('/a/create')->withMessage(' آگهی شما با موفقیت ثبت شد پس از تایید مدیر سایت نمایش داده می شود ');
     }
 }

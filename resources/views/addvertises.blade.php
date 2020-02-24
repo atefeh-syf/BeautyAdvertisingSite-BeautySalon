@@ -17,6 +17,8 @@
                             آگهی های خدمات زیبایی
                         @elseif($category == 'cosmetic')
                             آگهی های لوازم آرایشی و بهداشتی 
+                        @else
+                            آگهی های استان {{$category}} 
                         @endif
                     </h4>
                     <span></span>
@@ -25,38 +27,46 @@
         </div>
         <div class="row">
             <!-- Single Features Area -->
-            @foreach ($addvertises as $addvertise)
-            @if($addvertise->confirm=='1')
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-features-area mb-50">
-                        <img src="/storage/{{$addvertise->image}}" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p> @if($addvertise->cat=='1')
-                                    سالن زیبایی
-                                @elseif($addvertise->cat == '2')
-                                    آموزشگاه زیبایی
-                                @elseif($addvertise->cat== '3')
-                                    کلینیک زیبایی 
-                                @elseif($addvertise->cat == '4')
-                                    فروشگاه لوازم آرایشی بهداشتی
-                                @endif
-                                {{$addvertise->name}} 
-                    </p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5>{{$addvertise->address}}</h5>
-                                <a href="/a/{{$addvertise->id}}"> مشاهده آگهی </a>
+            @if(count($addvertises)>0)
+                @foreach ($addvertises as $addvertise)
+                    @if($addvertise->confirm=='1')
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-features-area mb-50">
+                                <img src="/storage/{{$addvertise->image}}" alt="">
+                                <!-- Price -->
+                                <div class="price-start">
+                                    <p> @if($addvertise->cat=='1')
+                                            سالن زیبایی
+                                        @elseif($addvertise->cat == '2')
+                                            آموزشگاه زیبایی
+                                        @elseif($addvertise->cat== '3')
+                                            کلینیک زیبایی 
+                                        @elseif($addvertise->cat == '4')
+                                            فروشگاه لوازم آرایشی بهداشتی
+                                        @endif
+                                        {{$addvertise->name}}
+                            </p>
+                                </div>
+                                <div class="feature-content d-flex align-items-center justify-content-between">
+                                    <div class="feature-title">
+                                        <h5>{{$addvertise->address}}</h5>
+                                        <a href="/a/{{$addvertise->id}}"> مشاهده آگهی </a>
+                                    </div>
+                                    <div class="feature-favourite">
+                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            @else
+                
+                    <h6 style="width: 100%;text-align: center;">
+                    هیچ آگهی برای نمایش وجود ندارد
+                    </h6>
+                
+            @endif
         </div>
     </div>
 </section>

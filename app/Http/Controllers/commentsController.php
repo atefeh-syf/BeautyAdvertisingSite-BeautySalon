@@ -11,8 +11,6 @@ class commentsController extends Controller
     //
     public function store(Request $request)
     {
-        
-        //$addvertise = Addvertise::findOrFail($request->banner_id);
         $comment = new Comment();
         $comment->banner_id = request('banner_id');
         $comment->name = request('name');
@@ -20,6 +18,7 @@ class commentsController extends Controller
         $comment->description = request('message');
         $comment->confirm = 0;
         $comment->save();
+        return redirect('/a' .'/'.$comment->banner_id)->withMessage(' کامنت شما با موفقیت ثبت و بعد از تایید مدیر سایت نمایش داده میشود ');
     }
     
 }

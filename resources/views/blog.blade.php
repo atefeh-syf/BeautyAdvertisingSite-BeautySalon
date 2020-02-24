@@ -39,7 +39,7 @@
                     <h6> نوشته های تازه </h6>
                     <ul>
                         @foreach ($arts as $art)
-                            <li><a href="#">{{$art->title }}</a></li>
+                            <li><a href="/blog/{{$art->id}}">{{$art->title }}</a></li>
                         @endforeach
                     </ul>
                 </div>

@@ -5,6 +5,7 @@
     <!-- Contact Form Area -->
     <div class="contact-form-area ">
         <div class="contact-text">
+           
             <h4> ثبت آگهی ویژه</h4>
             <p>در این بخش شما میتوانید آگهی آرایشگاه ،آموزشگاه ،فروشگاه لوازم آرایشی و انواع خدمات آرایشی و بهداشتی
                 خود را  به ضورت کاملا رایگان ثبت کنید.
@@ -12,7 +13,15 @@
                 سریع و راحت داشته باشند.
                 با تشکر مدیریت وبسایت 
                 </p>
-            <br>
+            <br> 
+            
+            <span style="width: 100%;text-align: center;display: block;color: #2a2a2a;">
+                @if (Session::has('message'))
+                <div class="alert alert-success" style="display: inline-block;">
+                {{ Session::get('message') }}
+                </div>
+                @endif
+            </span>
         </div>
         <div class="contact-form">
             <div class="contact-form-title">

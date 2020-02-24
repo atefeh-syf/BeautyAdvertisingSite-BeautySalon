@@ -20,7 +20,7 @@ class contactController extends Controller
         $contact->title = request('subject');
         $contact->description = request('message');
         $contact->save();
-        return view('contact');
+        return redirect('/contact')->withMessage(' نظر ،انتقاد و پیشنهاد شما با موفقیت ثبت شد ');
 
     }
 
