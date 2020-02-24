@@ -99,7 +99,7 @@
                   <thead>
                     <tr>
                       <th>نام فرستنده</th>
-                      <th>تاریخ </th>
+                      <th>تاریخ ارسال </th>
                       <th>ایمیل</th>
                       <th>متن کامنت </th>
                       <th>وضعیت</th>
@@ -109,7 +109,7 @@
                   {{-- <tfoot>
                     <tr>
                       <th>نام فرستنده</th>
-                      <th>تاریخ </th>
+                      <th>تاریخ ارسال </th>
                       <th>ایمیل</th>
                       <th>متن کامنات </th>
                     </tr>
@@ -160,6 +160,52 @@
             
             
 
+          </div>
+          <!-- Content Row -->
+
+          <div class="row justify-content-center">
+            <!-- DataTales Example -->
+            <div class="col-xl-12 col-lg-7">
+              <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">فرم تماس با ما</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>نام فرستنده</th>
+                      <th>ایمیل فرستنده </th>
+                      <th>موضوع</th>
+                      <th>متن پیام </th>
+                      <th>تاریخ ارسال </th>
+                      <th>عملیات </th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>نام فرستنده</th>
+                      <th>ایمیل فرستنده </th>
+                      <th>موضوع</th>
+                      <th>متن پیام </th>
+                      <th>تاریخ ارسال </th>
+                      <th>عملیات </th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>علی عظیمی</td>
+                      <td>98/8/12</td>
+                      <td>aliazimi@live.com</td>
+                      <td>خیلی عالی بود</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- /.container-fluid -->

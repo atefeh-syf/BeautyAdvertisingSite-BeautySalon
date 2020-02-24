@@ -41,7 +41,7 @@
       <!-- Nav Item - Blog Menu -->
       <li class="nav-item">
         <a class="nav-link" href="/admin">
-         <i class="fas fa-user"></i>
+        <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>داشبرد</span>
         </a>
         </li>
