@@ -101,7 +101,7 @@
                             <br>
                             {{$addvertise->address}}
                         </p>
-                        <a href="#" class="add-phone"><i class="fa fa-phone"></i> {{$addvertise->phone}} </a>
+                        <a href="tel:09124337947" class="add-phone"><i class="fa fa-phone"></i> {{$addvertise->phone}} </a>
                 
                         <a href="https://t.me/{{$addvertise->telegram}}/" style="display: inline;">
                             <button type="button" class="btn btn-primary tele"> <i class="fa fa-telegram" aria-hidden="true"></i> تلگرام ما </button>

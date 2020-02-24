@@ -84,14 +84,16 @@
                     <div class="row">
                         <!-- Single Catagory Area -->
                         <div class="col-12 col-sm-6 col-md">
+                        <a href="cat/beautysalons">
                             <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.2s">
                                 <div class="catagory-content">
                                     <img src="pic/facial-treatment.png" alt="">
-                                    <a href="cat/beautysalons">
+                                    
                                         <h6> سالن های زیبایی </h6>
-                                    </a>
+                                    
                                 </div>
                             </div>
+                        </a>
                         </div>
                         <!-- Single Catagory Area -->
                         
