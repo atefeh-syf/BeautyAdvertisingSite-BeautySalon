@@ -22,7 +22,7 @@ class Addvertise extends Model
     }
     public function category()
     {
-        return $this->belongsTo(Category::class)->orderBy('created_at', 'DESC');;
+        return $this->hasOne(Category::class);
     }
 
     

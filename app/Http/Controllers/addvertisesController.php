@@ -24,12 +24,10 @@ class addvertisesController extends Controller
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
-
-        
-
         return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
         
     }
+    
     public function createSpecial()
     {
         return view('submitAddSpecial');
@@ -68,25 +66,21 @@ class addvertisesController extends Controller
         $cat = $request->input('cat');
         $ostan = $request->input('ostan');
         $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")->orWhere('ostan',"$ostan")->get();
-        //return view('welcome')->with(('search'), $searchs);
         return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
     
     }
     
     public function showOstan($ostan,Request $request){
-        //$ostan = $request->input('ostan');
         $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();
-        //return view('welcome')->with(('search'), $searchs);
-        
         return view('addvertises', ['addvertises' => $addvertises, 'category' => $ostan]);
     }
+
     public function show(Addvertise $addvertise)
     {
         $baner_id= $addvertise->id;
         $comments = Comment::query()->where('banner_id', "$baner_id")->where('confirm', "1")->get();
         $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");
         $articles = Article::paginate(5)->sortByDesc("created_at");
-
         return view('addvertise', compact(['addvertises', 'comments','addvertise' , 'articles']));
     }
 
