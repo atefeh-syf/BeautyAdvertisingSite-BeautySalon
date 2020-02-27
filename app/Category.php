@@ -9,7 +9,7 @@ class Category extends Model
     //
     public function addvertises()
     {
-        return $this->belongsTo('App\Addvertise', 'cat')->orderBy('created_at', 'DESC');;
+        return $this->belongsTo('App\Addvertise', 'cat')->orderBy('created_at', 'DESC');
     }
 
     public function user()

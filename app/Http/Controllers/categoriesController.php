@@ -23,13 +23,16 @@ class categoriesController extends Controller
         } elseif ($Category == 'cosmetic') {
             $Category_id = '4';
         }
+
         if ($Category_id == '') {
             $addvertises = Addvertise::paginate(12)->sortByDesc("created_at");
             //return view('addvertises', ['addvertises' => $addvertises]);
         } else {
             $category = Category::findOrFail($Category_id);
             if ($category !== null) {
-                $addvertises = $category->addvertises->sortByDesc("created_at");;
+                //dd(Addvertise::query()->where('cat',"$Category_id")->get());
+                //$addvertises = $category->addvertises->sortByDesc("created_at");
+                $addvertises = Addvertise::query()->where('cat', "$Category_id")->get();
             }
         }
         return view('addvertises', ['addvertises' => $addvertises, 'category' => $Category]);

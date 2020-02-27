@@ -235,7 +235,9 @@ class AdminController extends Controller
     public function profileEdit(User $user){
         return view('admin.profile-setting', compact('user'));
     }
+
     public function profileUpdate(Request $request, $id){
+
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -243,6 +245,7 @@ class AdminController extends Controller
             'username' => '',
             'image' => '',
         ]);
+
         if (request('image')) {
             $imagePath = request('image')->store('uploads', 'public');
             $validatedData = array_merge(
@@ -254,7 +257,6 @@ class AdminController extends Controller
         return redirect('/admin')->withMessage(' پروفایل شما با موفقیت ویرایش شد. ');
     }
 
-
     public function getSetting(){
         $options=Option::all();
         $option_news = [];
@@ -265,8 +267,10 @@ class AdminController extends Controller
         }
         return view('admin.site-setting', compact('option_news'));
     }
+
     public function updateSetting(Request $request)
     {
+
         $id=[1,2,3,4,5,6,7,8,9,10,11,12];
         DB::table('options')->where('id', $id[0])->where('setting', 'title')->update(['value' => $request->title]);
         DB::table('options')->where('id', $id[1])->where('setting', 'desc')->update(['value' => $request->desc]);
