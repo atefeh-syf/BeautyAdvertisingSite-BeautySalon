@@ -23,7 +23,6 @@ class categoriesController extends Controller
         } elseif ($Category == 'cosmetic') {
             $Category_id = '4';
         }
-
         if ($Category_id == '') {
             $addvertises = Addvertise::paginate(12)->sortByDesc("created_at");
             //return view('addvertises', ['addvertises' => $addvertises]);

@@ -26,33 +26,11 @@ Route::get('/addvertise', function () {
     return view('addvertise');
 });
 
-Route::get('/beauty_services', function () {
-    return view('beauty_services');
-});
-
-Route::get('/beautyclass', function () {
-    return view('beautyclass');
-});
-
-Route::get('/beautysalons', function () {
-    return view('beautysalons');
-});
-
-Route::get('/beautyclass', function () {
-    return view('beautyclass');
-});
-
 Route::get('/blog', function () {
     return view('blog');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
-Route::get('/cosmetic', function () {
-    return view('cosmetic');
-});
 
 Route::get('/submitAdd', function () {
   return view('submitAdd');
@@ -81,6 +59,7 @@ Route::group(['prefix' => 'add'], function () {
     Route::post('', 'AdminController@addvertiseStore');
 });
 
+
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/{blog}/edit', 'AdminController@blogEdit');
     Route::patch('/{blog}', 'AdminController@blogUpdate');
@@ -88,6 +67,7 @@ Route::group(['prefix' => 'blog'], function () {
     Route::get('', 'articlesController@index');
     Route::get('/{blog}', 'articlesController@show');
 });
+
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/{user}/edit', 'AdminController@profileEdit');

@@ -40,6 +40,7 @@ class AdminController extends Controller
         $user_info = auth()->user();
         return view('admin.admin-index', ['count' => $count, 'count_confim' => $count_confim, 'count_no_confim' => $count_no_confim, 'count_comment' => $count_comment, 'comments' => $comments, 'user_info' => $user_info]);
     }
+
     public function showAddvertise()
     {
         $addvertises = Addvertise::all();
@@ -50,6 +51,7 @@ class AdminController extends Controller
         }
         return view('admin.addvertise-all', ['addvertises' => $addvertises]);
     }
+
     public function addvertiseStore(Request $request)
     {
         $this->validate(request(), [
@@ -77,6 +79,7 @@ class AdminController extends Controller
         $addvertise->save();
         return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت  ثبت شد ');
     }
+
     public function blogStore(Request $request)
     {
         $this->validate(request(), [
@@ -93,11 +96,14 @@ class AdminController extends Controller
         $article->save();
         return redirect('/blog-all')->withMessage(' نوشته شما با موفقیت  ثبت شد ');
     }
+
+
     public function showCategory()
     {
         $category = Category::all();
         return view('admin.addvertise-categories', compact('category', $category));
     }
+
 
     public function categoryStore(Request $request)
     {
@@ -106,26 +112,9 @@ class AdminController extends Controller
         $category->title = request('title');
         $category->save();
         return redirect('/add-cat')->withMessage(' دسته جدید با موفقیت  ثبت شد ');
-       /*  //$productId = $request->product_id;
-        $category   =   Category::updateOrCreate(
-            ['name' => $request->name],
-            ['title' => $request->title]
-        );
-        return Response::json($category);
- */
-       /*  dd('yes');
-        $name = $request->input('name');
-        $title = $request->input('title');
-        $data = array('name' => $name, "title" => $title);
-        // Call insertData() method of Page Model
-        $value = Category::insertData($data);
-        if ($value) {
-            echo $value;
-        } else {
-            echo 0;
-        }
-        exit;  */
     }
+
+
     public function showArticle()
     {
         $articles = Article::all();
@@ -136,10 +125,14 @@ class AdminController extends Controller
         }
         return view('admin.blog-all', compact('articles', $articles));
     }
+
+
     public function addvertiseEdit(Addvertise $addvertise)
     {
         return view('admin.addvertise-edit', compact('addvertise'));
     }
+
+
     public function addvertiseUpdate(Request $request,$id)
     {
         $validatedData = $request->validate([
@@ -164,17 +157,17 @@ class AdminController extends Controller
                 ['image' => $imagePath]
             );
         }
-
         Addvertise::whereId($id)->update($validatedData);
         return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت ویرایش شد ');;
     }
+
     public function commentDestroy(Comment $comment)
     {
         $commentInfo = Comment::findOrFail($comment->id);
         $commentInfo->delete($commentInfo->id);
-        //return redirect('/admin');
         return redirect('/admin')->withMessage(' کامنت مورد نظر با موفقیت حذف شد ');
     }
+
     public function categoryDestroy(Category $category)
     {
         $categoryInfo = Category::findOrFail($category->id);
@@ -188,6 +181,8 @@ class AdminController extends Controller
         $addvertiseInfo->delete($addvertiseInfo->id);
         return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت حذف شد ');
     }
+
+
     public function blogEdit(Article $blog)
     {
         return view('admin.blog-edit', compact('blog'));
@@ -211,6 +206,7 @@ class AdminController extends Controller
         Article::whereId($id)->update($validatedData);
         return redirect('/blog-all')->withMessage(' نوشته مورد نظر با موفقیت ویرایش شد ');
     }
+
     public function blogDestroy(Article $blog)
     {
         $blogInfo = Article::findOrFail($blog->id);
@@ -234,12 +230,12 @@ class AdminController extends Controller
         $commentInfo->save();
         return redirect('/admin')->withMessage(' کامنت مورد نظر با موفقیت تایید شد ');
     }
+
+    
     public function profileEdit(User $user){
         return view('admin.profile-setting', compact('user'));
     }
-
     public function profileUpdate(Request $request, $id){
-
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -247,7 +243,6 @@ class AdminController extends Controller
             'username' => '',
             'image' => '',
         ]);
-
         if (request('image')) {
             $imagePath = request('image')->store('uploads', 'public');
             $validatedData = array_merge(
@@ -259,6 +254,7 @@ class AdminController extends Controller
         return redirect('/admin')->withMessage(' پروفایل شما با موفقیت ویرایش شد. ');
     }
 
+
     public function getSetting(){
         $options=Option::all();
         $option_news = [];
@@ -269,10 +265,8 @@ class AdminController extends Controller
         }
         return view('admin.site-setting', compact('option_news'));
     }
-
     public function updateSetting(Request $request)
     {
-
         $id=[1,2,3,4,5,6,7,8,9,10,11,12];
         DB::table('options')->where('id', $id[0])->where('setting', 'title')->update(['value' => $request->title]);
         DB::table('options')->where('id', $id[1])->where('setting', 'desc')->update(['value' => $request->desc]);

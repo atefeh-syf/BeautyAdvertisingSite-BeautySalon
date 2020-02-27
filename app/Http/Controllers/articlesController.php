@@ -14,6 +14,7 @@ class articlesController extends Controller
         $arts = Article::paginate(5)->sortByDesc("created_at");
         return view('blog', ['articles' => $articles, 'addvertises' => $addvertises, 'arts' => $arts]);
     }
+    
     public function show(Article $blog)
     {
         $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");

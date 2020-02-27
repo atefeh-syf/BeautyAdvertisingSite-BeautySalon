@@ -24,10 +24,12 @@ class addvertisesController extends Controller
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
+
+        
+
         return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
         
     }
-    
     public function createSpecial()
     {
         return view('submitAddSpecial');
@@ -61,26 +63,29 @@ class addvertisesController extends Controller
         return redirect('/a/create/special')->withMessage(' آگهی شما با موفقیت ثبت شد پس از تایید مدیر سایت نمایش داده می شود ');
 
     }
+
     public function search(Request $request){
         $text=request('text');
         $cat = $request->input('cat');
         $ostan = $request->input('ostan');
-        $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")->orWhere('ostan',"$ostan")->get();
+        $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")
+        ->orWhere('ostan',"$ostan")->get();
+
         return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
-    
     }
     
     public function showOstan($ostan,Request $request){
         $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();
+
         return view('addvertises', ['addvertises' => $addvertises, 'category' => $ostan]);
     }
-
     public function show(Addvertise $addvertise)
     {
         $baner_id= $addvertise->id;
         $comments = Comment::query()->where('banner_id', "$baner_id")->where('confirm', "1")->get();
         $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");
         $articles = Article::paginate(5)->sortByDesc("created_at");
+
         return view('addvertise', compact(['addvertises', 'comments','addvertise' , 'articles']));
     }
 
