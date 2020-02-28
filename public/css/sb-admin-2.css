@@ -10207,7 +10207,7 @@ a:focus {
   }
   .topbar .dropdown .dropdown-menu {
     width: auto;
-    right: -50;
+    right: -88px;
   }
   .topbar .dropdown-list {
     width: 20rem !important;

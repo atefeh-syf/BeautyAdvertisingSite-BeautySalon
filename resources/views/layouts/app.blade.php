@@ -27,9 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/pe-icon-7-stroke.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
  
-    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Beuty Salon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no">
    
     <!-- Fav icon-->

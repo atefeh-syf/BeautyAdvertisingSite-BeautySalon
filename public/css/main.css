@@ -36,7 +36,7 @@ h6 {
 p {
     color: #848484;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 2;
     font-weight: 400;
     text-align: justify;
 }
@@ -216,7 +216,7 @@ li {
 .section-heading-lists{
     position: relative;
     z-index: 1;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     margin-top: 100px;
 }
 .section-heading-lists.dark span{
@@ -902,9 +902,16 @@ label{
 
 .footer-social-btns > a {
     display: inline-block;
-    color: #464646;
-    padding: 0 15px;
+    color: #fff;
     font-size: 14px;
+}
+.footer-social-btns > a > i {
+    background-color: #8b499c;
+    padding: 10px;
+    border-radius: 50%;
+}
+.footer-social-btns > a > i:hover{
+    background-color: #341a79;
 }
 /* Contact Area CSS */
 
@@ -1005,6 +1012,9 @@ label{
     --webkit-box-shadow: 0 4px 10px 5px rgba(57,118,188,.13) !important;
     -moz-box-shadow: 0 4px 10px 5px rgba(57,118,188,.13) !important;
     box-shadow: 0 4px 10px 5px rgba(57,118,188,.13) !important;
+}
+.about-section h3{
+    text-align: center;
 }
 
 .about-social{
@@ -1226,4 +1236,9 @@ select.form-control, input.form-control {
 }
 .sticky .navbar-brand img {
     width: 70%;
+}
+.section-heading.dark p{
+    margin-right: 20px;
+    line-height: 1.5;
+    color: #292929;
 }

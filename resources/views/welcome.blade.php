@@ -152,31 +152,11 @@
                 <div class="section-heading dark text-center">
                     <span></span>
                     <h4> آگهی ها </h4>
-                    <a href="/cat/last"><p> مشاهده همه آگهی ها > </p></a>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            {{-- <div class="col-12 col-lg-6">
-                <div class="single-feature-events-area d-sm-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                    <div class="feature-events-thumb">
-                        <img src="pic/1.jpg" alt="">
-                        <div class="date-map-area d-flex">
-                            <a href="#">26 مهر</a>
-                            <a href="#"><img src="pic/map.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="feature-events-content">
-                        <h5>کلینیک زیبایی گل یخ</h5>
-                        <h6>کرج</h6>
-                        <p> توضیحات </p>
-                    </div>
-                    <div class="feature-events-details-btn">
-                        <a href="#">+</a>
-                    </div>
-                </div>
-            </div> --}}
+        <div class="row justify-content-center">
             @foreach ($addvertises as $addvertise)
                 @if($addvertise->confirm=='1')
                     <div class="col-12 col-lg-6">
@@ -213,6 +193,7 @@
                     </div>
                 @endif
             @endforeach
+            <a class="btn dorne-btn mt-50" href="/cat/last"> مشاهده همه آگهی ها </a>
         </div>
     </div>
 </section>
@@ -225,12 +206,12 @@
                 <div class="section-heading text-center">
                     <span></span>
                     <h4> مقالات </h4>
-                    <a href="/blog"><p> مشاهده آرشیو مقالات > </p></a>
+                    
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            
                 <div class="features-slides owl-carousel">
                     <!-- Single Features Area -->
                     @foreach ($articles as $article)
@@ -255,65 +236,10 @@
                         </div>
                     @endforeach
                     
-                    {{-- <!-- Single Features Area -->
-                    <div class="single-features-area">
-                        <img src="pic/blog1.jpg" alt="">
-                        <!-- Price -->
-                        <div class="price-start">
-                            <p>نام دسته</p>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5> عنوان مقاله </h5>
-                                <p> توصیحات </p>
-                            </div>
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
-            </div>
+                <a class="btn dorne-btn mt-50" href="/blog"> مشاهده آرشیو مقالات </a>
         </div>
     </div>
 </section>
-<!-- Modal -->
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">ثبت نام</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                <div class="md-form mb-5">
-                    <i class="fas fa-user prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="orangeForm-name">نام کاربری</label>
-                    <input type="text" id="orangeForm-name" class="form-control">
-                    
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="orangeForm-email">ایمیل</label>
-                    <input type="email" id="orangeForm-email" class="form-control">
-                    
-                </div>
 
-                <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="orangeForm-pass">رمزعبور</label>
-                    <input type="password" id="orangeForm-pass" class="form-control">
-                    
-                </div>
-
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button class="btn dorne-btn">ثبت نام</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ***** Features Destinations Area End ***** -->
 @endsection
