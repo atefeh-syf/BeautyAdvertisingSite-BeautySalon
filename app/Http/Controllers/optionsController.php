@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;zz
+use Illuminate\Http\Request;
 use App\Option;
 class optionsController extends Controller
 {

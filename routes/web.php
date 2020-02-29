@@ -81,6 +81,7 @@ Route::group(['prefix' => 'add'], function () {
     Route::post('', 'AdminController@addvertiseStore');
 });
 
+
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/{blog}/edit', 'AdminController@blogEdit');
     Route::patch('/{blog}', 'AdminController@blogUpdate');
@@ -89,15 +90,18 @@ Route::group(['prefix' => 'blog'], function () {
     Route::get('/{blog}', 'articlesController@show');
 });
 
+
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/{user}/edit', 'AdminController@profileEdit');
     Route::patch('/{user}', 'AdminController@profileUpdate');   
 });
 
+
 Route::group(['prefix' => 'setting'], function () {
     Route::get('', 'AdminController@getSetting');
     Route::patch('/update', 'AdminController@updateSetting');
 });
+
 
 Route::group(['prefix' => 'a'], function () {
     Route::get('/create', 'addvertisesController@create');
@@ -108,40 +112,61 @@ Route::group(['prefix' => 'a'], function () {
 });
 Route::get('/a/{addvertise}', 'addvertisesController@show');
 
-Route::get('/admin', 'AdminController@index');
 Route::get('/header', 'optionsController@index');
 Route::get('/footer', 'optionsController@index');
+
+Route::get('/admin', 'AdminController@index');
+
+
 Route::get('/add-all', 'AdminController@showAddvertise');
+
+
 Route::get('/add-cat', 'AdminController@showCategory');
+
+
 Route::post('/add-addCat', 'AdminController@categoryStore');
+
+
 Route::get('/blog-all', 'AdminController@showArticle');
+
+
+
+Route::get('/blog-from', function () {
+    return view('admin/blog-add');
+});
 Route::post('/blog-add', 'AdminController@blogStore');
+
+
+
 
 Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
 Route::patch('/confirmcmt/{comment}', 'AdminController@confirmComment');
+
+
 Route::delete('/cmtdel/{comment}', 'AdminController@commentDestroy');
 Route::delete('/catdel/{category}', 'AdminController@categoryDestroy');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::post('/c', 'commentsController@store');
+
 Route::get('/cat/{catname}', 'categoriesController@show');
 Route::get('/ostan/{ostanname}', 'addvertisesController@showOstan');
+
 
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/create', 'contactController@create');
     Route::post('', 'contactController@store');
 });
 
+
 Route::post('/search', 'addvertisesController@search');
+
 
 Route::get('/add-form', function () {
     return view('admin/addvertise-add');
 });
-
-Route::get('/blog-from', function () {
-    return view('admin/blog-add');
-});
-

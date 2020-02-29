@@ -180,10 +180,10 @@
                       <th>موضوع</th>
                       <th>متن پیام </th>
                       <th>تاریخ ارسال </th>
-                      <th>عملیات </th>
+                     {{--  <th>عملیات </th> --}}
                     </tr>
                   </thead>
-                  <tfoot>
+                 {{--  <tfoot>
                     <tr>
                       <th>نام فرستنده</th>
                       <th>ایمیل فرستنده </th>
@@ -192,14 +192,17 @@
                       <th>تاریخ ارسال </th>
                       <th>عملیات </th>
                     </tr>
-                  </tfoot>
+                  </tfoot> --}}
                   <tbody>
-                    <tr>
-                      <td>علی عظیمی</td>
-                      <td>98/8/12</td>
-                      <td>aliazimi@live.com</td>
-                      <td>خیلی عالی بود</td>
-                    </tr>
+                    @foreach ($contacts as $contact)
+                      <tr>
+                        <td>{{$contact->name}}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->title}}</td>
+                        <td>{{$contact->description}}</td>
+                        <td>{{$contact->jalali}}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

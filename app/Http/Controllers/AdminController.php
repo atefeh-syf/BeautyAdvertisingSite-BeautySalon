@@ -10,6 +10,7 @@ use App\Article;
 use App\User;
 use App\Blog;
 use App\Option;
+use App\Contact;
 use DB;
 use  Response;
 use Illuminate\Support\Facades\Redirect;
@@ -33,12 +34,19 @@ class AdminController extends Controller
         $comments = Comment::all();
         foreach ($comments  as $key => $comment) {
             $date = $comment->created_at;
-            $date = Jalalian::forge($date)->format('Y-m-d');
+            $date = Jalalian::forge($date)->format('Y/m/d');
             $comments[$key]['jalali'] = $date;
         }
 
+        $contacts = Contact::all();
+        foreach ($contacts  as $key => $contact) {
+            $date = $contact->created_at;
+            $date = Jalalian::forge($date)->format('Y/m/d');
+            $contacts[$key]['jalali'] = $date;
+        }
+
         $user_info = auth()->user();
-        return view('admin.admin-index', ['count' => $count, 'count_confim' => $count_confim, 'count_no_confim' => $count_no_confim, 'count_comment' => $count_comment, 'comments' => $comments, 'user_info' => $user_info]);
+        return view('admin.admin-index', ['count' => $count, 'count_confim' => $count_confim, 'count_no_confim' => $count_no_confim, 'count_comment' => $count_comment, 'comments' => $comments, 'user_info' => $user_info, 'contacts'=>$contacts]);
     }
 
     public function showAddvertise()
