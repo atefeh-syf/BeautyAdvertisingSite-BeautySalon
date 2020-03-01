@@ -34,10 +34,16 @@ class AdminController extends Controller
         $comments = Comment::all();
         foreach ($comments  as $key => $comment) {
             $date = $comment->created_at;
+            $baner_id = $comment->banner_id;
+            $baner= Addvertise::findOrFail($baner_id);
+            $baner_cat_id=$baner->cat;
+            $baner_cat=Category::findOrFail($baner_cat_id);
+            $baner_name = $baner_cat->name .' '. $baner->name;
             $date = Jalalian::forge($date)->format('Y/m/d');
             $comments[$key]['jalali'] = $date;
+            $comments[$key]['baner_name'] = $baner_name;
+            $comments[$key]['baner_id'] = $baner_id;
         }
-
         $contacts = Contact::all();
         foreach ($contacts  as $key => $contact) {
             $date = $contact->created_at;
@@ -182,6 +188,13 @@ class AdminController extends Controller
         $categoryInfo->delete($categoryInfo->id);
         //return redirect('/admin');
         return redirect('/add-cat')->withMessage(' دسته مورد نظر با موفقیت حذف شد ');
+    }
+
+    public function contactDestroy(Category $contact)
+    {
+        $contactInfo = Contact::findOrFail($contact->id);
+        $contactInfo->delete($contactInfo->id);
+        return redirect('/admin')->withMessage(' اطلاعات مورد نظر  با موفقیت حذف شد ');
     }
     public function addvertiseDestroy(Addvertise $addvertise)
     {

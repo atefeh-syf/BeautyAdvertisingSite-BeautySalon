@@ -145,6 +145,7 @@ Route::patch('/confirmcmt/{comment}', 'AdminController@confirmComment');
 
 Route::delete('/cmtdel/{comment}', 'AdminController@commentDestroy');
 Route::delete('/catdel/{category}', 'AdminController@categoryDestroy');
+Route::delete('/contactdel/{contact}', 'AdminController@contactDestroy');
 
 
 Auth::routes();

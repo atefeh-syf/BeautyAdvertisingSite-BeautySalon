@@ -34,7 +34,7 @@
                       <th> نام مالک</th>
                       <th>وضعیت</th>
                       <th>عملیات</th>
-                      <th>بازدید ها</th>
+                      {{-- <th>بازدید ها</th> --}}
                       <th>تاریخ ثبت</th>
                     </tr>
                   </thead>
@@ -110,7 +110,7 @@
                                 </button>
                             </form>
                           </td>
-                          <td>1212</td>
+                          {{-- <td>1212</td> --}}
                           <td>{{$addvertise->jalali}}</td>
                       </tr>
                     @endforeach

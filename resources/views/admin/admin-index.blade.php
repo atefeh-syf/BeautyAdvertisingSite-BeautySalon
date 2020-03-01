@@ -103,6 +103,7 @@
                       <th>ایمیل</th>
                       <th>متن کامنت </th>
                       <th>وضعیت</th>
+                      <th>عنوان آگهی</th>
                       <th>عملیات</th>
                     </tr>
                   </thead>
@@ -129,26 +130,35 @@
                             @endif
                           </td>
                           <td>
-                          <span style="display: inline;float: right;">
-                            @if($comment->confirm == 0)
-                              <form action="/confirmcmt/{{$comment->id}}" method="POST">
-                                @csrf
-                                @method('PATCH')
-                                <button  onclick="return confirm('آیا مطمئن به تایید این کامنت هستید؟')"  type="submit" href="#" class="btn btn-success btn-circle btn-sm">
-                                    <i class="fas fa-check"></i>
-                                </button>
-                              </form>
+                            @if($comment->confirm == 0) 
+                              {{$comment->baner_name}}
+                            @elseif($comment->confirm == 1)
+                              <a href="/a/{{$comment->baner_id}}">{{$comment->baner_name}}</a>
                             @endif
-                          </span>
-                          <span style="display: inline;float: right;">
-                              <form action="/cmtdel/{{$comment->id}}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button onclick="return confirm('آیا مطمئن به حذف  این کامنت هستید؟')" type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
                           </td>
+                          <td>
+                            <span style="display: inline;float: right;">
+                              @if($comment->confirm == 0)
+                                <form action="/confirmcmt/{{$comment->id}}" method="POST">
+                                  @csrf
+                                  @method('PATCH')
+                                  <button  onclick="return confirm('آیا مطمئن به تایید این کامنت هستید؟')"  type="submit" href="#" class="btn btn-success btn-circle btn-sm">
+                                      <i class="fas fa-check"></i>
+                                  </button>
+                                </form>
+                              @endif
+                            </span>
+                            <span style="display: inline;float: right;">
+                                <form action="/cmtdel/{{$comment->id}}" method="POST">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                                  <button onclick="return confirm('آیا مطمئن به حذف  این کامنت هستید؟')" type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                      <i class="fas fa-trash"></i>
+                                  </button>
+                              </form>
+                            </span>
+                          </td>
+                          
                         </tr>
                     @endforeach 
                   </tbody>
@@ -180,7 +190,7 @@
                       <th>موضوع</th>
                       <th>متن پیام </th>
                       <th>تاریخ ارسال </th>
-                     {{--  <th>عملیات </th> --}}
+                      <th>عملیات </th>
                     </tr>
                   </thead>
                  {{--  <tfoot>
@@ -201,6 +211,17 @@
                         <td>{{$contact->title}}</td>
                         <td>{{$contact->description}}</td>
                         <td>{{$contact->jalali}}</td>
+                        <td>
+                          <span style="display: inline;float: right;">
+                              <form action="/contactdel/{{$contact->id}}" method="POST">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                                  <button onclick="return confirm('آیا مطمئن به حذف هستید؟')" type="submit" href="#" class="btn btn-danger btn-circle btn-sm">
+                                      <i class="fas fa-trash"></i>
+                                  </button>
+                              </form>
+                          </span>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
