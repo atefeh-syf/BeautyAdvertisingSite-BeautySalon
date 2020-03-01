@@ -41,7 +41,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-       @include('layouts.footer')
+        @include('layouts.footer')
         <!-- jQuery-2.2.4 js -->
         <script type="text/javascript" src="{{URL::asset('js/jquery-2.2.4.min.js') }}"></script>
         <!--<script type="text/javascript" src="{{URL::asset('js/jquery-3.0.0.min.js') }}"></script>-->

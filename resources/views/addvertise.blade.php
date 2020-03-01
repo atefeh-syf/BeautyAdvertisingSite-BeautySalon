@@ -199,7 +199,6 @@
                                 </h6>
                             @else
                                 @foreach ($comments as $comment)
-                                    
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="description">
                                                 <p class="comments">
@@ -209,7 +208,6 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    
                                 @endforeach
                             @endif
                 </div>
