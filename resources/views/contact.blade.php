@@ -3,17 +3,13 @@
 <!-- ***** Contact Area Start ***** -->
 <div class="dorne-contact-area d-md-flex" id="contact">
     <!-- Contact Form Area -->
-    <div class="contact-form-area ">
+    <div class="row contact-form-area justify-content-center">
         <div class="contact-text">
-            <h4> اطلاعات تماس با ما </h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus.
-                Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget
-                quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum.
-                Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper,
-                eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam.
-                Lorem ipsum dolor sit amet, consectetur.
-            </p>
-                
+            <div class="section-heading dark text-center">
+                <span></span>
+                <h4> اطلاعات تماس با ما </h4> 
+            </div>
+            
             <div class="contact-info d-lg-flex">
                 <div class="single-contact-info">
                     <h6><i class="fa fa-map-signs" aria-hidden="true"></i> باغستان خیابان امام خمینی  </h6>
