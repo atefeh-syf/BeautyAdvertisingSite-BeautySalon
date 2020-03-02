@@ -9,7 +9,6 @@
                 <span></span>
                 <h4> اطلاعات تماس با ما </h4> 
             </div>
-            
             <div class="contact-info d-lg-flex">
                 <div class="single-contact-info">
                     <h6><i class="fa fa-map-signs" aria-hidden="true"></i> باغستان خیابان امام خمینی  </h6>
