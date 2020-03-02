@@ -42,7 +42,7 @@
                                 </span>
                                 @enderror
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ایمیل">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
