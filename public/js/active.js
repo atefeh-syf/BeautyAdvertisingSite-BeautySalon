@@ -29,7 +29,7 @@
     }
 
     // Search Active Code
-    $('#search-btn, #closeBtn').on('click', function () {
+    /*$('#search-btn, #closeBtn').on('click', function () {
         $('body').toggleClass('search-form-on');
     });
     
@@ -44,26 +44,14 @@
             scrollSpeed: 1500,
             scrollText: '<i class="pe-7s-angle-up" aria-hidden="true"></i>'
         });
-    }
+    }*/
 
-    // onePageNav Active Code
-    if ($.fn.onePageNav) {
-        $('#listingNav').onePageNav({
-            currentClass: 'active',
-            scrollSpeed: 2000,
-            easing: 'easeOutQuad'
-        });
-    }
+    
 
     // PreventDefault a Click
     $("a[href='#']").on('click', function ($) {
         $.preventDefault();
     });
-
-    // wow Active Code
-    if ($.fn.init) {
-        new WOW().init();
-    }
 
     var $window = $(window);
 
@@ -74,13 +62,6 @@
         } else {
             $('body').removeClass('sticky');
         }
-    });
-
-    // Preloader Active Code
-    $window.on('load', function () {
-        $('#preloader').fadeOut('slow', function () {
-            $(this).remove();
-        });
     });
 
 })(jQuery);
