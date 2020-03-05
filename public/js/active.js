@@ -29,7 +29,7 @@
     }
 
     // Search Active Code
-    /*$('#search-btn, #closeBtn').on('click', function () {
+    $('#search-btn, #closeBtn').on('click', function () {
         $('body').toggleClass('search-form-on');
     });
     
@@ -44,7 +44,7 @@
             scrollSpeed: 1500,
             scrollText: '<i class="pe-7s-angle-up" aria-hidden="true"></i>'
         });
-    }*/
+    }
 
     
 
