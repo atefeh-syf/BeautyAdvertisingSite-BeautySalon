@@ -10242,7 +10242,7 @@ a:focus {
 }
 
 .sidebar {
-  width: 6.5rem;
+  width: 7rem;
   min-height: 100vh;
 }
 
@@ -11264,6 +11264,13 @@ body.sidebar-toggled footer.sticky-footer {
 							color:
 							white;
 						}
+@media (min-width: 576px) {
+  .sidebar {
+    width: 8rem;
+    min-height: 100vh;
+  }
+
+}
 
 
 

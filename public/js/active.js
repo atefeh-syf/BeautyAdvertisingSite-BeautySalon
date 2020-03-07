@@ -27,11 +27,6 @@
             }
         })
     }
-
-    // Search Active Code
-    $('#search-btn, #closeBtn').on('click', function () {
-        $('body').toggleClass('search-form-on');
-    });
     
     // matchHeight Active Code
     if ($.fn.matchHeight) {
@@ -45,8 +40,6 @@
             scrollText: '<i class="pe-7s-angle-up" aria-hidden="true"></i>'
         });
     }
-
-    
 
     // PreventDefault a Click
     $("a[href='#']").on('click', function ($) {
@@ -65,7 +58,3 @@
     });
 
 })(jQuery);
-
-$('#modalRegisterForm').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
