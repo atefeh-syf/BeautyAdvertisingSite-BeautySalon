@@ -15,7 +15,8 @@
               <div class="col-md-8">
                 <input type="text" name="title" class="form-control" placeholder="عنوان نوشته" required>
                 <input type="text" name="description"  class="form-control" placeholder="توضیح" required>
-                <textarea class="txt-area"  name="text" placeholder="متن نوشته" required></textarea>
+               <!-- <textarea class="txt-area"  name="text" placeholder="متن نوشته" required></textarea>-->
+                <textarea class="txt-area" name="text"></textarea>
               </div>
               <div class="col-md-4">
                 <div class="card mb-4">
