@@ -104,7 +104,6 @@ class AdminController extends Controller
         $article->title = request('title');
         $article->text = request('text');
         $article->description = request('description');
-        //$article->cat = 1;
         $imagePath = request('image')->store('uploads', 'public');
         $article->image = $imagePath;
         $article->save();
