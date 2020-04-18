@@ -76,7 +76,7 @@
                     <div class="information">
                         <h4><i class="fa fa-info-circle"></i> {{$blog->title}} </h4>
                         <p>
-                            {{$blog->text}}
+                            {!! $blog->text !!}
                         </p>
                     </div>
                 </div>

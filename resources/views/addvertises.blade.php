@@ -8,7 +8,7 @@
                 <div class="section-heading-lists dark text-center">
                     <h4>
                         @if ($category=='last')
-                            آخرین آگهی ها  
+                         آگهی ها  
                         @elseif($category=='beautysalons')
                              آگهی های سالن های زیبایی
                         @elseif($category== 'beautyclass')
