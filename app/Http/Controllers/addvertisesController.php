@@ -56,6 +56,7 @@ class addvertisesController extends Controller
         $addvertise->telegram = request('telegram');
         $addvertise->insta = request('instagram');
         $addvertise->address = request('address');
+        $addvertise->description = request('description');
         $addvertise->ostan = $request->input('ostan');
         $imagePath = request('image')->store('uploads', 'public');
         $addvertise->image = $imagePath;
@@ -115,6 +116,7 @@ class addvertisesController extends Controller
         $addvertise->telegram = request('telegram');
         $addvertise->insta = request('instagram');
         $addvertise->address = request('address');
+        $addvertise->description = request('description');
         $addvertise->ostan = $request->input('ostan');
         $imagePath = request('image')->store('uploads', 'public');
         $addvertise->image = $imagePath;

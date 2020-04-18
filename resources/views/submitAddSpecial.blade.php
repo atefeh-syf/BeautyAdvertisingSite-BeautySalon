@@ -182,6 +182,9 @@
                                 @enderror
                     </div>
                     <div class="col-12">
+                        <textarea name="description" class="form-control" id="description" cols="30" rows="10" placeholder="توضیحات آگهی" ></textarea>
+                    </div>
+                    <div class="col-12">
                         <textarea name="address" class="form-control" id="Message" cols="30" rows="10" placeholder="آدرس"></textarea>
                     </div>
                     <div class="col-12">

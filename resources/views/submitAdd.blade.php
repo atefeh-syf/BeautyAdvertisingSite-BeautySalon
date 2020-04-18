@@ -72,6 +72,7 @@
                                 </span>
                                 @enderror
                     </div>
+                   
                     <div class="col-12 col-md-4">
                         <select class="form-control" id="cat" class="cat" name="cat" required>
                             <option selected disabled>گروه ها</option>
@@ -179,6 +180,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                    </div>
+                    <div class="col-12">
+                        <textarea name="description" class="form-control" id="description" cols="30" rows="10" placeholder="توضیحات آگهی" ></textarea>
                     </div>
                     <div class="col-12">
                         <textarea name="address" class="form-control" id="Message" cols="30" rows="10" placeholder="آدرس" required></textarea>
