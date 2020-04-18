@@ -11187,7 +11187,12 @@ body.sidebar-toggled footer.sticky-footer {
   margin-bottom: 10px;
   opacity: 1;
 }
-
+.txt-area-tiny{
+  width: 720px;
+  color:#858796;
+  margin-bottom: 10px;
+  opacity: 1;
+}
 
 
 
