@@ -24,12 +24,15 @@ class addvertisesController extends Controller
             $addvertises[$key]['jalali'] = $date;
         }
         $articles = Article::paginate(5);
-
-        
-
         return view('welcome',['addvertises'=>$addvertises,'articles'=>$articles]);
         
     }
+
+    public function getOption(){
+        $option = Option::all();
+        return view('layouts.header' ,['option'=> $option]);
+    }
+
     public function createSpecial()
     {
         return view('submitAddSpecial');

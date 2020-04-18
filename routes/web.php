@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'addvertisesController@index')->name('addvertise.index');
+
 /* Route::get('/', function () {
     return view('welcome');
 }); */
