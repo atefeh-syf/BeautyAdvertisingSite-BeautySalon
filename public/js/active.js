@@ -27,11 +27,6 @@
             }
         })
     }
-
-    // Search Active Code
-    $('#search-btn, #closeBtn').on('click', function () {
-        $('body').toggleClass('search-form-on');
-    });
     
     // matchHeight Active Code
     if ($.fn.matchHeight) {
@@ -46,24 +41,10 @@
         });
     }
 
-    // onePageNav Active Code
-    if ($.fn.onePageNav) {
-        $('#listingNav').onePageNav({
-            currentClass: 'active',
-            scrollSpeed: 2000,
-            easing: 'easeOutQuad'
-        });
-    }
-
     // PreventDefault a Click
     $("a[href='#']").on('click', function ($) {
         $.preventDefault();
     });
-
-    // wow Active Code
-    if ($.fn.init) {
-        new WOW().init();
-    }
 
     var $window = $(window);
 
@@ -76,15 +57,4 @@
         }
     });
 
-    // Preloader Active Code
-    $window.on('load', function () {
-        $('#preloader').fadeOut('slow', function () {
-            $(this).remove();
-        });
-    });
-
 })(jQuery);
-
-$('#modalRegisterForm').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})

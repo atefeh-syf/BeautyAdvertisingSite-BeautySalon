@@ -53,5 +53,6 @@
         <script type="text/javascript" src="{{ URL::asset('js/plugins.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/active.js') }}"></script>
     </div>
+    
 </body>
 </html>

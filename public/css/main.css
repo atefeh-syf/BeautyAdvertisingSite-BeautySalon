@@ -935,7 +935,7 @@ label{
     margin-right: 5%;
 }
 .single-contact-info {
-    margin: 70px 0;
+    margin: 5px 0;
 }
 
 .single-contact-info:first-child {
@@ -953,7 +953,7 @@ label{
 
 .contact-form {
     background-color: rgba(117, 67, 234, 0.479);
-    padding: 70px 30px;
+    padding: 30px 30px;
     
 }
 
