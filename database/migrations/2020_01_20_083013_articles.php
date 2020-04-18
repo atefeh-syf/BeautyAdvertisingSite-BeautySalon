@@ -20,7 +20,7 @@ class Articles extends Migration
             $table->string('description');
             $table->text('text');
             $table->string('image');
-            $table->string('cat');
+            
             $table->timestamps();
         });
     }
