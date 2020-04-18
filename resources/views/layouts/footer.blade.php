@@ -28,36 +28,13 @@
                         <div class="section-heading dark text-center">
                             <a href="/cat/last"><h5> آخرین آگهی ها </h5></a>
                             <span></span>
-                            <ul>
-                        
-                                @foreach ($addvertises as $addvertise)
-                                    <a href="/a/{{$addvertise->id}}"><li>
-                                        @if($addvertise->cat=='1')
-                                            سالن زیبایی
-                                        @elseif($addvertise->cat == '2')
-                                            آموزشگاه زیبایی
-                                        @elseif($addvertise->cat== '3')
-                                            کلینیک زیبایی 
-                                        @elseif($addvertise->cat == '4')
-                                            فروشگاه آرایشی 
-                                        @endif
-                                        {{$addvertise->name}} 
-                                    </li></a>
-                                @endforeach
-                                
-                            </ul>
-                            
+                           
                         </div>
                     </div>
                     <div class="col-sm-3 align-items-right justify-content-between">
                         <div class="section-heading dark text-center">
                             <a href="/blog"><h5> آخرین مطالب </h5></a>
                             <span></span>
-                            <ul>
-                                @foreach ($articles as $article)
-                                    <li><a href="/blog/{{$article->id}}">{{$article->title }}</a></li>
-                                @endforeach
-                            </ul>
                         </div>
                     </div>
                 </div>
