@@ -17,7 +17,7 @@ class addvertisesController extends Controller
     //
     public function index()
     {
-        $addvertises = Addvertise::paginate(6);
+        $addvertises = Addvertise::orderBy('id', 'desc')->take(6)->get();;
         foreach ($addvertises  as $key => $addvertise) {
             $date = $addvertise->created_at;
             $date = Jalalian::forge($date)->format('%d %B');
@@ -78,16 +78,8 @@ class addvertisesController extends Controller
         return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
     }
 
-    public function searchside(Request $request)
-    {
-        $text = request('text');
-        
-        $searchs = Addvertise::query()->where('name', 'LIKE', "%{$text}%")->Where('cat', "$text")
-            ->orWhere('ostan', "$text")->get();
-
-        return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
-    }
     
+
     public function showOstan($ostan,Request $request){
         $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();
 
