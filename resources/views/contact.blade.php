@@ -11,12 +11,12 @@
             </div>
             <div class="contact-info d-lg-flex">
                 <div class="single-contact-info">
-                    <h6><i class="fa fa-map-signs" aria-hidden="true"></i> باغستان خیابان امام خمینی  </h6>
-                    <h6><i class="fa fa-phone" aria-hidden="true"></i> 021 12312123 </h6>
+                    <h6><i class="fa fa-map-signs" aria-hidden="true"></i>  تهران - سعادت آباد میدان کاج - سرو غربی  </h6>
+                    <h6><i class="fa fa-phone" aria-hidden="true"></i> دفتر مرکزی: 02188361055 </h6>
                 </div>
                 <div class="single-contact-info">
-                    <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> info@beatysalon.com</h6>
-                    <h6><i class="fa fa-phone" aria-hidden="true"></i>  0912 1231212 </h6>
+                    <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> info@beautyshoo.ir</h6>
+                    <h6><i class="fa fa-phone" aria-hidden="true"></i>  تبلیغات: 09125704008 </h6>
                 </div>
             </div>
         </div>

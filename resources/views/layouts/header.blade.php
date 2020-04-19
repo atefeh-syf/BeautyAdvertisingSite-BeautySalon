@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-sm-4"></div>
                 <div class=" col-sm-4 ">
-                    <a href="#">info@beatysalon.com</a> |
+                    <a href="#">info@beautyshoo.ir</a> |
                     <a href="#">09124841548</a>
                 </div>
             </div>
