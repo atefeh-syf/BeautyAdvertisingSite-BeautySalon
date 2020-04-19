@@ -72,11 +72,12 @@ class addvertisesController extends Controller
         $text=request('text');
         $cat = $request->input('cat');
         $ostan = $request->input('ostan');
-        $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->orWhere('cat',"$cat")
+        $searchs =Addvertise::query()->where('name', 'LIKE', "%{$text}%")->Where('cat',"$cat")
         ->orWhere('ostan',"$ostan")->get();
 
         return view('addvertises', ['addvertises' => $searchs, 'category' => 'search']);
     }
+    
     
     public function showOstan($ostan,Request $request){
         $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();

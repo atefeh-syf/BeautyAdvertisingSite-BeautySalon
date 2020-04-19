@@ -111,13 +111,13 @@
                                     </li>
                                 </ul>
                                 <!-- Search btn -->
-                                <!--<div class="dorne-search-btn">
+                                <div class="dorne-search-btn">
                                     <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> جستجو</a>
-                                </div> -->
+                                </div>
                                 <!-- Signin btn -->
-                                <!-- <div class="dorne-signin-btn">
+                                {{-- <div class="dorne-signin-btn">
                                     <a href="#" data-toggle="modal" data-target="#modalRegisterForm">ورود/ثبت نام</a>
-                                </div> -->
+                                </div> --}}
                                 
                                 <!-- Add listings btn -->
                                 <div class="dorne-add-listings-btn">
