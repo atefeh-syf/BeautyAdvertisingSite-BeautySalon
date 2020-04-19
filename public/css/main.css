@@ -1042,7 +1042,7 @@ label{
     margin-right: 30px;
 }
 .explore-search-area {
-    height: 1100px;
+    
     padding-top: 150px;
 }
 .explore-add-area{
@@ -1156,6 +1156,7 @@ label{
     border-radius: 10px;
     display: inline-block;
     text-align: center;
+    margin-bottom: 36px;
 }
 .tele{
     background-color: #0088CC;

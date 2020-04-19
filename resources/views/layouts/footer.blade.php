@@ -29,10 +29,10 @@
                             <h5> با بیوتی شو همراه شوید </h5>
                             <span></span>
                            <ul class="footer-links">
-                               <li> <a href=""> سالن های زیبایی</a></li>
-                               <li> <a href=""> آموزشگاه های زیبایی</a></li>
-                               <li> <a href=""> خدمات زیبایی</a></li>
-                               <li> <a href=""> لوازم آرایشی و بهداشتی</a></li>
+                               <li> <a href="/cat/beautysalons"> سالن های زیبایی</a></li>
+                               <li> <a href="/cat/beautyclass"> آموزشگاه های زیبایی</a></li>
+                               <li> <a href="/cat/beauty_services"> خدمات زیبایی</a></li>
+                               <li> <a href="/cat/cosmetic"> لوازم آرایشی و بهداشتی</a></li>
                             
                            </ul>
                         </div>

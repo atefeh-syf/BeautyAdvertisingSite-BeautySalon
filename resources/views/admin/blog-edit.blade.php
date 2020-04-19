@@ -27,7 +27,7 @@
                         <strong>{{ $message }}</strong>
                       </span>
                       @enderror
-                  <textarea class="txt-area"  name="text" placeholder="متن نوشته">{{$blog->text}}</textarea>
+                  <textarea class="txt-area-tiny"  name="text" placeholder="متن نوشته">{{$blog->text}}</textarea>
                 </div>
                 <div class="col-md-4">
                   <div class="card mb-4">
