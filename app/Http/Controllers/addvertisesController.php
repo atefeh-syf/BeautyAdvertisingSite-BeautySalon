@@ -17,7 +17,7 @@ class addvertisesController extends Controller
     //
     public function index()
     {
-        $addvertises = Addvertise::orderBy('id', 'desc')->take(6)->get();;
+        $addvertises = Addvertise::orderBy('id', 'desc')->take(6)->get();
         foreach ($addvertises  as $key => $addvertise) {
             $date = $addvertise->created_at;
             $date = Jalalian::forge($date)->format('%d %B');
@@ -89,8 +89,8 @@ class addvertisesController extends Controller
     {
         $baner_id= $addvertise->id;
         $comments = Comment::query()->where('banner_id', "$baner_id")->where('confirm', "1")->get();
-        $addvertises = Addvertise::paginate(5)->sortByDesc("created_at");
-        $articles = Article::paginate(5)->sortByDesc("created_at");
+        $addvertises = Addvertise::orderBy('id', 'desc')->take(5)->get();
+        $articles = Article::orderBy('id', 'desc')->take(5)->get();
 
         return view('addvertise', compact(['addvertises', 'comments','addvertise' , 'articles']));
     }
