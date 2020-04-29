@@ -31,6 +31,7 @@ class Addvertises extends Migration
             $table->string('is_admin')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
         });

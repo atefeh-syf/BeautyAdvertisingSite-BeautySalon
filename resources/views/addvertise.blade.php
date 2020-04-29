@@ -73,18 +73,26 @@
                 <div class="col-md-7 col-sm-12 col-xs-12">
                     <div class="description">
                         <div class="section-heading dark justify-content-center">
+                            
                             <h3>
                                 @if($addvertise->cat=='1')
                                     سالن زیبایی
                                 @elseif($addvertise->cat == '2')
                                     آموزشگاه زیبایی
                                 @elseif($addvertise->cat== '3')
-                                    کلینیک زیبایی 
+                                    کلینیک زیبایی
                                 @elseif($addvertise->cat == '4')
                                     فروشگاه آرایشی 
                                 @endif
-                                {{$addvertise->name}} </h3>
+                                {{$addvertise->name}} 
+                            </h3>
                             <span id="add-span"></span>
+                            <p style="font-size: 12px;">
+                                @if ($addvertise->Special == 1)
+                                    <img src="{{ asset('/storage/uploads/star(2).png') }}">
+                                        آگهی ویژه
+                                @endif
+                            <p>
                         </div>
                         <p>
                             <i class="fa fa-map-marker-alt"> </i> آدرس 
@@ -98,8 +106,10 @@
                                     فروشگاه آرایشی 
                                 @endif
                                 {{$addvertise->name}}:
+                                
                             <br>
                             {{$addvertise->address}}
+                            
                         </p>
                         <a href="tel:09124337947" class="add-phone"><i class="fa fa-phone"></i> {{$addvertise->phone}} </a>
                 

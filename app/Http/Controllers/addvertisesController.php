@@ -81,7 +81,7 @@ class addvertisesController extends Controller
     
 
     public function showOstan($ostan,Request $request){
-        $addvertises =Addvertise::query()->where('ostan',"$ostan")->get();
+        $addvertises =Addvertise::query()->where('ostan',"$ostan")->orderBy('created_at', 'desc')->paginate(6);
 
         return view('addvertises', ['addvertises' => $addvertises, 'category' => $ostan]);
     }

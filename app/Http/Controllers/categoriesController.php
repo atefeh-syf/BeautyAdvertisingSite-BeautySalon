@@ -25,14 +25,14 @@ class categoriesController extends Controller
         }
 
         if ($Category_id == '') {
-            $addvertises = Addvertise::paginate(12)->sortByDesc("created_at");
+            $addvertises = Addvertise::orderBy('created_at', 'desc')->paginate(6);
             //return view('addvertises', ['addvertises' => $addvertises]);
         } else {
             $category = Category::findOrFail($Category_id);
             if ($category !== null) {
                 //dd(Addvertise::query()->where('cat',"$Category_id")->get());
                 //$addvertises = $category->addvertises->sortByDesc("created_at");
-                $addvertises = Addvertise::query()->where('cat', "$Category_id")->get();
+                $addvertises = Addvertise::query()->where('cat', "$Category_id")->paginate(6);
             }
         }
         return view('addvertises', ['addvertises' => $addvertises, 'category' => $Category]);

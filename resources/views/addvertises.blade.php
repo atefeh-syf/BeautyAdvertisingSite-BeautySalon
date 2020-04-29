@@ -47,7 +47,7 @@
                                             فروشگاه لوازم آرایشی بهداشتی
                                         @endif
                                         {{$addvertise->name}}
-                            </p>
+                                    </p>
                                 </div>
                                 <div class="feature-content d-flex align-items-center justify-content-between">
                                     <div class="feature-title">
@@ -56,12 +56,18 @@
                                     </div>
                                     <div class="feature-favourite">
                                         <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        @if ($addvertise->Special == 1)
+                                            <img src="{{ asset('/storage/uploads/star(2).png') }}" alt="">
+                                        @endif
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endif
+                
                 @endforeach
+               
             @else
                 
                     <h6 style="width: 100%;text-align: center;">
@@ -70,6 +76,7 @@
                 
             @endif
         </div>
+        {{ $addvertises->links() }}
     </div>
 </section>
 <!-- ***** Listing Destinations Area End ***** -->

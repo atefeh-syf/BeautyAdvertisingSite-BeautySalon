@@ -10,14 +10,13 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "hekmatinasser/verta": "^1.10",
         "laravel/framework": "^6.2",
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^2.0",
-        "morilog/jalali": "3.*",
-        "yajra/laravel-datatables-oracle": "^9.8"
+        "morilog/jalali": "3.*"
     },
     "require-dev": {
-        "beyondcode/laravel-er-diagram-generator": "^1.4",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "laravel/ui": "^1.1",

@@ -12,6 +12,7 @@ use App\Blog;
 use App\Option;
 use App\Contact;
 use DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use  Response;
 use Illuminate\Support\Facades\Redirect;
 use \Morilog\Jalali\Jalalian;
@@ -23,6 +24,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         $count = Addvertise::count();
@@ -66,6 +68,53 @@ class AdminController extends Controller
         return view('admin.addvertise-all', ['addvertises' => $addvertises]);
     }
 
+    public function confirm(Addvertise $addvertise)
+    {
+        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
+        $addvertiseInfo->confirm = '1';
+        $addvertiseInfo->save();
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت تایید شد ');
+    }
+
+    public function addvertiseEdit(Addvertise $addvertise)
+    {
+        return view('admin.addvertise-edit', compact('addvertise'));
+    }
+
+
+    public function addvertiseUpdate(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'title' => 'required',
+            'address' => 'required',
+            'cat' => 'required',
+            'ostan' => 'required',
+            'description' => '',
+            'email' => '',
+            'CustomerName' => '',
+            'image' => '',
+            'insta' => '',
+            'telegram' => '',
+        ]);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('uploads', 'public');
+            $validatedData = array_merge(
+                $validatedData,
+                ['image' => $imagePath]
+            );
+        }
+        Addvertise::whereId($id)->update($validatedData);
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت ویرایش شد ');;
+    }
+    public function addvertiseDestroy(Addvertise $addvertise)
+    {
+        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
+        $addvertiseInfo->delete($addvertiseInfo->id);
+        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت حذف شد ');
+    }
     public function addvertiseStore(Request $request)
     {
         $this->validate(request(), [
@@ -140,40 +189,6 @@ class AdminController extends Controller
     }
 
 
-    public function addvertiseEdit(Addvertise $addvertise)
-    {
-        return view('admin.addvertise-edit', compact('addvertise'));
-    }
-
-
-    public function addvertiseUpdate(Request $request,$id)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'title' => 'required',
-            'address' => 'required',
-            'cat' => 'required',
-            'ostan' => 'required',
-            'description' => '',
-            'email' => '',
-            'CustomerName' => '',
-            'image' => '',
-            'insta' => '',
-            'telegram' => '',
-        ]);
-
-        if (request('image')) {
-            $imagePath = request('image')->store('uploads', 'public');
-            $validatedData = array_merge(
-                $validatedData,
-                ['image' => $imagePath]
-            );
-        }
-        Addvertise::whereId($id)->update($validatedData);
-        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت ویرایش شد ');;
-    }
-
     public function commentDestroy(Comment $comment)
     {
         $commentInfo = Comment::findOrFail($comment->id);
@@ -195,12 +210,7 @@ class AdminController extends Controller
         $contactInfo->delete($contactInfo->id);
         return redirect('/admin')->withMessage(' اطلاعات مورد نظر  با موفقیت حذف شد ');
     }
-    public function addvertiseDestroy(Addvertise $addvertise)
-    {
-        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
-        $addvertiseInfo->delete($addvertiseInfo->id);
-        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت حذف شد ');
-    }
+    
 
 
     public function blogEdit(Article $blog)
@@ -234,13 +244,7 @@ class AdminController extends Controller
         return redirect('/blog-all')->withMessage(' نوشته مورد نظر با موفقیت حذف شد ');
     }
 
-    public function confirm(Addvertise $addvertise)
-    {
-        $addvertiseInfo = Addvertise::findOrFail($addvertise->id);
-        $addvertiseInfo->confirm = '1';
-        $addvertiseInfo->save();
-        return redirect('/add-all')->withMessage(' آگهی مورد نظر با موفقیت تایید شد ');
-    }
+   
 
     public function confirmComment(Comment $comment)
     {

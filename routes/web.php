@@ -74,6 +74,14 @@ Route::get('/single-blog', function () {
 
 
 
+Route::group(['prefix' => 'a'], function () {
+    Route::get('/create', 'addvertisesController@create');
+    Route::get('/create/special', 'addvertisesController@createSpecial');
+    Route::post('', 'addvertisesController@store');
+    Route::post('/special', 'addvertisesController@storeSpecial');
+});
+
+Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
 
 Route::group(['prefix' => 'add'], function () {
     Route::get('/{addvertise}/edit', 'AdminController@addvertiseEdit');
@@ -104,13 +112,7 @@ Route::group(['prefix' => 'setting'], function () {
 });
 
 
-Route::group(['prefix' => 'a'], function () {
-    Route::get('/create', 'addvertisesController@create');
-    Route::get('/create/special', 'addvertisesController@createSpecial');
-    Route::post('', 'addvertisesController@store');
-    Route::post('/special', 'addvertisesController@storeSpecial');
-    
-});
+
 Route::get('/a/{addvertise}', 'addvertisesController@show');
 
 Route::get('/header', 'optionsController@index');
@@ -140,7 +142,7 @@ Route::post('/blog-add', 'AdminController@blogStore');
 
 
 
-Route::patch('/confirm/{addvertise}', 'AdminController@confirm');
+
 Route::patch('/confirmcmt/{comment}', 'AdminController@confirmComment');
 
 
